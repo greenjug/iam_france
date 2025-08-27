@@ -186,7 +186,7 @@ border: 2px solid #000;
       position: relative;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       font-family: 'NeulandGroteskLight', sans-serif;
-      max-height: 80vh;
+      max-height: 90vh;
       overflow-y: auto; /* Enables vertical scrolling */
       position: relative;
       margin-top: 10px; /* Adds space at top for mobile */      
@@ -300,6 +300,53 @@ border: 2px solid #000;
     }
     .nav-icon img {    
         width: 10px;
+    }
+    .modal-box-table-row-gain {
+        width: 50%;
+        text-align: right;
+    }
+    .w-20 {
+        width: 25% !important;
+    }
+    .modal-box-table-row-description.w-20 {
+        text-align: left;
+    }
+    .grey {
+        color:gray;
+    }
+    .modal-box-img img {
+        max-width: 50%;
+        margin-bottom: 30px;
+    }
+    .modal-box-sub {
+        text-align: center;
+    }
+    .modal-box-pill {
+        font-size: 12px;
+        background-color: #ff0000;
+        border-radius: 25px;
+        width: 25px;
+        height: 25px;
+        line-height: 24px;
+        margin:25px auto 0px auto;
+        text-align: center;
+    }       
+    .modal-box-pill-header {
+        font-size: 12px;
+        max-width:100%;
+        margin: 10px auto;
+    }    
+    .modal-box-pill-copy {
+        font-size: 10px;
+    }
+    .modal-box-pill-container {
+        text-align: center;
+    }
+    .modal-box-prize-container {
+        min-height: 150px;
+    }
+    .modal-box-prize-container img {
+        max-width: 30%;
     }
 /* END MODALS */
 @media (max-width: 767.99px) {
@@ -585,13 +632,122 @@ font-size: 2rem !important;
 </div>
 <!-- End Modal One -->
 
+<!-- Modal Two -->
 <div id="modalTwo" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModalTwo()">&times;</span>
-    <h2>Modal Two</h2>
-    <p>Coming soon.</p>
+    <div class="modal-header">
+        <img src="images/iam_modal_two_header.webp">
+    </div>
+    <div class="modal-boxes">
+        <div class="modal-box modal-box-2"> 
+                <div class="modal-box-header">
+                        À LA FIN DU CHALLENGE
+                </div>           
+                <div class="modal-box-subheader">
+                        par groupe de points de vente
+                </div>      
+                <div class="modal-box-img">
+                        <img src="images/iam_modal_2_img.webp">
+                </div>
+                <div class="modal-box-header">TABLEAU DES GAINS</div>
+                <div class="modal-box-table" style="margin-top:30px;">
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20 grey">CLASSMENT</div>
+                                <div class="modal-box-table-row-gain grey">GAIN</div>
+                                <div class="modal-box-table-row-points w-20 grey">VALEUR</div>
+                        </div>                        
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">1</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN OU COFFRET VOYAGE*</div>
+                                <div class="modal-box-table-row-points w-20">1450 PTS</div>
+                        </div>
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">2 À 5</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN OU COFFRET VOYAGE*</div>
+                                <div class="modal-box-table-row-points w-20">950 PTS</div>
+                        </div>      
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">6 À 20</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">450 PTS</div>
+                        </div>                                             
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">21 À 50</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">300 PTS</div>
+                        </div>                                             
+                     
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">51 À 100</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">200 PTS</div>
+                        </div>                                             
+                     
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">101 À 200</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points  w-20">100 PTS</div>
+                        </div>                                                                                          
+                        <div class="modal-box-table-row-divider"></div>
+                </div>                  
+                <div class="modal-box-table-footer">
+                        <ul>
+                                <li>*La valeur du coffret voyage correspondra à la valeur des points.</li>
+                        </ul>
+                </div>                                                  
+        </div>        
+        <div class="modal-box modal-box-1">
+                <div class="modal-box-header">
+                        CHAQUE MOIS DU CHALLENGE                
+                </div>
+                <!-- <div class="modal-box-subheader">
+                </div>    -->
+                <div class="table-wrapper" id="october2">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec2()"> <img src="images/iam_chevron_left.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_right.webp"> </span>  </div>
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_1.webp">
+                        </div>
+                </div>  
+                <div class="table-wrapper" id="november2"  style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_left.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec2()"><img src="images/iam_chevron_right.webp"></span></div> 
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_2.webp">
+                        </div>                        
+                </div>
+                <div class="table-wrapper" id="december2" style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_left.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_right.webp"> </span> </div>
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_3.webp">
+                        </div>                        
+                </div>                                
+                <div class="modal-box-sub">
+                <div class="modal-box-header">
+                        DES MOYENS POUR GAGNER:                
+                </div>                        
+                <div class="modal-box-pill-container">
+                        <div class="modal-box-pill">01</div>
+                        <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED XL</div>
+                        <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe - affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted Red XL et Gold XL par rapport au mois précédent - remportera le lot mensuel</div>
+                </div>
+                <div class="modal-box-pill-container">
+                        <div class="modal-box-pill">02</div>
+                        <div class="modal-box-pill-header">ACTIONS DIGITALES</div>
+                        <div class="modal-box-pill-copy">En participant aux activités digitales (le jeu du mois et le quiz de la semaine), chaque participant accède à la roue Marlboro, offrant une chance de remporter le lot.</div>
+                </div>
+                </div>                           
+        </div>
+
+    </div>
   </div>
 </div>
+<!-- End Modal Two -->
 <script>
         // Nav 
  function navNov() {
@@ -614,6 +770,30 @@ font-size: 2rem !important;
         const oct = document.getElementById("october");    
         const nov = document.getElementById("november");        
         const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+   function navNov2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
         nov.style.display = "none";
         oct.style.display = "block";
         dec.style.display = "none";
