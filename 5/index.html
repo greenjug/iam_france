@@ -12,11 +12,14 @@ src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
 font-weight: normal;
 font-style: normal;
         }
+html {
+        scroll-behavior: smooth;
+}          
 body {
 margin: 0;
 padding: 0;
 font-family: 'Hackney', sans-serif;
-background: url('images/iam_background.webp') no-repeat top center ;
+background: url('images/iam_background.webp') no-repeat center 40px ;
 background-size: cover;
 color: #fff;
 display: flex;
@@ -140,6 +143,24 @@ text-decoration: none;
 margin-top: 10px;
 border: 2px solid #000;
         }
+.nav {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+}
+.nav-item {
+        color: white;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-decoration: none;
+        cursor: pointer;
+}        
 @media (max-width: 767.99px) {
 .boxes {
 grid-template-columns: 1fr;
@@ -239,6 +260,11 @@ font-size: 2rem !important;
 </style>
 </head>
 <body>
+<div class="nav">
+        <a href="#challenge" class="nav-item">CHALLENGE</a>
+        <a href="#gains" class="nav-item">GAINS</a>
+        <a href="#produits" class="nav-item">PRODUITS</a>
+</div>
 <div class="logo">
 <img src="images/iam_logo.webp" alt="I AM Logo">
 </div>
