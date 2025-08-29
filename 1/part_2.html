@@ -321,15 +321,10 @@ border: 2px solid #000;
     .modal-box-sub {
         text-align: center;
     }
-    .modal-box-pill {
-        font-size: 12px;
-        background-color: #ff0000;
-        border-radius: 25px;
-        width: 25px;
-        height: 25px;
-        line-height: 24px;
+    .modal-box-pill img {
         margin:25px auto 0px auto;
         text-align: center;
+        width: 25px;
     }       
     .modal-box-pill-header {
         font-size: 12px;
@@ -351,6 +346,11 @@ border: 2px solid #000;
     .red {
         color: red !important;
     }
+    .disclaimer {
+        font-family: 'NeulandGroteskLight', sans-serif;
+        font-size:10px;
+        text-align: left;        
+    }    
 /* END MODALS */
 @media (max-width: 767.99px) {
 .modal-boxes {
@@ -608,7 +608,7 @@ font-size: 2rem !important;
                         </div>
                         <div class="modal-box-table-row-divider"></div>
                         <div class="modal-box-table-row">
-                                <div class="modal-box-table-row-description">JEU*</div>
+                                <div class="modal-box-table-row-description">JEU**</div>
                                 <div class="modal-box-table-row-points">+500 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
                         </div>                        
                         <div class="modal-box-table-row-divider"></div>
@@ -618,13 +618,14 @@ font-size: 2rem !important;
                                 <li>*1 quiz par semaine.</li>
                                 <li>** 1 jeu par mois.</li>
                         </ul>
+                        <p class="disclaimer">Les contenus sont accessibles en consultation illimitée. Toutefois, les rooftops ne sont attribués qu’une seule fois, lors de la première complétion de chaque jeu ou quiz.</p>
                 </div>                                                  
         </div>
     </div>
     <div class="modal-footer">
         <div class="footer-header">CONTRE QUI JOUEZ-VOUS ?</div>
         <div class="footer-body">
-                Afin de garantir une équité maximale entre tous les buralistes participant au challenge, vous êtes répartis dans un groupe selon deux critères:
+                Afin de garantir une équité maximale entre tous les buralistes participant au challenge, vous êtes répartis dans un groupe selon deux critères :
                 <ul>
                         <li>- Votre région, parmi trois zones géographiques définies.</li>
                         <li>- Votre chiffre d'affaires en cigarettes, représentant votre poids business, réparti en trois groupes.</li>
@@ -715,32 +716,36 @@ font-size: 2rem !important;
                 <div class="table-wrapper" id="october2">
                         <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec2()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
                         <div class="modal-box-prize-container">
-                                <img src="images/iam_prize_1.webp">
+                                <img src="images/iam_prize_1_v2.webp">
                         </div>
                 </div>  
                 <div class="table-wrapper" id="november2"  style="display:none;">
                         <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec2()"><img src="images/iam_chevron_right_v2.webp"></span></div> 
                         <div class="modal-box-prize-container">
-                                <img src="images/iam_prize_3.webp">
+                                <img src="images/iam_prize_3_v2.webp">
                         </div>                        
                 </div>
                 <div class="table-wrapper" id="december2" style="display:none;">
                         <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
                         <div class="modal-box-prize-container">
-                                <img src="images/iam_prize_2.webp">
+                                <img src="images/iam_prize_2_v2.webp">
                         </div>                        
                 </div>                                
                 <div class="modal-box-sub">
                 <div class="modal-box-header">
-                        DES MOYENS POUR GAGNER:                
+                        DEUX MOYENS DE GAGNER:                
                 </div>                        
                 <div class="modal-box-pill-container">
-                        <div class="modal-box-pill">01</div>
-                        <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED XL</div>
+                        <div class="modal-box-pill">
+                                <img src="images/iam_number_1.webp">
+                        </div>                        
+                        <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED</div>
                         <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe – affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted <span class="red">(Red 20, Red 25, Red 100s, Gold 20, Gold 25)</span> par rapport au mois précédent – remportera le lot mensuel.</div>
                 </div>
                 <div class="modal-box-pill-container">
-                        <div class="modal-box-pill">02</div>
+                        <div class="modal-box-pill">
+                                <img src="images/iam_number_2.webp">
+                        </div>
                         <div class="modal-box-pill-header">ACTIONS DIGITALES</div>
                         <div class="modal-box-pill-copy">En participant aux activités digitales (le jeu du mois et le quiz de la semaine), chaque participant accède à la roue Marlboro, offrant une chance de remporter le lot.</div>
                 </div>
