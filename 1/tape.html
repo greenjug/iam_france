@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilted Container Ticker Tape</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background-color: #000;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        .ticker-container {
+            position: relative;
+            height: 520px; /* Double the card height to accommodate both rows */
+            width: 120%; /* Full width of parent (body with padding) */
+            overflow: hidden; /* Hide overflow from tilted content */
+            transform: rotate(-12deg); /* Adjusted to -12 degrees */
+            transform-origin: center top; /* Rotate from center top to keep content visible */
+            margin-left: -50px; /* Offset for body's left padding */
+            margin-right: -50px; /* Offset for body's right padding */
+            top: 100px; /* Shift down to keep content on screen */
+            left:-10%;
+        }
+
+        .ticker-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Match container width */
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ticker-row {
+            display: flex;
+            align-items: center;
+            width: 240%; /* 8 cards * 30% to ensure seamless loop */
+            animation: scroll 200s linear infinite; /* Scroll horizontally within container */
+            white-space: nowrap;
+            position: absolute; /* Position rows absolutely within wrapper */
+        }
+
+        .top-row {
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-row {
+            top: 260px; /* Offset to start below the top row */
+            left: -268px; /* Offset by -50% of original card width (536px / 2) to start 50% ahead */
+        }
+
+        .ticker-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15%; /* 30% of container width */
+            height: calc(30% / 2.06); /* Maintain aspect ratio of 536:260 (approx 2.06:1) */
+            margin-right: 20px; /* Space between cards, adjust as needed */
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #000;
+            text-align: center;
+            flex-shrink: 0; /* Prevent shrinking */
+            aspect-ratio: 2.06;
+            /* Add background image, e.g., uncomment and replace with your image */
+            background-size: cover;
+            background-position: center;
+        }
+        .ticker-card-1 {
+            background-image: url('images/main/card_1.webp');
+        }
+        .ticker-card-2 {
+            background-image: url('images/main/card_2.webp');
+        }    
+        .ticker-card-3 {
+            background-image: url('images/main/card_3.webp');
+        }  
+        .ticker-card-4 {
+            background-image: url('images/main/card_4.webp');
+        }      
+        .ticker-card-5 {
+            background-image: url('images/main/card_5.webp');
+        }
+        .ticker-card-6 {
+            background-image: url('images/main/card_6.webp');
+        }    
+        .ticker-card-7 {
+            background-image: url('images/main/card_7.webp');
+        }  
+        .ticker-card-8 {
+            background-image: url('images/main/card_8.webp');
+        }                         
+        /* Animation for horizontal scrolling with seamless loop */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-66.67%); /* Move ~2/3 of width to show 3 full cards + part of 4th */
+            }
+        }
+
+        /* Optional: Pause on hover */
+        .ticker-container:hover .ticker-row {
+            /* animation-play-state: paused; */
+        }
+
+        /* Accessibility: Reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-row {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ticker-container">
+        <div class="ticker-wrapper">
+            <div class="ticker-row top-row">
+                <!-- Row 1 cards (4 original + 4 duplicated for seamless loop) -->
+                <div class="ticker-card ticker-card-1"></div>
+                <div class="ticker-card ticker-card-2"></div>
+                <div class="ticker-card ticker-card-3"></div>
+                <div class="ticker-card ticker-card-4"></div>
+                <div class="ticker-card ticker-card-1"></div>
+                <div class="ticker-card ticker-card-2"></div>
+                <div class="ticker-card ticker-card-3"></div>
+                <div class="ticker-card ticker-card-4"></div>
+            </div>
+            <div class="ticker-row bottom-row">
+                <!-- Row 2 cards (4 original + 4 duplicated for seamless loop) -->
+                <div class="ticker-card ticker-card-5"></div>
+                <div class="ticker-card ticker-card-6"></div>
+                <div class="ticker-card ticker-card-7"></div>
+                <div class="ticker-card ticker-card-8"></div>
+                <div class="ticker-card ticker-card-5"></div>
+                <div class="ticker-card ticker-card-6"></div>
+                <div class="ticker-card ticker-card-7"></div>
+                <div class="ticker-card ticker-card-8"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,18 +7,11 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <style>
 @font-face {
-        font-family: 'Hackney';
-        src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+font-family: 'Hackney';
+src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
         }
-@font-face {
-  font-family: 'NeulandGroteskLight';
-  src: url('fonts/NeulandGrotesk-Light.otf') format('opentype');
-  font-weight: 300;  /* Light weight */
-  font-style: normal;
-  font-display: swap;  /* Improves loading performance */
-}        
 html {
         scroll-behavior: smooth;
 }        
@@ -86,10 +79,10 @@ width: 50%;
 height: 12%;
 }
 .cta-overlay-3 {
-top: 67%;
+top: 71%;
 left: 1.25%;
 width: 42%;
-height: 11%;
+height: 13%;
         }
 .boxes {
 display: grid;
@@ -309,7 +302,7 @@ border: 2px solid #000;
         width: 10px;
     }
     .modal-box-table-row-gain {
-        width: 50%;
+        width: 55%;
         text-align: right;
     }
     .w-20 {
@@ -357,21 +350,20 @@ border: 2px solid #000;
         font-family: 'NeulandGroteskLight', sans-serif;
         font-size:10px;
         text-align: left;        
-    }
+    }    
     .modal-box-header {
         font-family: 'NeulandGroteskLight', sans-serif;
         font-weight: 300;
         font-size: 15px;
-    }
+    }    
 /* END MODALS */
-
 @media (max-width: 767.99px) {
 .modal-boxes {
         flex-direction: column;
 }     
 .modal-box {
         width: 100%;
-}   
+}          
 .boxes {
 grid-template-columns: 1fr;
 max-width: 100%;
@@ -509,11 +501,11 @@ font-size: 2rem !important;
         <div class="cta-overlay cta-overlay-2" onclick="openModalTwo()"></div>
     </div>
     <div class="box">
-        <img src="images/iam_box2_v2.webp" alt="HomePod"></div>
+        <img src="images/iam_box2_v3.webp" alt="HomePod"></div>
     <div class="box" id="produits">
-        <img src="images/iam_box3_pack_1.webp" alt="PS5"></div>
+        <img src="images/iam_box3_pack_2.webp" alt="PS5"></div>
     <div class="box">
-     <img src="images/iam_box4_v4.webp" alt="Voyages">
+     <img src="images/iam_box4_v5.webp" alt="Voyages">
         <a href="https://fr.pmiopen.com/s/bca" target="_blank" class="cta-overlay cta-overlay-3"></a>
     </div>
 </div>
@@ -751,7 +743,7 @@ font-size: 2rem !important;
                 <div class="modal-box-pill-container">
                         <div class="modal-box-pill">
                                 <img src="images/iam_number_1.webp">
-                        </div>
+                        </div>                        
                         <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED</div>
                         <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe – affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted <span class="red">(Red 20, Red 25, Red 100s, Gold 20, Gold 25)</span> par rapport au mois précédent – remportera le lot mensuel.</div>
                 </div>
@@ -770,7 +762,7 @@ font-size: 2rem !important;
 </div>
 <!-- End Modal Two -->
 <script>
-// Nav 
+        // Nav 
  function navNov() {
         const oct = document.getElementById("october");    
         const nov = document.getElementById("november");        
@@ -795,7 +787,7 @@ font-size: 2rem !important;
         oct.style.display = "block";
         dec.style.display = "none";
  } 
-  function navNov2() {
+   function navNov2() {
         const oct = document.getElementById("october2");    
         const nov = document.getElementById("november2");        
         const dec = document.getElementById("december2");    
