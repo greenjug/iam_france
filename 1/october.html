@@ -5,536 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marlboro IAM France | Teaser</title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<style>
-    @font-face {
-        font-family: 'Hackney';
-        src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-        }
-    @font-face {
-    font-family: 'NeulandGroteskLight';
-    src: url('fonts/NeulandGrotesk-Light.otf') format('opentype');
-    font-weight: 300;  
-    font-style: normal;
-    font-display: swap;
-    }        
-    html {
-            scroll-behavior: smooth;
-    }        
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Hackney', sans-serif;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-        max-width: 100%;
-        text-align: center;
-        background-color: #000;
-    }
-    .logo {
-        margin-top: 20px;
-    }
-    .logo img {
-        max-width: 150px;
-        height: auto;
-    }
-
-.cta-container {
-position: relative;
-margin: 20px 0;
-max-width: 820px;
-        }
-.cta-image {
-max-width: 100%;
-height: auto;
-        }
-.cta-overlay {
-/* background-color: green; */
-position: absolute;
-cursor: pointer;
-border-radius:30px;
-cursor: pointer;
-        }
-.cta-overlay-1 {
-top: 84%;
-left: 26%;
-width: 44%;
-height: 11%;
-        }
-.cta-overlay-2 {
-top: 70%;
-left: 2%;
-width: 50%;
-height: 12%;
-}
-.cta-overlay-3 {
-top: 67%;
-left: 1.25%;
-width: 42%;
-height: 11%;
-        }
-.boxes {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 20px;
-max-width: 1200px;
-width: 100%;
-        }
-.box {
-overflow: hidden;
-padding: 10px;
-display: flex;
-align-items: center;
-position: relative;
-        }
-.box img {
-width: 100%;
-height: auto;
-display: block;
-        }
-.cta-button {
-display: inline-block;
-padding: 10px 20px;
-background-color: #ff0000;
-color: #fff;
-text-decoration: none;
-margin: 10px 0;
-border: 2px solid #000;
-        }
-.product-section {
-margin-top: 20px;
-text-align: center;
-        }
-.product-section h2 {
-font-size: 2rem;
-        }
-.colon {
-color: #ff0000 !important;
-        }
-.labels {
-font-size: 1.5rem !important;
-width:100px;
-        }
-.countdown-item {
-display: flex;
-        }
-.countdown-item > div {
-width:90px !important;
-font-size: 7rem;
-        }
-.product-section .cta {
-display: inline-block;
-padding: 10px 20px;
-background-color: #ff0000;
-color: #fff;
-text-decoration: none;
-margin-top: 10px;
-border: 2px solid #000;
-        }
-.nav {
-        background-color: black;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        text-decoration: none;
-}
-.nav-item {
-        color: white;
-        margin-left: 5%;
-        margin-right: 5%;
-        text-decoration: none;
-        cursor: pointer;
-}
-/* MODALS */
-    /* Modal container (hidden by default) */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-      justify-content: center;
-      align-items: flex-start;
-      z-index: 1000;
-    }
-
-    /* Modal content */
-    .modal-content {
-      background-color: black;
-      padding: 30px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 768px;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      font-family: 'NeulandGroteskLight', sans-serif;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      margin-top: 10px;      
-    }
-
-    /* Close button */
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 34px;
-      cursor: pointer;
-      color: white;
-    }
-    .modal-content li {
-        list-style: none;
-    }
-    .modal-img img {
-        margin-top:5px;
-        width:50px;
-        margin-bottom: 20px;
-    }
-    .modal-header img {
-        max-width: 80%;
-        margin-bottom:10px;
-    }
-    .modal-box-subheader {
-        font-size:10px;
-        margin-top: 10px;
-        margin-bottom: 15px;
-        min-height: 45px;
-    }
-    .modal-header {
-        margin-bottom:25px;
-    }
-    .modal-box-table-header {
-        font-size:12px;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-    .modal-boxes {
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-    }
-    .modal-box {
-        width:50%;
-    }
-    .modal-footer {
-        margin-top: 30px;
-        background-color: #1a1a1a;
-        padding: 10px;
-    }
-    .footer-header {
-        font-family: 'NeulandGroteskLight', sans-serif;
-        text-align: left;
-        color: red;
-        padding-bottom: 10px;
-        font-size:12px;
-    }
-    .footer-body ul {
-        font-family: 'NeulandGroteskLight', sans-serif;
-        margin-top:5px;
-        padding-left: 15px;
-        font-size:10px;
-    }
-    .footer-body {
-        font-family: 'NeulandGroteskLight', sans-serif;
-        font-size:10px;
-        text-align: left;
-    }
-    .modal-box-table-row-rooftop {
-        width:20px;
-        position:relative;
-        top: 2px;
-        margin-left: 5px;
-    }
-    .modal-box-table {
-        display:flex;
-        flex-direction: column;
-    }
-    .modal-box-table-row-divider {
-        width:100%;
-        border-top: 1px solid #1a1a1a;
-        margin-bottom: 10px;
-        margin-top: 10px;
-
-    }
-    .modal-box-table-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size:10px;
-    }
-    .modal-box-table-footer {
-        text-align: left;
-    }
-    .modal-box-table-footer ul {
-        list-style: none;
-        padding-left:0px;
-        margin-top:0;
-        font-size:10px;
-    }
-    .nav-icon {
-        display: inline-block;
-        font-size:26px;
-        position:relative;
-        top: 5px;
-        width:50px;
-        cursor: pointer;
-    }
-    .nav-icon img {    
-        width: 10px;
-    }
-    .modal-box-table-row-gain {
-        width: 50%;
-        text-align: right;
-    }
-    .w-20 {
-        width: 25% !important;
-    }
-    .modal-box-table-row-description.w-20 {
-        text-align: left;
-    }
-    .grey {
-        color:gray;
-    }
-    .modal-box-img img {
-        max-width: 50%;
-        margin-bottom: 30px;
-    }
-    .modal-box-sub {
-        text-align: center;
-    }
-    .modal-box-pill img {
-        margin:25px auto 0px auto;
-        text-align: center;
-        width: 25px;
-    }       
-    .modal-box-pill-header {
-        font-size: 12px;
-        max-width:100%;
-        margin: 10px auto;
-    }    
-    .modal-box-pill-copy {
-        font-size: 10px;
-    }
-    .modal-box-pill-container {
-        text-align: center;
-    }
-    .modal-box-prize-container {
-        min-height: 150px;
-    }
-    .modal-box-prize-container img {
-        max-width: 30%;
-    }
-    .red {
-        color: red !important;
-    }
-    .disclaimer {
-        font-family: 'NeulandGroteskLight', sans-serif;
-        font-size:10px;
-        text-align: left;        
-    }
-    .modal-box-header {
-        font-family: 'NeulandGroteskLight', sans-serif;
-        font-weight: 300;
-        font-size: 15px;
-    }
-/* END MODALS */
-
-@media (max-width: 767.99px) {
-.modal-boxes {
-        flex-direction: column;
-}     
-.modal-box {
-        width: 100%;
-}   
-.boxes {
-grid-template-columns: 1fr;
-max-width: 100%;
-width: 100%;
-            }
-.slogan {
-font-size: 2rem;
-            }
-.colon {
-color: #ff0000 !important;
-            }
-.box {
-padding: 30px;
-            }
-.boxes {
-gap: 50px;
-            }
-.boxes {
-grid-template-columns: 1fr;
-            }
-.boxes {
-display: flex;
-flex-direction: column;
-            }
-.boxes .box:nth-child(3) {
-order: 4;
-            }
-.boxes .box:nth-child(4) {
-order: 3;
-            }
-.countdown-item {
-display: flex;
-            }
-.countdown-item > div {
-width:70px !important;
-font-size: 6rem;
-            }
-.labels {
-width:50px;
-font-size: 2rem !important;
-            }
-.cta-container {
-max-width: 100%;
-width:100%;
-            }
-.cta-overlay-2 {
-top: 72%;
-left: 5%;
-width: 50%;
-height: 18%;
-}
-.cta-overlay-3 {
-top: 75%;
-left: 3%;
-width: 42%;
-height: 18%;
-            }
-        }
-@media (max-width: 390px) {
-.countdown-item > div {
-width:45px !important;
-font-size: 3.8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:45px;
-            }
-.countdown {
-margin: 50px;
-            }
-        }
-@media (max-width: 500px) {
-.countdown-item > div {
-width:45px !important;
-font-size: 3.8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:45px;
-            }
-.countdown {
-margin: 50px;
-            }
-        }
-@media (min-width: 1000px) {
-.countdown-item > div {
-width:140px !important;
-font-size: 8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:35px;
-font-size: 2rem !important;
-            }
-        }
-</style>
-<style>
-    /* Tickertape styling */
-    .ticker-container {
-        width: 100%;
-        height: 150px; /* Adjust based on your image height + padding */
-        overflow: hidden;
-        position: relative;
-        background-color: #fff; /* Optional: background for the ticker area */
-        border: 1px solid #ccc; /* Optional: border for visibility */
-    }
-
-    .ticker-strip {
-        display: flex;
-        align-items: center; /* Vertically center images */
-        height: 100%;
-        animation: scroll-diagonal 30s linear infinite; /* Adjust duration for speed */
-        /* transform: rotate(14deg); 25% angle ≈ 14° tilt */
-    }
-
-    .ticker-strip img {
-        width: 100px; /* Adjust image width as needed */
-        height: auto;
-        margin-right: 20px; /* Space between images; adjust for gaps */
-        flex-shrink: 0; /* Prevent images from shrinking */
-    }
-
-    /* Keyframe animation for diagonal scroll */
-    @keyframes scroll-diagonal {
-        0% {
-            transform: translateX(100vw) rotate(0deg); /* Start off-screen to the right */
-        }
-        100% {
-            transform: translateX(-100vw) rotate(0deg); /* End off-screen to the left */
-        }
-    }
-
-    /* Pause on hover (optional enhancement) */
-    .ticker-container:hover .ticker-strip {
-        animation-play-state: paused;
-    }
-
-    /* Reduce motion for accessibility */
-    @media (prefers-reduced-motion: reduce) {
-        .ticker-strip {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-        }
-    }    
-</style>
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <!-- Header section -->
     <section class="landing">
         <!-- End Nav -->
-        <div class="landing-nav" style="display: none;">
-            <a href="#challenge" class="nav-item">CHALLENGE</a>
+        <div class="landing-nav">
+            <!-- <a href="#challenge" class="nav-item">CHALLENGE</a> -->
             <a href="#gains" class="nav-item">GAINS</a>
-            <a href="#produits" class="nav-item">PRODUITS</a>
             <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
             <a href="#tableau_de_bord" class="nav-item">TABLEAU DE BORD</a>
+            <a href="#produits" class="nav-item">PRODUITS</a>
         </div>
         <!-- End Nav -->
         <!-- Hero -->
-        <div class="landing-logo"  style="display: none;">
+        <div class="landing-logo">
             <img src="images/iam_logo.webp" alt="I AM Logo">
         </div>    
         <div class="landing-title" id="challenge">
+            <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
+            <div class="landing-title-img-cta"></div>
         </div>
         <div class="landing-images">
-            <div class="ticker-container">
-                <div class="ticker-strip">
-                    <!-- First sequence -->
-                    <img src="images/iam_logo.webp" alt="Image 1">
-                    <img src="images/iam_logo.webp" alt="Image 2">
-                    <img src="images/iam_logo.webp" alt="Image 3">
-                    <img src="images/iam_logo.webp" alt="Image 4">
-                    <!-- Duplicated sequence for seamless loop -->
-                    <img src="images/iam_logo.webp" alt="Image 1">
-                    <img src="images/iam_logo.webp" alt="Image 2">
-                    <img src="images/iam_logo.webp" alt="Image 3">
-                    <img src="images/iam_logo.webp" alt="Image 4">
-                </div>
+            <img class="landing-images-img" src="images/iam_cards.webp">
             </div>            
         </div>    
         <!-- End Hero -->
@@ -542,40 +36,45 @@ font-size: 2rem !important;
     <!-- End Header section -->    
 
     <!-- Prize section -->
-    <section class="excite" id="gains">
+    <section class="gains" id="gains">
+        <div class="gains-one">
+            <img class="gains-one-img" src="images/iam_gains_1.webp">
+        </div>
+        <div class="gains-two">
+            <img class="gains-two-img" src="images/iam_gains_2.webp">
+        </div>
     </section>
     <!-- End Prize section -->
-
-    <section class="conversion" id="produits">
-        
+    <!-- Engage section -->
+    <section class="engage">
     </section>
-    <!-- Header section -->
-<section class="engage">
-    
-</section>
+    <!-- End Engage section -->
+    <!-- Activities Section -->
+    <section class="activities" id="actions_digitales">
+        <img class="activities_header" src="images/iam_activities_header.webp">
+        <img class="activities_october" src="images/iam_activities_october.webp">
+        <img class="activities_october_arrow" src="images/iam_arrow.webp">
+        <div class="activities_october_container">
+            <img class="activities_october_graph" src="images/iam_progress_graph.webp">
+        </div>
 
-<section class="how-to-win">
-    
-</section>
-<section class="leaderboard" id="tableau_de_bord">
-
-<!-- <div class="cta-container" id="challenge">
-    <img src="images/iam_headline_2.webp" alt="Ascension CTA" class="cta-image">
-    <div class="cta-overlay cta-overlay-1" onclick="openModalOne()"></div>
-</div>
-<div class="boxes" id="gains">
-    <div class="box">
-        <img src="images/iam_box1_v4.webp" alt="iPhone">
-        <div class="cta-overlay cta-overlay-2" onclick="openModalTwo()"></div>
-    </div>
-    <div class="box">
-        <img src="images/iam_box2_v2.webp" alt="HomePod"></div>
-    <div class="box" id="produits">
-        <img src="images/iam_box3_pack_1.webp" alt="PS5"></div>
-    <div class="box">
-     <img src="images/iam_box4_v4.webp" alt="Voyages">
-        <a href="https://fr.pmiopen.com/s/bca" target="_blank" class="cta-overlay cta-overlay-3"></a>
-    </div>
-</div> -->
+        <img class="activities_november" src="images/iam_activities_november_closed.webp">
+        <img class="activities_december" src="images/iam_activities_december_closed.webp">
+    </section>
+    <!-- Activities Section -->
+    <!-- Leaderboard section -->
+    <section class="leaderboard" id="tableau_de_bord">
+    </section>
+    <!-- End Leaderboard section -->    
+    <!-- Product Section -->
+    <section class="products" id="produits">    
+        <div class="products-one">
+            <img class="products-one-img" src="images/iam_pack_1.webp">
+        </div>
+        <div class="products-two">
+            <img class="products-two-img" src="images/iam_pack_2.webp">
+        </div>            
+    </section>
+    <!-- End Product Section -->    
 </body>
 </html>
