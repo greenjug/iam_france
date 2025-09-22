@@ -6,6 +6,59 @@
 <title>Marlboro IAM France | Teaser</title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <link rel="stylesheet" href="css/main.css">
+<style>
+    .activities_header {
+        max-width: 100%;
+        width: 50%;                
+    }
+    .activities_october_graph {
+        width:100%;
+    }
+    .activities_october_arrow {
+        display: none;
+    }
+    .leaderboard-headers {
+        max-width: 100%;
+        margin:0 auto;
+    }
+    .leaderboard-header-one {
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .leaderboard-header-one-img {
+        width:50%;
+    }
+    .leaderboard-header-two-img {
+        width:40%;
+        margin-bottom: 50px;
+    }
+    .leaderboard-tables {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .leaderboard-table-a-img, .leaderboard-table-b-img, .leaderboard-table-c-img {
+        width: 100%;
+    }
+    .leaderboard-table-a-header, .leaderboard-table-b-header, .leaderboard-table-c-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color:black;
+    }
+    .leaderboard-table-a-header {
+        background-color:#C8202E
+    }
+    .leaderboard-table-chevron {
+        height:16px;
+        /* transform: rotate(90deg); */
+    }
+    /* Products */
+    .products {
+        max-width: 1300px;
+    }
+</style>
 </head>
 <body>
     <!-- Header section -->
@@ -25,7 +78,7 @@
         </div>    
         <div class="landing-title" id="challenge">
             <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
-            <div class="landing-title-img-cta"></div>
+            <a class="landing-title-img-cta" href="#actions_digitales"></a>
         </div>
         <div class="landing-images">
             <img class="landing-images-img" src="images/iam_cards.webp">
@@ -64,6 +117,37 @@
     <!-- Activities Section -->
     <!-- Leaderboard section -->
     <section class="leaderboard" id="tableau_de_bord">
+        <div class="leaderboard-headers">
+            <div class="leaderboard-header-one">
+                <img class="leaderboard-header-one-img" src="images/iam_lb_header_1.webp">
+            </div>
+            <div class="leaderboard-header-two">
+                <img class="leaderboard-header-two-img" src="images/iam_lb_header_2.webp">
+            </div>   
+        </div>            
+        <div class="leaderboard-tables">
+            <div class="leaderboard-table-a-header">
+                <div class="">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
+            </div>
+            <div class="leaderboard-table-a">
+                <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
+            </div>   
+            <div class="leaderboard-table-b-header">
+                <div class="">EN RÉSUMÉ</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
+            </div>                          
+            <div class="leaderboard-table-b">
+                <img class="leaderboard-table-b-img" src="images/iam_lb_table_b.webp">
+            </div> 
+            <div class="leaderboard-table-b-header">
+                <div class="">MON TABLEAU DE BORD MENSUEL</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
+            </div>                    
+            <div class="leaderboard-table-c">
+                <img class="leaderboard-table-b-img" src="images/iam_lb_table_c.webp">
+            </div>       
+        </div>               
     </section>
     <!-- End Leaderboard section -->    
     <!-- Product Section -->
