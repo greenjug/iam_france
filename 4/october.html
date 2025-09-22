@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marlboro IAM France | Teaser</title>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="css/main.css">
+<style>
+    @font-face {
+        font-family: 'Hackney';
+        src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }    
+    @font-face {
+        font-family: 'NeulandGroteskLight';
+        src: url('fonts/NeulandGrotesk-Light.otf') format('opentype');
+        font-weight: 300;  /* Light weight */
+        font-style: normal;
+        font-display: swap; 
+    }     
+    a.nav-item {
+      font-family: 'NeulandGroteskLight', sans-serif !important;
+    }
+    .activities {
+        position: relative;
+    }
+    .activities_october_container {
+        position: relative;
+    }
+    .activities_header {
+        max-width: 100%;
+        width: 50%;                
+    }
+    .activities_october_graph {
+        width:100%;
+    }
+    .activities_october_arrow {
+        position:absolute;
+        width: 40px;
+        top:24%;
+        left: calc( 50% - 20px);
+    }
+    .leaderboard-headers {
+        max-width: 100%;
+        margin:0 auto;
+    }
+    .leaderboard-header-one {
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .leaderboard-header-one-img {
+        width:50%;
+    }
+    .leaderboard-header-two-img {
+        width:40%;
+        margin-bottom: 50px;
+    }
+    .leaderboard-tables {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .leaderboard-table-a, .leaderboard-table-b, .leaderboard-table-c {
+        position: relative;
+    }
+    .leaderboard-table-a-img, .leaderboard-table-b-img, .leaderboard-table-c-img {
+        width: 100%;
+        position: relative;
+    }
+    .leaderboard-table-a-header, .leaderboard-table-b-header, .leaderboard-table-c-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color:black;
+    }
+    .leaderboard-table-a-header {
+        background-color:#C8202E
+    }
+    .leaderboard-table-chevron {
+        height:16px;
+    }
+    .leaderboard-table-text {
+      font-family: 'NeulandGroteskLight', sans-serif;
+    }
+    .box-number {
+        position: absolute;
+        width: 33.333%;
+        height: 21%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 90px; 
+    }
+    .white {
+        color: white !important;
+    }
+    .black {
+        color: black !important;
+    }
+    .red {
+        color:#C8202E
+    }
+    .green {
+        color:#6DD352;
+    }    
+    #box_a {
+        top: 12%;
+        left: 0%;   
+    }
+    #box_b {
+        top: 12%;
+        left: 33.333%;   
+    }    
+    #box_c {
+        top: 12%;
+        left: 66.666%;   
+    }   
+    #box_d {
+        top: 45%;
+        left: 0%;   
+    }
+    #box_e {
+        top: 45%;
+        left: 33.333%;   
+    }    
+    #box_f {
+        top: 45%;
+        left: 66.666%;   
+    }        
+    #box_g {
+        top: 78%;
+        left: 0%;   
+    }
+    #box_h {
+        top: 78%;
+        left: 33.333%;   
+    }    
+    #box_i {
+        top: 78%;
+        left: 66.666%;   
+    }    
+    /*  Table B */
+    #box_j {
+        height:63%;
+        top: 36%;
+        left: 0%;   
+    }
+    #box_k {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_l {
+        top: 36%;
+        height:63%;
+        left: 66.666%;   
+    }    
+    /*  Table C */
+    #box_m {
+        height:63%;
+        top: 36%;
+        left: 0%;    
+    }
+    #box_n {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_o {
+        top: 36%;
+        height:63%;
+        left: 66.666%;  
+    }       
+    /* Products */
+    .products {
+        max-width: 1300px;
+    }
+    /* Pulse circle */
+
+    .outer-circle {
+        width: 5%;
+        height: 15%;
+        background-color: #FFFFFF66;
+        border-radius: 50%;
+        position: absolute;
+        animation: pulse 2s ease-in-out infinite;
+        z-index: 10;
+    }
+    .outer-circle.quiz {
+        width: 2.5%;
+        height: 7.5%;
+    }
+    .inner-circle {
+        width: 75%;
+        height: 75%;
+        background-color: #2980b9;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .inner-circle.quiz {
+        width: 75%;
+        height: 75%;    
+    }
+    .oct-game {
+        top: 63.25%;
+        left: 12%;
+    }
+    .oct-game-header {
+        position:absolute;
+        top: 53%;
+        left: 12%;
+        width: 5%;
+    }    
+    .oct-game-footer {
+        position:absolute;
+        top: 82%;
+        left: 12%;
+        width: 5%;
+    }     
+    .oct-quiz-1 {
+        top: 41%;
+        left: 39%;
+    }  
+    .oct-quiz-1-header {
+        position:absolute;
+        top: 34.5%;
+        left: 38.3%;
+        width: 4%;
+    }   
+    .oct-quiz-1-footer {
+        position:absolute;
+        top: 51%;
+        left: 38.2%;
+        width: 4%;
+    }         
+    .oct-quiz-2 {
+        top: 36.5%;
+        left: 55%;
+    }  
+    .oct-quiz-2.quiz-closed {
+        top: 36%;
+        left: 54.75%;
+    }
+    .oct-quiz-2-header {
+        position:absolute;
+        top: 31%;
+        left: 54%;
+        width: 4%;
+    }    
+    .oct-quiz-2-footer {
+        position:absolute;
+        top: 47.5%;
+        left: 53.75%;
+        width: 5%;
+    }        
+    .oct-quiz-3 {
+        top: 31%;
+        left: 70%;
+    }     
+    .oct-quiz-3.quiz-closed {
+        top: 30%;
+        left: 69.75%;
+    }    
+    .oct-quiz-3-header {
+        position:absolute;
+        top: 25%;
+        left: 69%;
+        width: 4%;
+    }    
+    .oct-quiz-3-footer {
+        position:absolute;
+        top: 41%;
+        left: 68.75%;
+        width: 5%;
+    }     
+    .oct-quiz-4 {
+        top: 24%;
+        left: 83%;
+    }  
+    .oct-quiz-4.quiz-closed {
+        top: 23%;
+        left: 82.75%;
+    }     
+    .oct-quiz-4-header {
+        position:absolute;
+        top: 18%;
+        left: 82%;
+        width: 4%;
+    }   
+    .oct-quiz-4-footer {
+        position:absolute;
+        top: 34%;
+        left: 82%;
+        width: 5%;
+    }  
+    .quiz-closed {
+        position: absolute;
+        width:3%;
+    }       
+    .bg-green {
+        background-color: #6DD352 !important;
+        cursor: pointer;
+    }
+    .bg-red {
+        background-color: #C8202E !important;
+        cursor: pointer;
+    }
+    .collapsible {
+        transition: opacity 2.3s ease, height 2.3s ease;
+        overflow: hidden;
+        opacity: 1;
+        max-height: 2000px;
+    }
+    .collapsible.closed {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    }    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }    
+</style>
+</head>
+<body>
+    <!-- Header section -->
+    <section class="landing">
+        <!-- End Nav -->
+        <div class="landing-nav">
+            <a href="#gains" class="nav-item">GAINS</a>
+            <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
+            <a href="#tableau_de_bord" class="nav-item">TABLEAU DE BORD</a>
+            <a href="#produits" class="nav-item">PRODUITS</a>
+        </div>
+        <!-- End Nav -->
+        <!-- Hero -->
+        <div class="landing-logo">
+            <img src="images/iam_logo.webp" alt="I AM Logo">
+        </div>    
+        <div class="landing-title" id="challenge">
+            <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
+            <a class="landing-title-img-cta" href="#actions_digitales"></a>
+        </div>
+        <div class="landing-images">
+            <img class="landing-images-img" src="images/iam_cards.webp">
+            </div>            
+        </div>    
+        <!-- End Hero -->
+    </section>
+    <!-- End Header section -->    
+
+    <!-- Prize section -->
+    <section class="gains" id="gains">
+        <div class="gains-one">
+            <img class="gains-one-img" src="images/iam_gains_1.webp">
+        </div>
+        <div class="gains-two">
+            <img class="gains-two-img" src="images/iam_gains_2.webp">
+        </div>
+    </section>
+    <!-- End Prize section -->
+    <!-- Engage section -->
+    <section class="engage">
+    </section>
+    <!-- End Engage section -->
+    <!-- Activities Section -->
+    <section class="activities" id="actions_digitales">
+        <img class="activities_header" src="images/iam_activities_header.webp">
+        <img class="activities_october" src="images/iam_activities_october.webp">
+        <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october">
+        <div class="activities_october_container collapsible" id="octDiv">
+            <img class="activities_october_graph" src="images/iam_progress_graph.webp">
+            <!-- Game -->
+            <img class="oct-game-header" src="images/iam_game.webp">
+            <div class="oct-game outer-circle">
+                <div class="inner-circle bg-red"></div>
+            </div>
+            <img class="oct-game-footer" src="images/iam_500_rooftops.webp">
+            <!-- Quiz 1 -->
+            <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
+            <div class="oct-quiz-1 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div>
+            <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
+            <!-- Quiz 2 -->
+            <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp">
+            <img class="oct-quiz-2 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-2-footer" src="images/iam_quiz_2_date.webp">
+            <!-- <div class="oct-quiz-2 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->
+            <!-- Quiz 3 -->
+            <img class="oct-quiz-3-header" src="images/iam_quiz_3.webp">
+            <img class="oct-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-3-footer" src="images/iam_quiz_3_date.webp">
+            <!-- <div class="oct-quiz-3 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->
+            <!-- Quiz 4 -->
+            <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp">
+            <img class="oct-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-4-footer" src="images/iam_quiz_4_date.webp">
+            <!-- <div class="oct-quiz-4 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->                   
+        </div>
+        
+        <img class="activities_november" src="images/iam_activities_november_closed.webp">
+        <img class="activities_december" src="images/iam_activities_december_closed.webp">
+    </section>
+    <!-- Activities Section -->
+    <!-- Leaderboard section -->
+    <section class="leaderboard" id="tableau_de_bord">
+        <div class="leaderboard-headers">
+            <div class="leaderboard-header-one">
+                <img class="leaderboard-header-one-img" src="images/iam_lb_header_1.webp">
+            </div>
+            <div class="leaderboard-header-two">
+                <img class="leaderboard-header-two-img" src="images/iam_lb_header_2.webp">
+            </div>   
+        </div>            
+        <div class="leaderboard-tables">
+            <div class="leaderboard-table-a-header">
+                <div class="leaderboard-table-text">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
+            </div>
+            <div class="leaderboard-table-a">
+                <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
+                <div class="box-number white" id="box_a">12</div>
+                <div class="box-number green" id="box_b">+0,6</div>
+                <div class="box-number white" id="box_c">8</div>
+                <div class="box-number white" id="box_d">4</div>
+                <div class="box-number red" id="box_e">-0,1</div>
+                <div class="box-number white" id="box_f">0</div>
+                <div class="box-number white" id="box_g">2</div>
+                <div class="box-number red" id="box_h">-0,2</div>
+                <div class="box-number white" id="box_i">0</div>
+            </div>   
+            <div class="leaderboard-table-b-header">
+                <div class="leaderboard-table-text">EN RÉSUMÉ</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">               
+            </div>                          
+            <div class="leaderboard-table-b">
+                <img class="leaderboard-table-b-img" src="images/iam_lb_table_b.webp">
+                <div class="box-number black" id="box_j">200</div>
+                <div class="box-number black" id="box_k">408</div>
+                <div class="box-number white" id="box_l">24</div>                
+            </div> 
+            <div class="leaderboard-table-b-header">
+                <div class="leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
+                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
+            </div>                    
+            <div class="leaderboard-table-c">
+                <img class="leaderboard-table-b-img" src="images/iam_lb_table_c.webp">
+                <div class="box-number black" id="box_m">10</div>
+                <div class="box-number green" id="box_n">+0,5</div>
+                <div class="box-number white" id="box_o">3</div>                 
+            </div>       
+        </div>               
+    </section>
+    <!-- End Leaderboard section -->    
+    <!-- Product Section -->
+    <section class="products" id="produits">    
+        <div class="products-one">
+            <img class="products-one-img" src="images/iam_pack_1.webp">
+        </div>
+        <div class="products-two">
+            <img class="products-two-img" src="images/iam_pack_2.webp">
+        </div>            
+    </section>
+    <!-- End Product Section -->    
+</body>
+<script>
+document.getElementById('october').addEventListener('click', () => {
+  const div = document.getElementById('octDiv');
+  div.classList.add('closed');
+  // Optional: Remove the div from the DOM after animation completes
+  setTimeout(() => {
+    div.style.display = 'none';
+  }, 1300); // Match the transition duration (0.3s)
+});    
+</script>
+</html>
