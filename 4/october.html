@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marlboro IAM France | Teaser</title>
+<title>Marlboro IAM France | October </title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <link rel="stylesheet" href="css/main.css">
 <style>
@@ -28,6 +28,9 @@
     }
     .activities_october_container {
         position: relative;
+        background-image: url('images/iam_background_oct.webp');
+        background-size: cover;
+        background-position: center;        
     }
     .activities_header {
         max-width: 100%;
@@ -37,16 +40,28 @@
         width:100%;
     }
     .activities_october_arrow {
+        display:none;
         position:absolute;
         width: 40px;
         top:24%;
         left: calc( 50% - 20px);
+    }
+    .cta-overlay  {
+        /* background-color: green; */
+        position: absolute;
+    }
+    .cta-overlay-1 {
+        top: 87%;
+        left: 40.75%;
+        width: 17%;
+        height: 12%;
     }
     .leaderboard-headers {
         max-width: 100%;
         margin:0 auto;
     }
     .leaderboard-header-one {
+        position: relative;
         margin-bottom: 50px;
         margin-top: 30px;
     }
@@ -312,15 +327,31 @@
         cursor: pointer;
     }
     .collapsible {
-        transition: opacity 2.3s ease, height 2.3s ease;
-        overflow: hidden;
+        max-height: 1000px; /* Large enough to cover content; adjust if needed */
         opacity: 1;
-        max-height: 2000px;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        padding: 10px; /* Optional: for visual clarity */
     }
     .collapsible.closed {
-    opacity: 0;
-    height: 0;
-    padding: 0;
+        opacity: 0;
+        height: 0;
+        padding: 0;
+    }    
+    .gains-one { 
+        position:relative;
+    }
+    .cta-overlay-4 {
+        top: 61.5%;
+        left: 6.775%;
+        width: 52%;
+        height: 13.5%;
+    }
+    .cta-overlay-5 {
+        top: 78%;
+        left: 7%;
+        width: 60%;
+        height: 14%;
     }    
     @keyframes pulse {
         0% {
@@ -343,9 +374,7 @@
     <section class="landing">
         <!-- End Nav -->
         <div class="landing-nav">
-            <a href="#gains" class="nav-item">GAINS</a>
             <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
-            <a href="#tableau_de_bord" class="nav-item">TABLEAU DE BORD</a>
             <a href="#produits" class="nav-item">PRODUITS</a>
         </div>
         <!-- End Nav -->
@@ -364,37 +393,26 @@
         <!-- End Hero -->
     </section>
     <!-- End Header section -->    
-
-    <!-- Prize section -->
-    <section class="gains" id="gains">
-        <div class="gains-one">
-            <img class="gains-one-img" src="images/iam_gains_1.webp">
-        </div>
-        <div class="gains-two">
-            <img class="gains-two-img" src="images/iam_gains_2.webp">
-        </div>
-    </section>
-    <!-- End Prize section -->
     <!-- Engage section -->
     <section class="engage">
     </section>
     <!-- End Engage section -->
     <!-- Activities Section -->
     <section class="activities" id="actions_digitales">
-        <img class="activities_header" src="images/iam_activities_header.webp">
+        <img class="activities_header" src="images/iam_activities_header_v2.webp">
         <img class="activities_october" src="images/iam_activities_october.webp">
-        <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october">
+        <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
         <div class="activities_october_container collapsible" id="octDiv">
             <img class="activities_october_graph" src="images/iam_progress_graph.webp">
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
-            <div class="oct-game outer-circle">
+            <div class="oct-game outer-circle" onclick="openModalOctGame()">
                 <div class="inner-circle bg-red"></div>
             </div>
             <img class="oct-game-footer" src="images/iam_500_rooftops.webp">
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
-            <div class="oct-quiz-1 outer-circle quiz">
+            <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
                 <div class="inner-circle bg-green"></div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
@@ -425,56 +443,6 @@
         <img class="activities_december" src="images/iam_activities_december_closed.webp">
     </section>
     <!-- Activities Section -->
-    <!-- Leaderboard section -->
-    <section class="leaderboard" id="tableau_de_bord">
-        <div class="leaderboard-headers">
-            <div class="leaderboard-header-one">
-                <img class="leaderboard-header-one-img" src="images/iam_lb_header_1.webp">
-            </div>
-            <div class="leaderboard-header-two">
-                <img class="leaderboard-header-two-img" src="images/iam_lb_header_2.webp">
-            </div>   
-        </div>            
-        <div class="leaderboard-tables">
-            <div class="leaderboard-table-a-header">
-                <div class="leaderboard-table-text">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
-            </div>
-            <div class="leaderboard-table-a">
-                <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
-                <div class="box-number white" id="box_a">12</div>
-                <div class="box-number green" id="box_b">+0,6</div>
-                <div class="box-number white" id="box_c">8</div>
-                <div class="box-number white" id="box_d">4</div>
-                <div class="box-number red" id="box_e">-0,1</div>
-                <div class="box-number white" id="box_f">0</div>
-                <div class="box-number white" id="box_g">2</div>
-                <div class="box-number red" id="box_h">-0,2</div>
-                <div class="box-number white" id="box_i">0</div>
-            </div>   
-            <div class="leaderboard-table-b-header">
-                <div class="leaderboard-table-text">EN RÉSUMÉ</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">               
-            </div>                          
-            <div class="leaderboard-table-b">
-                <img class="leaderboard-table-b-img" src="images/iam_lb_table_b.webp">
-                <div class="box-number black" id="box_j">200</div>
-                <div class="box-number black" id="box_k">408</div>
-                <div class="box-number white" id="box_l">24</div>                
-            </div> 
-            <div class="leaderboard-table-b-header">
-                <div class="leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
-            </div>                    
-            <div class="leaderboard-table-c">
-                <img class="leaderboard-table-b-img" src="images/iam_lb_table_c.webp">
-                <div class="box-number black" id="box_m">10</div>
-                <div class="box-number green" id="box_n">+0,5</div>
-                <div class="box-number white" id="box_o">3</div>                 
-            </div>       
-        </div>               
-    </section>
-    <!-- End Leaderboard section -->    
     <!-- Product Section -->
     <section class="products" id="produits">    
         <div class="products-one">
@@ -484,16 +452,133 @@
             <img class="products-two-img" src="images/iam_pack_2.webp">
         </div>            
     </section>
-    <!-- End Product Section -->    
+    <!-- End Product Section -->        
+
+    <!-- Modal October Game -->
+    <div id="modalOctGame" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
+            <h2>October Game</h2>
+        </div>
+    </div>
+    <!-- End October Game -->       
+    <!-- Modal October Game -->
+    <div id="modalOctQuiz1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
+            <h2>October Quiz 1</h2>
+        </div>
+    </div>
+    <!-- End October Game -->       
 </body>
 <script>
-document.getElementById('october').addEventListener('click', () => {
-  const div = document.getElementById('octDiv');
-  div.classList.add('closed');
-  // Optional: Remove the div from the DOM after animation completes
-  setTimeout(() => {
-    div.style.display = 'none';
-  }, 1300); // Match the transition duration (0.3s)
-});    
+// Nav 
+ function navNov() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+  function navNov2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+// End Nav
+// Info Modals
+    const modalOne = document.getElementById("modalOne");
+    const modalTwo = document.getElementById("modalTwo");
+
+    // Open modal function
+    function openModalOne() {
+      modalOne.style.display = "flex";
+    }
+    function openModalTwo() {
+      modalTwo.style.display = "flex";
+    }
+    // Close modal function
+    function closeModalOne() {
+      modalOne.style.display = "none";
+    }
+    function closeModalTwo() {
+      modalTwo.style.display = "none";
+    }    
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOne) {
+        closeModalOne();
+      }
+      if (event.target === modalTwo) {
+        closeModalTwo();
+      }      
+    };
+// End Info Modals
+// October Modals
+    const modalOctGame = document.getElementById("modalOctGame");
+    const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
+
+    // Open modal function
+    function openModalOctGame() {
+      modalOctGame.style.display = "flex";
+    }
+    function openModalOctQuiz1() {
+      modalOctQuiz1.style.display = "flex";
+    }
+    // Close modal function
+    function closeModalOctGame() {
+      modalOctGame.style.display = "none";
+    }
+    function closeModalOctQuiz1() {
+      modalOctQuiz1.style.display = "none";
+    }    
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOctGame) {
+        closeModalOctGame();
+      }
+      if (event.target === openModalOctQuiz1) {
+        closeModalOctQuiz1();
+      }      
+    };
+// End October Modals
 </script>
 </html>
