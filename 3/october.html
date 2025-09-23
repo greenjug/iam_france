@@ -42,6 +42,9 @@
         top:24%;
         left: calc( 50% - 20px);
     }
+    .leaderboard {
+        width: 100%;
+    }    
     .leaderboard-headers {
         max-width: 100%;
         margin:0 auto;
@@ -54,7 +57,7 @@
         width:50%;
     }
     .leaderboard-header-two-img {
-        width:40%;
+        width:50%;
         margin-bottom: 50px;
     }
     .leaderboard-tables {
@@ -88,7 +91,7 @@
     .box-number {
         position: absolute;
         width: 33.333%;
-        height: 21%;
+        height: 19%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -144,33 +147,33 @@
     }    
     /*  Table B */
     #box_j {
+        top: 30%;
         height:63%;
-        top: 36%;
         left: 0%;   
     }
     #box_k {
-        top: 36%;
+        top: 30%;
         height:63%;
         left: 33.333%;   
     }    
     #box_l {
-        top: 36%;
+        top: 30%;
         height:63%;
         left: 66.666%;   
     }    
     /*  Table C */
     #box_m {
+        top: 30%;
         height:63%;
-        top: 36%;
         left: 0%;    
     }
     #box_n {
-        top: 36%;
+        top: 30%;
         height:63%;
         left: 33.333%;   
     }    
     #box_o {
-        top: 36%;
+        top: 30%;
         height:63%;
         left: 66.666%;  
     }       
@@ -178,8 +181,8 @@
     .products {
         max-width: 1300px;
     }
-    /* Pulse circle */
 
+    /* circles */
     .outer-circle {
         width: 5%;
         height: 15%;
@@ -190,8 +193,8 @@
         z-index: 10;
     }
     .outer-circle.quiz {
-        width: 2.5%;
-        height: 7.5%;
+        width: 4%;
+        height: 12%;
     }
     .inner-circle {
         width: 75%;
@@ -219,89 +222,89 @@
     }    
     .oct-game-footer {
         position:absolute;
-        top: 82%;
-        left: 12%;
-        width: 5%;
+        top: 81%;
+        left: 11.5%;
+        width: 6%;
     }     
     .oct-quiz-1 {
-        top: 41%;
+        top: 37%;
         left: 39%;
     }  
     .oct-quiz-1-header {
         position:absolute;
-        top: 34.5%;
+        top: 30.5%;
         left: 38.3%;
-        width: 4%;
+        width: 5%;
     }   
     .oct-quiz-1-footer {
         position:absolute;
         top: 51%;
-        left: 38.2%;
-        width: 4%;
+        left: 37.95%;
+        width: 6%;
     }         
     .oct-quiz-2 {
         top: 36.5%;
         left: 55%;
     }  
     .oct-quiz-2.quiz-closed {
-        top: 36%;
+        top: 33%;
         left: 54.75%;
     }
     .oct-quiz-2-header {
         position:absolute;
-        top: 31%;
+        top: 27%;
         left: 54%;
-        width: 4%;
+        width: 5%;
     }    
     .oct-quiz-2-footer {
         position:absolute;
         top: 47.5%;
-        left: 53.75%;
-        width: 5%;
+        left: 53%;
+        width: 8%;
     }        
     .oct-quiz-3 {
         top: 31%;
         left: 70%;
     }     
     .oct-quiz-3.quiz-closed {
-        top: 30%;
+        top: 27%;
         left: 69.75%;
     }    
     .oct-quiz-3-header {
         position:absolute;
-        top: 25%;
+        top: 21%;
         left: 69%;
-        width: 4%;
+        width: 5%;
     }    
     .oct-quiz-3-footer {
         position:absolute;
         top: 41%;
-        left: 68.75%;
-        width: 5%;
+        left: 68.25%;
+        width: 8%;
     }     
     .oct-quiz-4 {
         top: 24%;
         left: 83%;
     }  
     .oct-quiz-4.quiz-closed {
-        top: 23%;
+        top: 20.5%;
         left: 82.75%;
     }     
     .oct-quiz-4-header {
         position:absolute;
-        top: 18%;
+        top: 14.75%;
         left: 82%;
-        width: 4%;
+        width: 5%;
     }   
     .oct-quiz-4-footer {
         position:absolute;
-        top: 34%;
-        left: 82%;
-        width: 5%;
+        top: 34.5%;
+        left: 81%;
+        width: 8%;
     }  
     .quiz-closed {
         position: absolute;
-        width:3%;
+        width:4%;
     }       
     .bg-green {
         background-color: #6DD352 !important;
@@ -311,6 +314,7 @@
         background-color: #C8202E !important;
         cursor: pointer;
     }
+    /* End circles */
     .collapsible {
         transition: opacity 2.3s ease, height 2.3s ease;
         overflow: hidden;
@@ -321,6 +325,34 @@
     opacity: 0;
     height: 0;
     padding: 0;
+    }    
+
+    .accordion-header {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+    }
+    .accordion-header::after {
+        content: '';
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background-image: url('images/iam_chevron_vertical.webp');
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease;
+    }
+    .accordion-header.active::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+    .accordion-content {
+        display: none;
+    }
+    .accordion-content.active {
+        display: block;
     }    
     @keyframes pulse {
         0% {
@@ -430,51 +462,51 @@
         <div class="leaderboard-headers">
             <div class="leaderboard-header-one">
                 <img class="leaderboard-header-one-img" src="images/iam_lb_header_1.webp">
+                <div class="cta-overlay cta-overlay-1" onclick="openModalOne()"></div>
             </div>
             <div class="leaderboard-header-two">
                 <img class="leaderboard-header-two-img" src="images/iam_lb_header_2.webp">
             </div>   
         </div>            
         <div class="leaderboard-tables">
-            <div class="leaderboard-table-a-header">
-                <div class="leaderboard-table-text">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
-            </div>
-            <div class="leaderboard-table-a">
-                <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
-                <div class="box-number white" id="box_a">12</div>
-                <div class="box-number green" id="box_b">+0,6</div>
-                <div class="box-number white" id="box_c">8</div>
-                <div class="box-number white" id="box_d">4</div>
-                <div class="box-number red" id="box_e">-0,1</div>
-                <div class="box-number white" id="box_f">0</div>
-                <div class="box-number white" id="box_g">2</div>
-                <div class="box-number red" id="box_h">-0,2</div>
-                <div class="box-number white" id="box_i">0</div>
-            </div>   
-            <div class="leaderboard-table-b-header">
-                <div class="leaderboard-table-text">EN RÉSUMÉ</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">               
-            </div>                          
-            <div class="leaderboard-table-b">
-                <img class="leaderboard-table-b-img" src="images/iam_lb_table_b.webp">
-                <div class="box-number black" id="box_j">200</div>
-                <div class="box-number black" id="box_k">408</div>
-                <div class="box-number white" id="box_l">24</div>                
-            </div> 
-            <div class="leaderboard-table-b-header">
-                <div class="leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
-                <img class="leaderboard-table-chevron" src="images/iam_chevron_vertical.webp">
-            </div>                    
-            <div class="leaderboard-table-c">
-                <img class="leaderboard-table-b-img" src="images/iam_lb_table_c.webp">
-                <div class="box-number black" id="box_m">10</div>
-                <div class="box-number green" id="box_n">+0,5</div>
-                <div class="box-number white" id="box_o">3</div>                 
-            </div>       
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
+                    <div class=" accordion-content active leaderboard-table-a">
+                        <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
+                        <div class="box-number white" id="box_a">12</div>
+                        <div class="box-number green" id="box_b">+0,6</div>
+                        <div class="box-number white" id="box_c">8</div>
+                        <div class="box-number white" id="box_d">4</div>
+                        <div class="box-number red" id="box_e">-0,1</div>
+                        <div class="box-number white" id="box_f">0</div>
+                        <div class="box-number white" id="box_g">2</div>
+                        <div class="box-number red" id="box_h">-0,2</div>
+                        <div class="box-number white" id="box_i">0</div>
+                    </div>   
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-b-header leaderboard-table-text">EN RÉSUMÉ</div>
+                    <div class="accordion-content active leaderboard-table-b">
+                        <img class="leaderboard-table-b-img" src="images/iam_lb_table_b.webp">
+                        <div class="box-number black" id="box_j">200</div>
+                        <div class="box-number black" id="box_k">408</div>
+                        <div class="box-number white" id="box_l">24</div>                
+                    </div> 
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-b-header leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
+                    <div class="accordion-content active leaderboard-table-c">
+                        <img class="leaderboard-table-b-img" src="images/iam_lb_table_c.webp">
+                        <div class="box-number black" id="box_m">10</div>
+                        <div class="box-number green" id="box_n">+0,5</div>
+                        <div class="box-number white" id="box_o">3</div>                 
+                    </div>     
+                </div>
+            </div>  
         </div>               
     </section>
-    <!-- End Leaderboard section -->    
+    <!-- End Leaderboard section -->     
     <!-- Product Section -->
     <section class="products" id="produits">    
         <div class="products-one">
@@ -487,13 +519,13 @@
     <!-- End Product Section -->    
 </body>
 <script>
-document.getElementById('october').addEventListener('click', () => {
-  const div = document.getElementById('octDiv');
-  div.classList.add('closed');
-  // Optional: Remove the div from the DOM after animation completes
-  setTimeout(() => {
-    div.style.display = 'none';
-  }, 1300); // Match the transition duration (0.3s)
-});    
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+            header.classList.toggle('active');
+        });
+    }); 
 </script>
 </html>
