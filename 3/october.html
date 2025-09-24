@@ -25,6 +25,7 @@
     }
     .activities {
         position: relative;
+        max-width: 1920px;
     }
     .activities_october_container {
         position: relative;
@@ -45,6 +46,7 @@
     }
     .leaderboard {
         width: 100%;
+        max-width: 1920px;
     }    
     .leaderboard-headers {
         max-width: 100%;
@@ -352,6 +354,12 @@
         left: 7%;
         width: 60%;
         height: 14%;
+    }     
+    .cta-overlay-6 {
+        top: 94%;
+        left: 22%;
+        width: 29%;
+        height: 6%;
     }      
     .accordion-header {
         cursor: pointer;
@@ -419,7 +427,7 @@
             <img src="images/iam_logo.webp" alt="I AM Logo">
         </div>    
         <div class="landing-title" id="challenge">
-            <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
             <a class="landing-title-img-cta" href="#actions_digitales"></a>
         </div>
         <div class="landing-images">
@@ -435,7 +443,8 @@
         <div class="gains-one">
             <img class="gains-one-img" src="images/iam_gains_1.webp">
             <div class="cta-overlay cta-overlay-4" onclick="openModalTwo()"></div>
-            <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>            
+            <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>        
+            <div class="cta-overlay cta-overlay-6" onclick="openPDF()"></div>
         </div>
         <div class="gains-two">
             <img class="gains-two-img" src="images/iam_gains_2.webp">
@@ -462,7 +471,7 @@
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz">
-                <div class="inner-circle bg-green"></div>
+                <div class="inner-circle bg-red"></div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 2 -->
@@ -546,10 +555,10 @@
     <!-- Product Section -->
     <section class="products" id="produits">    
         <div class="products-one">
-            <img class="products-one-img" src="images/iam_pack_1.webp">
+            <img class="products-one-img" src="images/iam_pack_1_v2.webp">
         </div>
         <div class="products-two">
-            <img class="products-two-img" src="images/iam_pack_2.webp">
+            <img class="products-two-img" src="images/iam_pack_2_v2.webp">
         </div>            
     </section>
     <!-- End Product Section --> 
@@ -923,5 +932,8 @@
       }      
     };
 // End October Modals
+    function openPDF() {
+      window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
+    }
 </script>
 </html>

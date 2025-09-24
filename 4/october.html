@@ -25,10 +25,11 @@
     }
     .activities {
         position: relative;
+        max-width: 1920px;
     }
     .activities_october_container {
         position: relative;
-        background-image: url('images/iam_background_oct.webp');
+        /* background-image: url('images/iam_background_oct.webp'); */
         background-size: cover;
         background-position: center;        
     }
@@ -191,7 +192,7 @@
     }       
     /* Products */
     .products {
-        max-width: 1300px;
+        max-width: 1920px;
     }
     /* circles */
     .outer-circle {
@@ -333,19 +334,7 @@
     .bg-red {
         background-color: #C8202E !important;
         cursor: pointer;
-    }
-    .collapsible {
-        max-height: 1000px; /* Large enough to cover content; adjust if needed */
-        opacity: 1;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        padding: 10px; /* Optional: for visual clarity */
-    }
-    .collapsible.closed {
-        opacity: 0;
-        height: 0;
-        padding: 0;
-    }    
+    }   
     .gains-one { 
         position:relative;
     }
@@ -391,7 +380,7 @@
             <img src="images/iam_logo.webp" alt="I AM Logo">
         </div>    
         <div class="landing-title" id="challenge">
-            <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
             <a class="landing-title-img-cta" href="#actions_digitales"></a>
         </div>
         <div class="landing-images">
@@ -410,7 +399,7 @@
         <img class="activities_header" src="images/iam_activities_header_v2.webp">
         <img class="activities_october" src="images/iam_activities_october_v2.webp">
         <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
-        <div class="activities_october_container collapsible" id="octDiv">
+        <div class="activities_october_container" id="octDiv">
             <img class="activities_october_graph" src="images/iam_progress_graph.webp">
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
@@ -457,7 +446,7 @@
             <img class="products-one-img" src="images/iam_pack_1_v2.webp">
         </div>
         <div class="products-two">
-            <img class="products-two-img" src="images/iam_pack_2_v2.webp">
+            <img class="products-two-img" src="images/iam_pack_2_v4.webp">
         </div>            
     </section>
     <!-- End Product Section -->        

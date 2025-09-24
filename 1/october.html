@@ -25,12 +25,14 @@
     }
     .activities {
         position: relative;
+        max-width: 1920px;
     }
     .activities_october_container {
         position: relative;
-        background-image: url('images/iam_background_oct.webp');
+        /* background-image: url('images/iam_background_oct.webp'); */
         background-size: cover;
         background-position: center;        
+        margin: 0 auto;
     }
     .activities_header {
         max-width: 100%;
@@ -58,7 +60,11 @@
     }
     .leaderboard {
         width: 100%;
+        max-width: 1920px;
+        margin-left:20px;
+        margin-right:20px;
     }
+    
     .leaderboard-headers {
         max-width: 100%;
         margin:0 auto;
@@ -194,7 +200,7 @@
     }       
     /* Products */
     .products {
-        max-width: 1300px;
+        max-width: 1920px;
     }
     /* circles */
     .outer-circle {
@@ -364,6 +370,12 @@
         width: 60%;
         height: 14%;
     }   
+    .cta-overlay-6 {
+        top: 94%;
+        left: 22%;
+        width: 29%;
+        height: 6%;
+    }       
     .accordion-header {
         cursor: pointer;
         user-select: none;
@@ -430,7 +442,7 @@
             <img src="images/iam_logo.webp" alt="I AM Logo">
         </div>    
         <div class="landing-title" id="challenge">
-            <img class="landing-title-img" src="images/iam_page_header.webp" alt="Main CTA">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
             <a class="landing-title-img-cta" href="#actions_digitales"></a>
         </div>
         <div class="landing-images">
@@ -447,6 +459,7 @@
             <img class="gains-one-img" src="images/iam_gains_1.webp">
             <div class="cta-overlay cta-overlay-4" onclick="openModalTwo()"></div>
             <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>
+            <div class="cta-overlay cta-overlay-6" onclick="openPDF()"></div>
         </div>
         <div class="gains-two">
             <img class="gains-two-img" src="images/iam_gains_2.webp">
@@ -462,7 +475,7 @@
         <img class="activities_header" src="images/iam_activities_header.webp">
         <img class="activities_october" src="images/iam_activities_october_v2.webp">
         <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
-        <div class="activities_october_container collapsible" id="octDiv">
+        <div class="activities_october_container" id="octDiv">
             <img class="activities_october_graph" src="images/iam_progress_graph.webp">
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
@@ -473,7 +486,7 @@
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div class="inner-circle bg-green"></div>
+                <div class="inner-circle bg-red"></div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 2 -->
@@ -541,7 +554,7 @@
                     </div> 
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header active leaderboard-table-b-header leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
+                    <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD MENSUEL</div>
                     <div class="accordion-content active leaderboard-table-c">
                         <img class="leaderboard-table-b-img" src="images/iam_lb_table_c_v2.webp">
                         <div class="box-number black" id="box_m">10</div>
@@ -947,5 +960,8 @@
       }      
     };
 // End October Modals
+    function openPDF() {
+      window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
+    }
 </script>
 </html>
