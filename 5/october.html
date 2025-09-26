@@ -642,4 +642,85 @@
     };
 // End October Modals
 </script>
+  <script>
+    window.addEventListener('message', function(event) {
+        if (event.data === 'close') {
+            console.log('Received "close" message from child');
+            window.location.reload();
+        }
+    });    
+    window.addEventListener('load', () => {
+    function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
+        // Get the query string from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get(queryValue);
+        
+        // Check if the query value exists and log if found
+        if (query) {
+            console.log(`Breeze - gR - ${queryValue} found`);
+        }
+        
+        // If both query and objectName exist, make the fetch call
+        if (query && objectName) {
+            console.log('Breeze - gR - fetching retailer')
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    objectName: objectName,
+                    query: query
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Breeze - gR - HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Breeze - gR - Fetch success:', data);
+                
+                // Check if structured_data exists in the response
+                if (data && data.structured_data) {
+                console.log("Breeze - gR - data and structured data", data.structured_data)
+
+                    Object.entries(data.structured_data).forEach(([key, value]) => {
+                        console.log(key,value);
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = value;
+                        } else {
+                            console.log(`Element with ID '${key}' not found`);
+                        }
+                    });
+                  if ( data.structured_data.september_quiz_played === true ) {
+                    console.log('Breeze - gR - September quiz Played');
+                    document.querySelector('#september-quiz-closed').style.display = 'flex';
+                    document.querySelector('#september-quiz').style.display = 'none';
+                  }
+                  if ( data.structured_data.september_ordered === true ) {
+                    console.log('Breeze - gR - September ordered');
+                    document.querySelector('#september-order-closed').style.display = 'flex';
+                    document.querySelector('#september-order').style.display = 'none';
+                  }                  
+                  if ( data.structured_data.september_game_played === true ) {
+                    console.log('Breeze - gR - Game Played');
+                    document.querySelector('#september-game-closed').style.display = 'block';
+                    document.querySelector('#september-game').style.display = 'none';
+                  }              
+                } else {
+                    console.log('Breeze - gR - No structured_data found in response');
+                }
+            })
+            .catch(error => {
+                console.error('Breeze - gR - Fetch error:', error);
+            });
+        }
+    }  
+    getRetailer('france_iam');  
+        
+    }); 
+</script>     
 </html>
