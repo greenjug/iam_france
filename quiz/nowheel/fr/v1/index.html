@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta id="vpmeta" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link id="favicon-apple" rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png"><link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"><link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png"><link rel="manifest" href="./site.webmanifest"><title>sge</title><style>/* .throbber {
+    } */
+
+    .throbber {
+      display: none;
+      /* display: flex; */
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      /* border: 1px solid red; */
+      transform: translate(-50%, -50%);
+    }
+
+    .throbber .circle {
+      width: 20px;
+      height: 20px;
+      background-color: #444;
+      border-radius: 50%;
+      animation: throbberAnimation 1s infinite ease-in-out;
+    }
+
+    .throbber .circle:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .throbber .circle:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes throbberAnimation {
+      0% {
+        transform: scale(0);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0);
+        opacity: 0.5;
+      }
+    }
+
+    #throbber {
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 0px;
+      overflow: hidden;
+    }
+
+    #pp-progress {
+      width: 0;
+      height: 100%;
+      background-color: #666;
+      border-radius: 0px;
+      transition: 0.1s ease all;
+      /* animation: loadingAnimation 2s linear infinite; */
+    }</style><script defer="defer" src="./js/chunk-vendors.7df21919.js"></script><script defer="defer" src="./js/index.873c353e.js"></script><link href="./css/index.ff0e41b9.css" rel="stylesheet"></head><body style="overflow: hidden"><div id="throbber"><div id="pp-progress"></div><div id="pp-message"></div></div><script>window._config = {
+      continueURL: ""
+    }
+
+    var lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      var now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
+
+    const scriptSrcs = [];
+
+    function updateProgress() {
+      let t = 1
+      let m = 0
+      for (let [k, v] of Object.entries(progress)) {
+        t += v.total
+        m += v.loaded
+      }
+      const percent = 100 * m / t
+      setProgress(percent)
+    }
+
+    function setProgress(percent) {
+      const w = ('' + percent) + 'vw'
+      document.getElementById('pp-progress').style.width = w
+    }
+
+    const progress = {}
+
+    const scripts = document.head.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+      const src = scripts[i].getAttribute('src');
+      if (src) {
+        scriptSrcs.push(src);
+      }
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', src);
+
+      let assumedSize = 100000
+      if (src.includes('unk-vend')) {
+        assumedSize *= 10
+      }
+      progress[src] = { loaded: 0, total: assumedSize }
+      xhr.onprogress = (e) => {
+        progress[src] = { loaded: e.loaded, total: e.total }
+        updateProgress()
+      }
+      xhr.onload = () => {
+      }
+      xhr.send();
+    }</script><div id="app"></div></body></html>
