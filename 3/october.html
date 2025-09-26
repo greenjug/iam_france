@@ -231,7 +231,7 @@
         width: 6%;
     }     
     .oct-quiz-1 {
-        top: 37%;
+        top: 37.75%;
         left: 39%;
     }  
     .oct-quiz-1-header {
@@ -412,7 +412,13 @@
     .close-btn {
         top:0;
         right:10px;
-    }       
+    }  
+    .quiz-wheel {   
+        position: relative;  
+        width: 80%;
+        height: 80%;
+        top: 7.5%;
+    }         
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -480,6 +486,9 @@
             margin-bottom: 30px;
         }
     }      
+    .hide {
+        display:none;
+    }    
 </style>
 </head>
 <body>
@@ -542,7 +551,10 @@
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div class="inner-circle bg-red"></div>
+                <div class="inner-circle bg-red">
+                    <img class="quiz-wheel" src="images/iam_wheel.webp">                    
+
+                </div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 2 -->
@@ -589,33 +601,33 @@
                     <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
                     <div class=" accordion-content active leaderboard-table-a">
                         <img class="leaderboard-table-a-img" src="images/iam_lb_table_a_corsica.webp">
-                        <div class="box-number white" id="box_a">12</div>
-                        <div class="box-number green" id="box_b">+0,6</div>
-                        <div class="box-number white" id="box_c">8</div>
-                        <div class="box-number white" id="box_d">4</div>
-                        <div class="box-number red" id="box_e">-0,1</div>
-                        <div class="box-number white" id="box_f">0</div>
-                        <div class="box-number white" id="box_g">2</div>
-                        <div class="box-number red" id="box_h">-0,2</div>
-                        <div class="box-number white" id="box_i">0</div>
+                        <div class="box-number white hide" id="box_a"></div>
+                        <div class="box-number green hide" id="box_b"></div>
+                        <div class="box-number white hide" id="box_c"></div>
+                        <div class="box-number white hide" id="box_d"></div>
+                        <div class="box-number red hide" id="box_e"></div>
+                        <div class="box-number white hide" id="box_f"></div>
+                        <div class="box-number white hide" id="box_g"></div>
+                        <div class="box-number red hide" id="box_h"></div>
+                        <div class="box-number white hide" id="box_i"></div>
                     </div>   
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header active leaderboard-table-b-header leaderboard-table-text">EN RÉSUMÉ (OCTOBRE-DÉCEMBRE)</div>
                     <div class="accordion-content active leaderboard-table-b">
                         <img class="leaderboard-table-b-img" src="images/iam_lb_table_b_v2.webp">
-                        <div class="box-number black" id="box_j">200</div>
-                        <div class="box-number black" id="box_k">408</div>
-                        <div class="box-number white" id="box_l">24</div>                
+                        <div class="box-number black" id="box_j"></div>
+                        <div class="box-number black" id="box_k"></div>
+                        <div class="box-number white hide" id="box_l"></div>                
                     </div> 
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header active leaderboard-table-a-header leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
                     <div class="accordion-content active leaderboard-table-c">
                         <img class="leaderboard-table-b-img" src="images/iam_lb_table_c_v2.webp">
-                        <div class="box-number black" id="box_m">10</div>
-                        <div class="box-number green" id="box_n">+0,5</div>
-                        <div class="box-number white" id="box_o">3</div>      
+                        <div class="box-number black hide" id="box_m"></div>
+                        <div class="box-number green hide" id="box_n"></div>
+                        <div class="box-number white hide" id="box_o"></div>      
                         <p class="legal-notice">*Position communiquée sous réserve de vérification par l’Organisateur, basée sur les données de sorties de caisse des Participants.</p>           
                     </div>     
                 </div>
@@ -1024,4 +1036,78 @@
       window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
     }
 </script>
+  <script>
+    window.addEventListener('message', function(event) {
+        if (event.data === 'close') {
+            console.log('Received "close" message from child');
+            window.location.reload();
+        }
+    });    
+    window.addEventListener('load', () => {
+    function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
+        // Get the query string from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get(queryValue);
+        
+        // Check if the query value exists and log if found
+        if (query) {
+            console.log(`Breeze - gR - ${queryValue} found`);
+        }
+        
+        // If both query and objectName exist, make the fetch call
+        if (query && objectName) {
+            console.log('Breeze - gR - fetching retailer')
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    objectName: objectName,
+                    query: query
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Breeze - gR - HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Breeze - gR - Fetch success:', data);
+                
+                // Check if structured_data exists in the response
+                if (data && data.structured_data) {
+                console.log("Breeze - gR - data and structured data", data.structured_data)
+
+                    Object.entries(data.structured_data).forEach(([key, value]) => {
+                        console.log(key,value);
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = value;
+                        } else {
+                            console.log(`Element with ID '${key}' not found`);
+                        }
+                    });
+                  if ( data.structured_data.september_quiz_played === true ) {
+                    console.log('Breeze - gR - September quiz Played');
+                    document.querySelector('#september-quiz-closed').style.display = 'flex';
+                    document.querySelector('#september-quiz').style.display = 'none';
+                  }
+                if (!data.structured_data.oct_game) {
+                    console.log("SD - Oct game not played")
+                }                          
+                } else {
+                    console.log('Breeze - gR - No structured_data found in response');
+                }
+            })
+            .catch(error => {
+                console.error('Breeze - gR - Fetch error:', error);
+            });
+        }
+    }  
+    getRetailer('france_iam');  
+        
+    }); 
+</script>   
 </html>
