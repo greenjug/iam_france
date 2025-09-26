@@ -395,18 +395,22 @@
         font-family: 'NeulandGroteskLight';
         font-size:10px;
     }
-    .modal-content {
+    .gamequiz {
         background-color: transparent;
         aspect-ratio: 9/15.94;
         width: auto;
         padding: 0;
         border-radius: 0;
     }    
-    .modal-content iframe {
+    .gamequiz iframe {
         height:85vh;
         max-height: 85vh;
-        aspect-ratio: 9/16;
+        aspect-ratio: 9/15.94;
     }    
+    .close-btn {
+        top:0;
+        right:10px;
+    }       
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -881,7 +885,7 @@
 <!-- End Modal Two -->      
     <!-- Modal October Game -->
     <div id="modalOctGame" class="modal">
-        <div class="modal-content">
+        <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
             <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v1"></iframe>
         </div>
@@ -889,9 +893,9 @@
     <!-- End October Game -->       
     <!-- Modal October Quiz 1 -->
     <div id="modalOctQuiz1" class="modal">
-        <div class="modal-content">
+        <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/wheel/crs/v1"></iframe>
+            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/wheel/crs/v2"></iframe>
         </div>
     </div>
     <!-- End October Quiz 1 -->      

@@ -337,19 +337,7 @@
     .bg-red {
         background-color: #C8202E !important;
         cursor: pointer;
-    }
-    .collapsible {
-        max-height: 1000px; /* Large enough to cover content; adjust if needed */
-        opacity: 1;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        padding: 10px; /* Optional: for visual clarity */
-    }
-    .collapsible.closed {
-        opacity: 0;
-        height: 0;
-        padding: 0;
-    }    
+    }   
     .gains-one { 
         position:relative;
     }
@@ -365,18 +353,22 @@
         width: 60%;
         height: 14%;
     } 
-    .modal-content {
+    .gamequiz {
         background-color: transparent;
         aspect-ratio: 9/15.94;
         width: auto;
         padding: 0;
         border-radius: 0;
     }    
-    .modal-content iframe {
+    .gamequiz iframe {
         height:85vh;
         max-height: 85vh;
-        aspect-ratio: 9/16;
-    }       
+        aspect-ratio: 9/15.94;
+    }    
+    .close-btn {
+        top:0;
+        right:10px;
+    }
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -516,7 +508,7 @@
     <!-- Activities Section -->
     <!-- Modal October Game -->
     <div id="modalOctGame" class="modal">
-        <div class="modal-content">
+        <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
             <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v1"></iframe>
         </div>
@@ -524,9 +516,9 @@
     <!-- End October Game -->       
     <!-- Modal October Game -->
     <div id="modalOctQuiz1" class="modal">
-        <div class="modal-content">
+        <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v1"></iframe>
+            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v2"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
@@ -700,16 +692,9 @@
                     document.querySelector('#september-quiz-closed').style.display = 'flex';
                     document.querySelector('#september-quiz').style.display = 'none';
                   }
-                  if ( data.structured_data.september_ordered === true ) {
-                    console.log('Breeze - gR - September ordered');
-                    document.querySelector('#september-order-closed').style.display = 'flex';
-                    document.querySelector('#september-order').style.display = 'none';
-                  }                  
-                  if ( data.structured_data.september_game_played === true ) {
-                    console.log('Breeze - gR - Game Played');
-                    document.querySelector('#september-game-closed').style.display = 'block';
-                    document.querySelector('#september-game').style.display = 'none';
-                  }              
+                if (!data.structured_data.oct_game) {
+                    console.log("SD - Oct game not played")
+                }                          
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }
