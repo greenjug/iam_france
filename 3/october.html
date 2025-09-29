@@ -203,7 +203,7 @@
     .inner-circle {
         width: 75%;
         height: 75%;
-        background-color: #2980b9;
+        background-color: white;
         border-radius: 50%;
         position: absolute;
         top: 50%;
@@ -215,8 +215,8 @@
         height: 75%;    
     }
     .oct-game {
-        top: 63.25%;
-        left: 12%;
+        top: 63.05%;
+        left: 11.75%;
     }
     .oct-game-header {
         position:absolute;
@@ -361,6 +361,12 @@
         width: 29%;
         height: 6%;
     }      
+    .cta-overlay-7 {
+        top: 82%;
+        width: 44%;
+        height: 9%;
+        left: 28%;
+    }        
     .accordion-header {
         cursor: pointer;
         user-select: none;
@@ -418,7 +424,11 @@
         width: 80%;
         height: 80%;
         top: 7.5%;
-    }         
+    }   
+    .doorman {
+        width:100%;
+        object-fit: cover;
+    }            
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -545,14 +555,14 @@
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
             <div class="oct-game outer-circle" onclick="openModalOctGame()">
-                <div class="inner-circle bg-red"></div>
+                <div id="oct-game-circle" class="inner-circle"></div>
             </div>
             <img class="oct-game-footer" src="images/iam_500_rooftops.webp">
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div class="inner-circle bg-red">
-                    <img class="quiz-wheel" src="images/iam_wheel.webp">                    
+                <div id="oct-quiz-1-circle" class="inner-circle">
+                    <img id="oct-quiz-wheel" class="quiz-wheel hide" src="images/iam_wheel.webp">                    
 
                 </div>
             </div>
@@ -900,19 +910,23 @@
     <!-- Modal October Game -->
     <div id="modalOctGame" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v2"></iframe>
+            <span class="close-btn" onclick="closeModalOctGame();window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v3"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
     <!-- Modal October Quiz 1 -->
     <div id="modalOctQuiz1" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/wheel/crs/v4"></iframe>
+            <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/wheel/crs/v4" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/crs/v3"></iframe>
         </div>
     </div>
-    <!-- End October Quiz 1 -->      
+    <!-- End October Quiz 1 -->        
 </body>
 <script src="js/uqse.js" type="text/javascript"></script>  
 <script>
@@ -1009,10 +1023,59 @@
 
     // Open modal function
     function openModalOctGame() {
-      modalOctGame.style.display = "flex";
+        const iframe = document.getElementById('oct-game-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctGame.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        // Set the src attribute and optionally remove data-br-temp-src
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');  
+        modalOctGame.style.display = "flex";
     }
     function openModalOctQuiz1() {
-      modalOctQuiz1.style.display = "flex";
+        const iframe = document.getElementById('oct-quiz-1-iframe');
+        if (!iframe || (!iframe.hasAttribute('data-br-temp-src-wheel') && !iframe.hasAttribute('data-br-temp-src-nowheel'))) {
+            modalOctQuiz1.style.display = "flex";
+            return;
+        }
+
+        let srcValue;
+        if (iframe.hasAttribute('data-wheel-played')) {
+            const wheelValue = iframe.getAttribute('data-wheel-played');
+            srcValue = wheelValue === 'true' 
+                ? iframe.getAttribute('data-br-temp-src-nowheel') 
+                : iframe.getAttribute('data-br-temp-src-wheel');
+        } else {
+            // Fallback: prioritize wheel if no data-wheel-played
+            srcValue = iframe.hasAttribute('data-br-temp-src-wheel') 
+                ? iframe.getAttribute('data-br-temp-src-wheel') 
+                : iframe.getAttribute('data-br-temp-src-nowheel');
+        }
+
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }        
+        // Set the src attribute and remove both data attributes
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src-wheel');
+        iframe.removeAttribute('data-br-temp-src-nowheel');        
+        modalOctQuiz1.style.display = "flex";
     }
     // Close modal function
     function closeModalOctGame() {
@@ -1021,7 +1084,6 @@
     function closeModalOctQuiz1() {
       modalOctQuiz1.style.display = "none";
     }    
-
     // Close modal when clicking outside
     window.onclick = function(event) {
       if (event.target === modalOctGame) {
@@ -1036,7 +1098,7 @@
       window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
     }
 </script>
-  <script>
+<script>
     window.addEventListener('message', function(event) {
         if (event.data === 'close') {
             console.log('Received "close" message from child');
@@ -1078,8 +1140,7 @@
                 
                 // Check if structured_data exists in the response
                 if (data && data.structured_data) {
-                console.log("Breeze - gR - data and structured data", data.structured_data)
-
+                    console.log("Breeze - gR - data and structured data", data.structured_data)
                     Object.entries(data.structured_data).forEach(([key, value]) => {
                         console.log(key,value);
                         const element = document.getElementById(key);
@@ -1089,14 +1150,33 @@
                             console.log(`Element with ID '${key}' not found`);
                         }
                     });
-                  if ( data.structured_data.september_quiz_played === true ) {
-                    console.log('Breeze - gR - September quiz Played');
-                    document.querySelector('#september-quiz-closed').style.display = 'flex';
-                    document.querySelector('#september-quiz').style.display = 'none';
-                  }
-                if (!data.structured_data.oct_game) {
-                    console.log("SD - Oct game not played")
-                }                          
+                    // Oct game
+                    const octGame = document.getElementById('oct-game-circle');
+                    if (data?.structured_data?.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        octGame.classList.toggle('bg-green',true);
+                        const octGameParent = octGame.parentElement;
+                        octGameParent.style.animationPlayState = 'paused';
+                        const doorman = document.getElementById('doorman-wrapper');
+                        doorman.classList.toggle('hide', true);                        
+                    } else {
+                        octGame.classList.toggle('bg-red',true);
+                    }
+                    // Oct Quiz 1
+                    const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+                    if (data?.structured_data?.oct_quiz_1 === true) {
+                        console.log('Breeze - gR - Oct Quiz 1 Played');
+                        octQuiz1.classList.toggle('bg-green',true);
+                        const octQuizIframe = document.getElementById('oct-quiz-1-iframe');
+                        octQuizIframe.setAttribute('data-wheel-played', true);
+                        const octQuiz1Parent = octQuiz1.parentElement;
+                        octQuiz1Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        octQuiz1.classList.toggle('bg-red',true);
+                        octQuiz1.setAttribute('data-wheel-played', true);
+                        const oct_wheel = document.getElementById('oct-quiz-wheel')
+                        oct_wheel.classList.toggle('hide',false);                           
+                    }                    
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }

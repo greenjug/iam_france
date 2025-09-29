@@ -211,7 +211,7 @@
     .inner-circle {
         width: 75%;
         height: 75%;
-        background-color: #2980b9;
+        background-color: white;
         border-radius: 50%;
         position: absolute;
         top: 50%;
@@ -223,8 +223,8 @@
         height: 75%;    
     }
     .oct-game {
-        top: 63.25%;
-        left: 12%;
+        top: 63.05%;
+        left: 11.75%;
     }
     .oct-game-header {
         position:absolute;
@@ -350,6 +350,12 @@
         width: 60%;
         height: 14%;
     }   
+    .cta-overlay-7 {
+        top: 82%;
+        width: 44%;
+        height: 9%;
+        left: 28%;
+    }    
     .gamequiz {
         background-color: transparent;
         aspect-ratio: 9/15.94;
@@ -367,6 +373,10 @@
     .close-btn {
         top:0;
         right:10px;
+    }    
+    .doorman {
+        width:100%;
+        object-fit: cover;
     }       
     @keyframes pulse {
         0% {
@@ -430,7 +440,10 @@
         .products-one {
             margin-bottom: 30px;
         }
-    }         
+    }       
+    .hide {
+        display:none;
+    }      
 </style>
 </head>
 <body>
@@ -471,13 +484,13 @@
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
             <div class="oct-game outer-circle" onclick="openModalOctGame()">
-                <div class="inner-circle bg-red"></div>
+                <div id="oct-game-circle" class="inner-circle"></div>
             </div>
             <!-- <img class="oct-game-footer" src="images/iam_quiz_1_date_nr.webp"> -->
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div class="inner-circle bg-red"></div>
+                <div id="oct-quiz-1-circle" class="inner-circle"></div>
             </div>
             <!-- <img class="oct-quiz-1-footer" src="images/iam_quiz_1_date_nr.webp"> -->
             <!-- Quiz 2 -->
@@ -522,7 +535,7 @@
     <div id="modalOctGame" class="modal">
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v2"></iframe>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_no_landing"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
@@ -530,7 +543,11 @@
     <div id="modalOctQuiz1" class="modal">
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+            <div id="doorman-wrapper" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
+            </div>            
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
         </div>
     </div>
     <!-- End October Quiz 1 -->       
@@ -622,10 +639,43 @@
 
     // Open modal function
     function openModalOctGame() {
-      modalOctGame.style.display = "flex";
+        const iframe = document.getElementById('oct-game-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctGame.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        // Set the src attribute and optionally remove data-br-temp-src
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');  
+        modalOctGame.style.display = "flex";
     }
     function openModalOctQuiz1() {
-      modalOctQuiz1.style.display = "flex";
+        const iframe = document.getElementById('oct-quiz-1-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz1.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz1.style.display = "flex";
     }
     // Close modal function
     function closeModalOctGame() {
@@ -646,4 +696,96 @@
     };
 // End October Modals
 </script>
+<script>
+    window.addEventListener('message', function(event) {
+        if (event.data === 'close') {
+            console.log('Received "close" message from child');
+            window.location.reload();
+        }
+    });    
+    window.addEventListener('load', () => {
+    function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
+        // Get the query string from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get(queryValue);
+        
+        // Check if the query value exists and log if found
+        if (query) {
+            console.log(`Breeze - gR - ${queryValue} found`);
+        }
+        
+        // If both query and objectName exist, make the fetch call
+        if (query && objectName) {
+            console.log('Breeze - gR - fetching retailer')
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    objectName: objectName,
+                    query: query
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Breeze - gR - HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Breeze - gR - Fetch success:', data);
+                
+                // Check if structured_data exists in the response
+                if (data && data.structured_data) {
+                    console.log("Breeze - gR - data and structured data", data.structured_data)
+                    Object.entries(data.structured_data).forEach(([key, value]) => {
+                        console.log(key,value);
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = value;
+                        } else {
+                            console.log(`Element with ID '${key}' not found`);
+                        }
+                    });
+                    // Oct game
+                    const octGame = document.getElementById('oct-game-circle');
+                    if (data?.structured_data?.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        octGame.classList.toggle('bg-green',true);
+                        const octGameParent = octGame.parentElement;
+                        octGameParent.style.animationPlayState = 'paused';
+                        const doorman = document.getElementById('doorman-wrapper');
+                        doorman.classList.toggle('hide', true);                        
+                    } else {
+                        octGame.classList.toggle('bg-red',true);
+                    }
+                    // Oct Quiz 1
+                    const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+                    if (data?.structured_data?.oct_quiz_1 === true) {
+                        console.log('Breeze - gR - Oct Quiz 1 Played');
+                        octQuiz1.classList.toggle('bg-green',true);
+                        const octQuizIframe = document.getElementById('oct-quiz-1-iframe');
+                        octQuizIframe.setAttribute('data-wheel-played', true);
+                        const octQuiz1Parent = octQuiz1.parentElement;
+                        octQuiz1Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        octQuiz1.classList.toggle('bg-red',true);
+                        octQuiz1.setAttribute('data-wheel-played', true);
+                        const oct_wheel = document.getElementById('oct-quiz-wheel')
+                        oct_wheel.classList.toggle('hide',false);                           
+                    }                    
+                } else {
+                    console.log('Breeze - gR - No structured_data found in response');
+                }
+            })
+            .catch(error => {
+                console.error('Breeze - gR - Fetch error:', error);
+            });
+        }
+    }  
+    getRetailer('france_iam');  
+        
+    }); 
+</script>   
 </html>
