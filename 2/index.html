@@ -3,329 +3,783 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marlboro IAM France | Teaser</title>
+<title>Marlboro IAM France | October </title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="css/main.css">
 <style>
-@font-face {
-font-family: 'Hackney';
-src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
-        }
-html {
-        scroll-behavior: smooth;
-}          
-body {
-margin: 0;
-padding: 0;
-font-family: 'Hackney', sans-serif;
-background: url('images/iam_background.webp') no-repeat center 40px ;
-background-size: cover;
-color: #fff;
-display: flex;
-flex-direction: column;
-align-items: center;
-min-height: 100vh;
-max-width: 100%;
-text-align: center;
-background-color: #000;
-        }
-.logo {
-margin-top: 20px;
-        }
-.logo img {
-max-width: 150px;
-height: auto;
-        }
-.countdown-label {
-font-size: 1.5rem;
-margin-bottom: 10px;
-        }
-.countdown {
-margin: 80px 0;
-font-size: 2rem;
-        }
-.countdown span {
-margin: 0 10px;
-color: white;
-font-size:4rem;
-        }
-.cta-container {
-position: relative;
-margin: 20px 0;
-max-width: 820px;
-        }
-.cta-image {
-max-width: 100%;
-height: auto;
-        }
-.cta-overlay {
-/* background-color: green; */
-position: absolute;
-cursor: pointer;
-border-radius:30px;
-cursor: pointer;
-        }
-.cta-overlay-1 {
-top: 84%;
-left: 26%;
-width: 44%;
-height: 11%;
-        }
-.cta-overlay-2 {
-top: 77%;
-left: 2%;
-width: 42%;
-height: 11%;
-        }
-.cta-overlay-3 {
-top: 70%;
-left: 1.25%;
-width: 42%;
-height: 13%;
-        }
-.boxes {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 20px;
-/* padding: 20px; */
-max-width: 1200px;
-width: 100%;
-        }
-.box {
-overflow: hidden;
-padding: 10px;
-display: flex;
-align-items: center;
-position: relative;
-        }
-.box img {
-width: 100%;
-height: auto;
-display: block;
-        }
-.cta-button {
-display: inline-block;
-padding: 10px 20px;
-background-color: #ff0000;
-color: #fff;
-text-decoration: none;
-margin: 10px 0;
-border: 2px solid #000;
-        }
-.product-section {
-margin-top: 20px;
-text-align: center;
-        }
-.product-section h2 {
-font-size: 2rem;
-        }
-.colon {
-color: #ff0000 !important;
-        }
-.labels {
-font-size: 1.5rem !important;
-width:100px;
-        }
-.countdown-item {
-display: flex;
-        }
-.countdown-item > div {
-width:90px !important;
-font-size: 7rem;
-        }
-.product-section .cta {
-display: inline-block;
-padding: 10px 20px;
-background-color: #ff0000;
-color: #fff;
-text-decoration: none;
-margin-top: 10px;
-border: 2px solid #000;
-        }
-.nav {
-        background-color: black;
+    @font-face {
+        font-family: 'Hackney';
+        src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }    
+    @font-face {
+        font-family: 'NeulandGroteskLight';
+        src: url('fonts/NeulandGrotesk-Light.otf') format('opentype');
+        font-weight: 300;  /* Light weight */
+        font-style: normal;
+        font-display: swap; 
+    }     
+    a.nav-item {
+      font-family: 'NeulandGroteskLight', sans-serif !important;
+    }
+    .activities {
+        position: relative;
+        max-width: 1920px;
+    }
+    .activities_october_container {
+        position: relative;
+        /* background-image: url('images/iam_background_oct.webp'); */
+        background-size: cover;
+        background-position: center;        
+    }
+    .activities_header {
+        max-width: 100%;
+        width: 50%;                
+    }
+    .activities_october_graph {
+        width:100%;
+    }
+    .activities_october_arrow {
+        display:none;
+        position:absolute;
+        width: 40px;
+        top:24%;
+        left: calc( 50% - 20px);
+    }
+    .cta-overlay  {
+        /* background-color: green; */
+        position: absolute;
+    }
+    .cta-overlay-1 {
+        top: 87%;
+        left: 40.75%;
+        width: 17%;
+        height: 12%;
+    }
+    .leaderboard-headers {
+        max-width: 100%;
+        margin:0 auto;
+    }
+    .leaderboard-header-one {
+        position: relative;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .leaderboard-header-one-img {
+        width:50%;
+    }
+    .leaderboard-header-two-img {
+        width:50%;
+        margin-bottom: 50px;
+    }
+    .leaderboard-tables {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .leaderboard-table-a, .leaderboard-table-b, .leaderboard-table-c {
+        position: relative;
+    }
+    .leaderboard-table-a-img, .leaderboard-table-b-img, .leaderboard-table-c-img {
+        width: 100%;
+        position: relative;
+    }
+    .leaderboard-table-a-header, .leaderboard-table-b-header, .leaderboard-table-c-header {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color:black;
+    }
+    .leaderboard-table-a-header {
+        background-color:#C8202E
+    }
+    .leaderboard-table-chevron {
+        height:16px;
+    }
+    .leaderboard-table-text {
+      font-family: 'NeulandGroteskLight', sans-serif;
+    }
+    .box-number {
+        position: absolute;
+        width: 33.333%;
+        height: 21%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        text-decoration: none;
-}
-.nav-item {
-        color: white;
-        margin-left: 5%;
-        margin-right: 5%;
-        text-decoration: none;
+        font-size: 90px; 
+    }
+    .white {
+        color: white !important;
+    }
+    .black {
+        color: black !important;
+    }
+    .red {
+        color:#C8202E
+    }
+    .green {
+        color:#6DD352;
+    }    
+    #box_a {
+        top: 12%;
+        left: 0%;   
+    }
+    #box_b {
+        top: 12%;
+        left: 33.333%;   
+    }    
+    #box_c {
+        top: 12%;
+        left: 66.666%;   
+    }   
+    #box_d {
+        top: 45%;
+        left: 0%;   
+    }
+    #box_e {
+        top: 45%;
+        left: 33.333%;   
+    }    
+    #box_f {
+        top: 45%;
+        left: 66.666%;   
+    }        
+    #box_g {
+        top: 78%;
+        left: 0%;   
+    }
+    #box_h {
+        top: 78%;
+        left: 33.333%;   
+    }    
+    #box_i {
+        top: 78%;
+        left: 66.666%;   
+    }    
+    /*  Table B */
+    #box_j {
+        height:63%;
+        top: 36%;
+        left: 0%;   
+    }
+    #box_k {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_l {
+        top: 36%;
+        height:63%;
+        left: 66.666%;   
+    }    
+    /*  Table C */
+    #box_m {
+        height:63%;
+        top: 36%;
+        left: 0%;    
+    }
+    #box_n {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_o {
+        top: 36%;
+        height:63%;
+        left: 66.666%;  
+    }       
+    /* Products */
+    .products {
+        max-width: 1920px;
+    }
+    /* circles */
+    .outer-circle {
+        width: 5%;
+        height: 15%;
+        background-color: #FFFFFF66;
+        border-radius: 50%;
+        position: absolute;
+        animation: pulse 2s ease-in-out infinite;
+        z-index: 10;
+    }
+    .outer-circle.quiz {
+        width: 4%;
+        height: 12%;
+    }
+    .inner-circle {
+        width: 75%;
+        height: 75%;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .inner-circle.quiz {
+        width: 75%;
+        height: 75%;    
+    }
+    .oct-game {
+        top: 63.05%;
+        left: 11.75%;
+    }
+    .oct-game-header {
+        position:absolute;
+        top: 53%;
+        left: 12%;
+        width: 5%;
+    }    
+    .oct-game-footer {
+        position:absolute;
+        top: 81%;
+        left: 11.5%;
+        width: 6%;
+    }     
+    .oct-quiz-1 {
+        top: 37%;
+        left: 39%;
+    }  
+    .oct-quiz-1-header {
+        position:absolute;
+        top: 30.5%;
+        left: 38.3%;
+        width: 5%;
+    }   
+    .oct-quiz-1-footer {
+        position:absolute;
+        top: 51%;
+        left: 37.95%;
+        width: 6%;
+    }         
+    .oct-quiz-2 {
+        top: 36.5%;
+        left: 55%;
+    }  
+    .oct-quiz-2.quiz-closed {
+        top: 33%;
+        left: 54.75%;
+    }
+    .oct-quiz-2-header {
+        position:absolute;
+        top: 27%;
+        left: 54%;
+        width: 5%;
+    }    
+    .oct-quiz-2-footer {
+        position:absolute;
+        top: 47.5%;
+        left: 53%;
+        width: 8%;
+    }        
+    .oct-quiz-3 {
+        top: 31%;
+        left: 70%;
+    }     
+    .oct-quiz-3.quiz-closed {
+        top: 27%;
+        left: 69.75%;
+    }    
+    .oct-quiz-3-header {
+        position:absolute;
+        top: 21%;
+        left: 69%;
+        width: 5%;
+    }    
+    .oct-quiz-3-footer {
+        position:absolute;
+        top: 41%;
+        left: 68.25%;
+        width: 8%;
+    }     
+    .oct-quiz-4 {
+        top: 24%;
+        left: 83%;
+    }  
+    .oct-quiz-4.quiz-closed {
+        top: 20.5%;
+        left: 82.75%;
+    }     
+    .oct-quiz-4-header {
+        position:absolute;
+        top: 14.75%;
+        left: 82%;
+        width: 5%;
+    }   
+    .oct-quiz-4-footer {
+        position:absolute;
+        top: 34.5%;
+        left: 81%;
+        width: 8%;
+    }  
+    .quiz-closed {
+        position: absolute;
+        width:4%;
+    }       
+    .bg-green {
+        background-color: #6DD352 !important;
         cursor: pointer;
-}        
-@media (max-width: 767.99px) {
-.boxes {
-grid-template-columns: 1fr;
-max-width: 100%;
-width: 100%;
-            }
-.slogan {
-font-size: 2rem;
-            }
-.colon {
-color: #ff0000 !important;
-            }
-.box {
-padding: 30px;
-            }
-.boxes {
-gap: 50px;
-            }
-.boxes {
-grid-template-columns: 1fr;
-            }
-.boxes {
-display: flex;
-flex-direction: column;
-            }
-.boxes .box:nth-child(3) {
-order: 4;
-            }
-.boxes .box:nth-child(4) {
-order: 3;
-            }
-.countdown-item {
-display: flex;
-            }
-.countdown-item > div {
-width:70px !important;
-font-size: 6rem;
-            }
-.labels {
-width:50px;
-font-size: 2rem !important;
-            }
-.cta-container {
-max-width: 100%;
-width:100%;
-            }
-.cta-overlay-2 {
-top: 76%;
-left: 5%;
-width: 40%;
-height: 18%;
-            }
-.cta-overlay-3 {
-top: 75%;
-left: 3%;
-width: 42%;
-height: 18%;
-            }
+    }
+    .bg-red {
+        background-color: #C8202E !important;
+        cursor: pointer;
+    }
+    /* End circles */    
+    .bg-green {
+        background-color: #6DD352 !important;
+        cursor: pointer;
+    }
+    .bg-red {
+        background-color: #C8202E !important;
+        cursor: pointer;
+    }
+    .gains-one { 
+        position:relative;
+    }
+    .cta-overlay-4 {
+        top: 61.5%;
+        left: 6.775%;
+        width: 52%;
+        height: 13.5%;
+    }
+    .cta-overlay-5 {
+        top: 78%;
+        left: 7%;
+        width: 60%;
+        height: 14%;
+    }   
+    .cta-overlay-7 {
+        top: 82%;
+        width: 44%;
+        height: 9%;
+        left: 28%;
+    }    
+    .gamequiz {
+        background-color: transparent;
+        aspect-ratio: 9/15.94;
+        width: auto;
+        padding: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }    
+    .gamequiz iframe {
+        height:85vh;
+        max-height: 85vh;
+        aspect-ratio: 9/15.94;
+        overflow: hidden;
+    }     
+    .close-btn {
+        top:0;
+        right:10px;
+    }    
+    .doorman {
+        width:100%;
+        object-fit: cover;
+    }       
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
         }
-@media (max-width: 390px) {
-.countdown-item > div {
-width:45px !important;
-font-size: 3.8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:45px;
-            }
-.countdown {
-margin: 50px;
-            }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.7;
         }
-@media (max-width: 500px) {
-.countdown-item > div {
-width:45px !important;
-font-size: 3.8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:45px;
-            }
-.countdown {
-margin: 50px;
-            }
+        100% {
+            transform: scale(1);
+            opacity: 1;
         }
-@media (min-width: 1000px) {
-.countdown-item > div {
-width:140px !important;
-font-size: 8rem;
-            }
-.labels {
-font-size: 1rem !important;
-width:35px;
-font-size: 2rem !important;
-            }
+    } 
+    @media screen and (max-width: 768px){
+        .landing-images {
+            width: 150%;
+            margin-top: 10%;
+            left: -25%;
         }
+        .gains-one {
+            max-width: 100%;
+            width: 80%;
+            margin: 0 auto;            
+        }           
+        .gains-two {
+            max-width: 100%;
+            width: 80%;
+            margin: 0 auto;       
+            margin-top: 10%;
+        }             
+        .accordion {
+            margin-left: 10px;
+            margin-right: 10px;            
+        }   
+        .box-number {
+            font-size:70px;
+        }
+    }
+       @media screen and (max-width: 600px){
+        .box-number {
+            font-size:60px;
+        }
+        .legal-notice {
+            width:100%;
+        }
+    } 
+    @media screen and (max-width: 500px){
+        .box-number {
+            font-size:40px;
+        }    
+        .products {
+            display: flex;
+            flex-direction: column;
+        }     
+        .products-one, .products-two {
+            max-width: 80%;
+            width: 80%;
+        }
+        .products-one {
+            margin-bottom: 30px;
+        }
+    }       
+    .hide {
+        display:none;
+    }      
 </style>
 </head>
 <body>
-<div class="nav">
-        <!-- <a href="#challenge" class="nav-item">CHALLENGE</a> -->
-        <a href="#produits" class="nav-item">PRODUITS</a>
-</div>        
-<div class="logo">
-<img src="images/iam_logo.webp" alt="I AM Logo">
-</div>
-<div class="countdown" id="countdown">
-<div class="countdown-item">
-<div id="days">00</div>
-<div class="colon">:</div>
-<div id="hours">00</div>
-<div class="colon">:</div>
-<div id="minutes">00</div>
-<div class="colon">:</div>
-<div id="seconds">00</div>
-</div>
-<div class="countdown-item">
-<div class="labels">Jours</div>
-<div class="labels"></div>
-<div class="labels">Heures</div>
-<div class="colon"></div>
-<div class="labels">Minutes</div>
-<div class="colon"></div>
-<div class="labels">Secondes</div>
-</div>
-</div>
-<!-- <lottie-player src="lotties/teaser.json" background="transparent" speed="5" style="width: 300px; height: 300px;" loop autoplay></lottie-player> -->
-<div class="cta-container" id="challenge">
-    <img src="images/iam_headline_3.webp" alt="Ascension CTA" class="cta-image">
-    <div class="cta-overlay cta-overlay-1" onclick="alert('CTA 1 clicked')"></div>
-</div>
-<div class="boxes">
-    <div class="box" id="produits">
-        <img src="images/iam_box3_pack_1.webp" alt="PS5"></div>
-    <div class="box">
-     <img src="images/iam_box4_v8.webp" alt="Voyages">
-        <!-- <a href="https://fr.pmiopen.com/s/bca" target="_blank" class="cta-overlay cta-overlay-3"></a> -->
+    <!-- Header section -->
+    <section class="landing">
+        <!-- End Nav -->
+        <div class="landing-nav">
+            <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
+            <a href="#produits" class="nav-item">PRODUITS</a>
+        </div>
+        <!-- End Nav -->
+        <!-- Hero -->
+        <div class="landing-logo">
+            <img src="images/iam_logo.webp" alt="I AM Logo">
+        </div>    
+        <div class="landing-title" id="challenge">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
+            <a class="landing-title-img-cta" href="#actions_digitales"></a>
+        </div>
+        <div class="landing-images">
+            <img class="landing-images-img" src="images/iam_cards.webp">
+            </div>            
+        </div>    
+        <!-- End Hero -->
+    </section>
+    <!-- End Header section -->    
+    <!-- Engage section -->
+    <section class="engage">
+    </section>
+    <!-- End Engage section -->
+    <!-- Activities Section -->
+    <section class="activities" id="actions_digitales">
+        <img class="activities_header" src="images/iam_activities_header_v2.webp">
+        <img class="activities_october" src="images/iam_activities_october_v2.webp">
+        <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
+        <div class="activities_october_container" id="octDiv">
+            <img class="activities_october_graph" src="images/iam_progress_graph.webp">
+            <!-- Game -->
+            <img class="oct-game-header" src="images/iam_game.webp">
+            <div class="oct-game outer-circle" onclick="openModalOctGame()">
+                <div id="oct-game-circle" class="inner-circle"></div>
+            </div>
+            <!-- <img class="oct-game-footer" src="images/iam_quiz_1_date_nr.webp"> -->
+            <!-- Quiz 1 -->
+            <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
+            <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
+                <div id="oct-quiz-1-circle" class="inner-circle"></div>
+            </div>
+            <!-- <img class="oct-quiz-1-footer" src="images/iam_quiz_1_date_nr.webp"> -->
+            <!-- Quiz 2 -->
+            <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp">
+            <img class="oct-quiz-2 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-2-footer" src="images/iam_quiz_2_date_nr.webp">
+            <!-- <div class="oct-quiz-2 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->
+            <!-- Quiz 3 -->
+            <img class="oct-quiz-3-header" src="images/iam_quiz_3.webp">
+            <img class="oct-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-3-footer" src="images/iam_quiz_3_date_nr.webp">
+            <!-- <div class="oct-quiz-3 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->
+            <!-- Quiz 4 -->
+            <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp">
+            <img class="oct-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-4-footer" src="images/iam_quiz_4_date_nr.webp">
+            <!-- <div class="oct-quiz-4 outer-circle quiz">
+                <div class="inner-circle bg-green"></div>
+            </div> -->                   
+        </div>
+        
+        <img class="activities_november" src="images/iam_activities_november_closed.webp">
+        <img class="activities_december" src="images/iam_activities_december_closed.webp">
+    </section>
+    <!-- Activities Section -->
+    <!-- Product Section -->
+    <section class="products" id="produits">    
+        <div class="products-one">
+            <img class="products-one-img" src="images/iam_pack_1.webp">
+        </div>
+        <div class="products-two">
+            <img class="products-two-img" src="images/iam_pack_2_v2.webp">
+        </div>            
+    </section>
+    <!-- End Product Section -->        
+
+    <!-- Modal October Game -->
+    <div id="modalOctGame" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctGame();window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v4_nolanding"></iframe>
+        </div>
     </div>
-</div>
-<script>
-function updateCountdown() {
-const startDate = new Date('October 1, 2025 00:00:00').getTime();
-const endDate = new Date('December 31, 2025 23:59:59').getTime();
-const now = new Date().getTime();
-let timeLeft;
-if (now < startDate) {
-timeLeft = startDate - now;
-            } else if (now <= endDate) {
-timeLeft = endDate - now;
-            } else {
-document.getElementById('countdown').textContent = 'Event has ended!';
-clearInterval(countdownInterval);
-return;
-            }
-const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-document.getElementById('days').textContent = String(days).padStart(2, '0');
-document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-const countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
+    <!-- End October Game -->       
+    <!-- Modal October Quiz 1 -->
+    <div id="modalOctQuiz1" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>           
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 1 -->       
 </body>
+<script src="js/uqse.js" type="text/javascript"></script>  
+<script>
+// Nav 
+ function navNov() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+  function navNov2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+// End Nav
+// Info Modals
+    const modalOne = document.getElementById("modalOne");
+    const modalTwo = document.getElementById("modalTwo");
+
+    // Open modal function
+    function openModalOne() {
+      modalOne.style.display = "flex";
+    }
+    function openModalTwo() {
+      modalTwo.style.display = "flex";
+    }
+    // Close modal function
+    function closeModalOne() {
+      modalOne.style.display = "none";
+    }
+    function closeModalTwo() {
+      modalTwo.style.display = "none";
+    }    
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOne) {
+        closeModalOne();
+      }
+      if (event.target === modalTwo) {
+        closeModalTwo();
+      }      
+    };
+// End Info Modals
+// October Modals
+    const modalOctGame = document.getElementById("modalOctGame");
+    const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
+
+    // Open modal function
+    function openModalOctGame() {
+        const iframe = document.getElementById('oct-game-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctGame.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        // Set the src attribute and optionally remove data-br-temp-src
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');  
+        modalOctGame.style.display = "flex";
+    }
+    function openModalOctQuiz1() {
+        const iframe = document.getElementById('oct-quiz-1-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz1.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz1.style.display = "flex";
+    }
+    // Close modal function
+    function closeModalOctGame() {
+      modalOctGame.style.display = "none";
+    }
+    function closeModalOctQuiz1() {
+      modalOctQuiz1.style.display = "none";
+    }    
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOctGame) {
+        closeModalOctGame();
+      }
+      if (event.target === openModalOctQuiz1) {
+        closeModalOctQuiz1();
+      }      
+    };
+// End October Modals
+</script>
+<script>
+    window.addEventListener('message', function(event) {
+        if (event.data === 'close') {
+            window.location.reload();
+            return;
+        }
+        if (typeof event.data === 'object' && event.data.type === 'close') {
+            window.location.reload();
+        }
+    }, { once: false });   
+    window.addEventListener('load', () => {
+    function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
+        // Get the query string from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get(queryValue);
+        
+        // Check if the query value exists and log if found
+        if (query) {
+            console.log(`Breeze - gR - ${queryValue} found`);
+        }
+        
+        // If both query and objectName exist, make the fetch call
+        if (query && objectName) {
+            console.log('Breeze - gR - fetching retailer')
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    objectName: objectName,
+                    query: query
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Breeze - gR - HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {                
+                // Check if structured_data exists in the response
+                if (data && data.structured_data) {
+                    console.log("Breeze - gR - Structured data", data.structured_data)
+                    Object.entries(data.structured_data).forEach(([key, value]) => {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = value;
+                        } 
+                    });
+                    // Oct game
+                    const octGame = document.getElementById('oct-game-circle');
+                    if (data?.structured_data?.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        octGame.classList.toggle('bg-green',true);
+                        const octGameParent = octGame.parentElement;
+                        octGameParent.style.animationPlayState = 'paused';                     
+                    } else {
+                        octGame.classList.toggle('bg-red',true);
+                    }
+                    // Oct Quiz 1
+                    const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+                    if (data?.structured_data?.oct_quiz_1 === true) {
+                        console.log('Breeze - gR - Oct Quiz 1 Played');
+                        octQuiz1.classList.toggle('bg-green',true);
+
+                        const octQuiz1Parent = octQuiz1.parentElement;
+                        octQuiz1Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        octQuiz1.classList.toggle('bg-red',true);                         
+                    }                    
+                } else {
+                    console.log('Breeze - gR - No structured_data found in response');
+                }
+            })
+            .catch(error => {
+                console.error('Breeze - gR - Fetch error:', error);
+            });
+        } else {
+            console.log('Breeze - gR - No querystring. Setting defaults');
+            const octGame = document.getElementById('oct-game-circle');
+            octGame.classList.toggle('bg-red',true);
+            const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+            octQuiz1.classList.toggle('bg-red',true);
+        }
+    }  
+    getRetailer('france_iam');  
+        
+    }); 
+</script>   
 </html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marlboro IAM France | Teaser</title>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<style>
+@font-face {
+font-family: 'Hackney';
+src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+        }
+html {
+        scroll-behavior: smooth;
+}          
+body {
+margin: 0;
+padding: 0;
+font-family: 'Hackney', sans-serif;
+background: url('images/iam_background.webp') no-repeat center 0px ;
+background-size: cover;
+color: #fff;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 100vh;
+max-width: 100%;
+text-align: center;
+background-color: #000;
+        }
+.logo {
+margin-top: 20px;
+        }
+.logo img {
+max-width: 150px;
+height: auto;
+        }
+.countdown-label {
+font-size: 1.5rem;
+margin-bottom: 10px;
+        }
+.countdown {
+margin: 80px 0;
+font-size: 2rem;
+        }
+.countdown span {
+margin: 0 10px;
+color: white;
+font-size:4rem;
+        }
+.cta-container {
+position: relative;
+margin: 20px 0;
+max-width: 820px;
+        }
+.cta-image {
+max-width: 100%;
+height: auto;
+        }
+.cta-overlay {
+/* background-color: green; */
+position: absolute;
+cursor: pointer;
+border-radius:30px;
+cursor: pointer;
+        }
+.cta-overlay-1 {
+top: 84%;
+left: 26%;
+width: 44%;
+height: 11%;
+        }
+.cta-overlay-2 {
+top: 77%;
+left: 2%;
+width: 42%;
+height: 11%;
+        }
+.cta-overlay-3 {
+top: 70%;
+left: 2%;
+width: 42%;
+height: 11%;
+        }
+.boxes {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+/* padding: 20px; */
+max-width: 1200px;
+width: 100%;
+        }
+.box {
+overflow: hidden;
+padding: 10px;
+display: flex;
+align-items: center;
+position: relative;
+        }
+.box img {
+width: 100%;
+height: auto;
+display: block;
+        }
+.cta-button {
+display: inline-block;
+padding: 10px 20px;
+background-color: #ff0000;
+color: #fff;
+text-decoration: none;
+margin: 10px 0;
+border: 2px solid #000;
+        }
+.product-section {
+margin-top: 20px;
+text-align: center;
+        }
+.product-section h2 {
+font-size: 2rem;
+        }
+.colon {
+color: #ff0000 !important;
+        }
+.labels {
+font-size: 1.5rem !important;
+width:100px;
+        }
+.countdown-item {
+display: flex;
+        }
+.countdown-item > div {
+width:90px !important;
+font-size: 7rem;
+        }
+.product-section .cta {
+display: inline-block;
+padding: 10px 20px;
+background-color: #ff0000;
+color: #fff;
+text-decoration: none;
+margin-top: 10px;
+border: 2px solid #000;
+        }
+.nav {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+}
+.nav-item {
+        color: white;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-decoration: none;
+        cursor: pointer;
+}        
+@media (max-width: 767.99px) {
+.boxes {
+grid-template-columns: 1fr;
+max-width: 100%;
+width: 100%;
+            }
+.slogan {
+font-size: 2rem;
+            }
+.colon {
+color: #ff0000 !important;
+            }
+.box {
+padding: 30px;
+            }
+.boxes {
+gap: 50px;
+            }
+.boxes {
+grid-template-columns: 1fr;
+            }
+.boxes {
+display: flex;
+flex-direction: column;
+            }
+.boxes .box:nth-child(3) {
+order: 4;
+            }
+.boxes .box:nth-child(4) {
+order: 3;
+            }
+.countdown-item {
+display: flex;
+            }
+.countdown-item > div {
+width:70px !important;
+font-size: 6rem;
+            }
+.labels {
+width:50px;
+font-size: 2rem !important;
+            }
+.cta-container {
+max-width: 100%;
+width:100%;
+            }
+.cta-overlay-2 {
+top: 76%;
+left: 5%;
+width: 40%;
+height: 18%;
+            }
+.cta-overlay-3 {
+top: 75%;
+left: 3%;
+width: 42%;
+height: 18%;
+            }
+        }
+@media (max-width: 390px) {
+.countdown-item > div {
+width:45px !important;
+font-size: 3.8rem;
+            }
+.labels {
+font-size: 1rem !important;
+width:45px;
+            }
+.countdown {
+margin: 50px;
+            }
+        }
+@media (max-width: 500px) {
+.countdown-item > div {
+width:45px !important;
+font-size: 3.8rem;
+            }
+.labels {
+font-size: 1rem !important;
+width:45px;
+            }
+.countdown {
+margin: 50px;
+            }
+        }
+@media (min-width: 1000px) {
+.countdown-item > div {
+width:140px !important;
+font-size: 8rem;
+            }
+.labels {
+font-size: 1rem !important;
+width:35px;
+font-size: 2rem !important;
+            }
+        }
+</style>
+</head>
+<body>
+<!-- <div class="nav">
+        <a href="#challenge" class="nav-item">CHALLENGE</a>
+        <a href="#gains" class="nav-item">GAINS</a>
+        <a href="#produits" class="nav-item">PRODUITS</a>
+</div> -->
+<div class="logo">
+<img src="images/iam_logo.webp" alt="I AM Logo">
+</div>
+<div class="countdown" id="countdown">
+<div class="countdown-item">
+<div id="days">00</div>
+<div class="colon">:</div>
+<div id="hours">00</div>
+<div class="colon">:</div>
+<div id="minutes">00</div>
+<div class="colon">:</div>
+<div id="seconds">00</div>
+</div>
+<div class="countdown-item">
+<div class="labels">Jours</div>
+<div class="labels"></div>
+<div class="labels">Heures</div>
+<div class="colon"></div>
+<div class="labels">Minutes</div>
+<div class="colon"></div>
+<div class="labels">Secondes</div>
+</div>
+</div>
+<!-- <lottie-player src="lotties/teaser.json" background="transparent" speed="5" style="width: 300px; height: 300px;" loop autoplay></lottie-player> -->
+<div class="cta-container">
+    <img src="images/iam_headline_3.webp" alt="Ascension CTA" class="cta-image">
+    <!-- <div class="cta-overlay cta-overlay-1" onclick="alert('CTA 1 clicked')"></div> -->
+</div>
+<!-- <div class="boxes">
+    <div class="box">
+        <img src="images/iam_box1.webp" alt="iPhone">
+        <div class="cta-overlay cta-overlay-2" onclick="alert('CTA 2 clicked')"></div>
+    </div>
+    <div class="box">
+        <img src="images/iam_box2.webp" alt="HomePod"></div>
+    <div class="box">
+        <img src="images/iam_box3.webp" alt="PS5"></div>
+    <div class="box">
+     <img src="images/iam_box4.webp" alt="Voyages">
+        <div class="cta-overlay cta-overlay-3" onclick="alert('CTA 3 clicked')"></div>
+    </div>
+</div> -->
+<script>
+function updateCountdown() {
+const startDate = new Date('October 1, 2025 00:00:00').getTime();
+const endDate = new Date('December 31, 2025 23:59:59').getTime();
+const now = new Date().getTime();
+let timeLeft;
+if (now < startDate) {
+timeLeft = startDate - now;
+            } else if (now <= endDate) {
+timeLeft = endDate - now;
+            } else {
+document.getElementById('countdown').textContent = 'Event has ended!';
+clearInterval(countdownInterval);
+return;
+            }
+const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+document.getElementById('days').textContent = String(days).padStart(2, '0');
+document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>
