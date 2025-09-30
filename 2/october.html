@@ -535,18 +535,14 @@
     <div id="modalOctGame" class="modal">
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
-            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_no_landing"></iframe>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_nolanding"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
     <!-- Modal October Quiz 1 -->
     <div id="modalOctQuiz1" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <div id="doorman-wrapper" class="quiz-slide quiz-active">
-                <img class="doorman" src="images/iam_holding.webp">
-                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
-            </div>            
+            <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>           
             <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
         </div>
     </div>
@@ -699,10 +695,13 @@
 <script>
     window.addEventListener('message', function(event) {
         if (event.data === 'close') {
-            console.log('Received "close" message from child');
+            window.location.reload();
+            return;
+        }
+        if (typeof event.data === 'object' && event.data.type === 'close') {
             window.location.reload();
         }
-    });    
+    }, { once: false });   
     window.addEventListener('load', () => {
     function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
         // Get the query string from the URL
@@ -733,20 +732,15 @@
                 }
                 return response.json();
             })
-            .then(data => {
-                console.log('Breeze - gR - Fetch success:', data);
-                
+            .then(data => {                
                 // Check if structured_data exists in the response
                 if (data && data.structured_data) {
-                    console.log("Breeze - gR - data and structured data", data.structured_data)
+                    console.log("Breeze - gR - Structured data", data.structured_data)
                     Object.entries(data.structured_data).forEach(([key, value]) => {
-                        console.log(key,value);
                         const element = document.getElementById(key);
                         if (element) {
                             element.innerHTML = value;
-                        } else {
-                            console.log(`Element with ID '${key}' not found`);
-                        }
+                        } 
                     });
                     // Oct game
                     const octGame = document.getElementById('oct-game-circle');
@@ -754,9 +748,7 @@
                         console.log('Breeze - gR - Oct Game Played');
                         octGame.classList.toggle('bg-green',true);
                         const octGameParent = octGame.parentElement;
-                        octGameParent.style.animationPlayState = 'paused';
-                        const doorman = document.getElementById('doorman-wrapper');
-                        doorman.classList.toggle('hide', true);                        
+                        octGameParent.style.animationPlayState = 'paused';                     
                     } else {
                         octGame.classList.toggle('bg-red',true);
                     }
@@ -765,15 +757,11 @@
                     if (data?.structured_data?.oct_quiz_1 === true) {
                         console.log('Breeze - gR - Oct Quiz 1 Played');
                         octQuiz1.classList.toggle('bg-green',true);
-                        const octQuizIframe = document.getElementById('oct-quiz-1-iframe');
-                        octQuizIframe.setAttribute('data-wheel-played', true);
+
                         const octQuiz1Parent = octQuiz1.parentElement;
                         octQuiz1Parent.style.animationPlayState = 'paused'; 
                     } else {
-                        octQuiz1.classList.toggle('bg-red',true);
-                        octQuiz1.setAttribute('data-wheel-played', true);
-                        const oct_wheel = document.getElementById('oct-quiz-wheel')
-                        oct_wheel.classList.toggle('hide',false);                           
+                        octQuiz1.classList.toggle('bg-red',true);                         
                     }                    
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
@@ -782,6 +770,12 @@
             .catch(error => {
                 console.error('Breeze - gR - Fetch error:', error);
             });
+        } else {
+            console.log('Breeze - gR - No querystring. Setting defaults');
+            const octGame = document.getElementById('oct-game-circle');
+            octGame.classList.toggle('bg-red',true);
+            const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+            octQuiz1.classList.toggle('bg-red',true);
         }
     }  
     getRetailer('france_iam');  

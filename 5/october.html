@@ -214,7 +214,7 @@
     .inner-circle {
         width: 75%;
         height: 75%;
-        background-color: #2980b9;
+        background-color: white;
         border-radius: 50%;
         position: absolute;
         top: 50%;
@@ -472,13 +472,13 @@
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
             <div class="oct-game outer-circle" onclick="openModalOctGame()">
-                <div class="inner-circle bg-red"></div>
+                <div id="oct-game-circle" class="inner-circle"></div>
             </div>
             <!-- <img class="oct-game-footer" src="images/iam_quiz_1_date_nr.webp"> -->
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div class="inner-circle bg-red"></div>
+                <div id="oct-quiz-1-circle" class="inner-circle"></div>
             </div>
             <!-- <img class="oct-quiz-1-footer" src="images/iam_quiz_1_date_nr.webp"> -->
             <!-- Quiz 2 -->
@@ -511,19 +511,19 @@
     <!-- Modal October Game -->
     <div id="modalOctGame" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctGame()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_nolanding"></iframe>
+            <span class="close-btn" onclick="closeModalOctGame();window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_nolanding"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
-    <!-- Modal October Game -->
+    <!-- Modal October Quiz 1 -->
     <div id="modalOctQuiz1" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctQuiz1()">&times;</span>
-            <iframe class="quiz-slide quiz-active" data-br-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+            <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
         </div>
     </div>
-    <!-- End October Game -->       
+    <!-- End October Quiz 1 -->         
 </body>
 <script src="js/uqse.js" type="text/javascript"></script>  
 <script>
@@ -612,10 +612,38 @@
 
     // Open modal function
     function openModalOctGame() {
-      modalOctGame.style.display = "flex";
+        const iframe = document.getElementById('oct-game-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctGame.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');  
+        modalOctGame.style.display = "flex";
     }
     function openModalOctQuiz1() {
-      modalOctQuiz1.style.display = "flex";
+        const iframe = document.getElementById('oct-quiz-1-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz1.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz1.style.display = "flex";
     }
     // Close modal function
     function closeModalOctGame() {
@@ -636,13 +664,17 @@
     };
 // End October Modals
 </script>
-  <script>
+<script>
     window.addEventListener('message', function(event) {
+        console.log('Close listener set');
         if (event.data === 'close') {
-            console.log('Received "close" message from child');
+            window.location.reload();
+            return;
+        }
+        if (typeof event.data === 'object' && event.data.type === 'close') {
             window.location.reload();
         }
-    });    
+    }, { once: false });     
     window.addEventListener('load', () => {
     function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
         // Get the query string from the URL
@@ -673,30 +705,37 @@
                 }
                 return response.json();
             })
-            .then(data => {
-                console.log('Breeze - gR - Fetch success:', data);
-                
+            .then(data => {                
                 // Check if structured_data exists in the response
                 if (data && data.structured_data) {
-                console.log("Breeze - gR - data and structured data", data.structured_data)
-
+                    console.log("Breeze - gR - Structured data", data.structured_data)
                     Object.entries(data.structured_data).forEach(([key, value]) => {
-                        console.log(key,value);
                         const element = document.getElementById(key);
                         if (element) {
                             element.innerHTML = value;
                         } else {
-                            console.log(`Element with ID '${key}' not found`);
                         }
                     });
-                  if ( data.structured_data.september_quiz_played === true ) {
-                    console.log('Breeze - gR - September quiz Played');
-                    document.querySelector('#september-quiz-closed').style.display = 'flex';
-                    document.querySelector('#september-quiz').style.display = 'none';
-                  }
-                if (!data.structured_data.oct_game) {
-                    console.log("SD - Oct game not played")
-                }                          
+                    // Oct game
+                    const octGame = document.getElementById('oct-game-circle');
+                    if (data?.structured_data?.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        octGame.classList.toggle('bg-green',true);
+                        const octGameParent = octGame.parentElement;
+                        octGameParent.style.animationPlayState = 'paused';
+                    } else {
+                        octGame.classList.toggle('bg-red',true);
+                    }
+                    // Oct Quiz 1
+                    const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+                    if (data?.structured_data?.oct_quiz_1 === true) {
+                        console.log('Breeze - gR - Oct Quiz 1 Played');
+                        octQuiz1.classList.toggle('bg-green',true);
+                        const octQuiz1Parent = octQuiz1.parentElement;
+                        octQuiz1Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        octQuiz1.classList.toggle('bg-red',true);                         
+                    }                    
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }
@@ -704,10 +743,16 @@
             .catch(error => {
                 console.error('Breeze - gR - Fetch error:', error);
             });
+        } else {
+            console.log('Breeze - gR - No querystring. Setting defaults');
+            const octGame = document.getElementById('oct-game-circle');
+            octGame.classList.toggle('bg-red',true);
+            const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+            octQuiz1.classList.toggle('bg-red',true);
         }
     }  
     getRetailer('france_iam');  
         
     }); 
-</script>     
+</script>    
 </html>

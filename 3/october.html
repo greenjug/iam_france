@@ -1101,10 +1101,13 @@
 <script>
     window.addEventListener('message', function(event) {
         if (event.data === 'close') {
-            console.log('Received "close" message from child');
+            window.location.reload();
+            return;
+        }
+        if (typeof event.data === 'object' && event.data.type === 'close') {
             window.location.reload();
         }
-    });    
+    }, { once: false });    
     window.addEventListener('load', () => {
     function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
         // Get the query string from the URL
@@ -1135,19 +1138,15 @@
                 }
                 return response.json();
             })
-            .then(data => {
-                console.log('Breeze - gR - Fetch success:', data);
-                
+            .then(data => {                
                 // Check if structured_data exists in the response
                 if (data && data.structured_data) {
-                    console.log("Breeze - gR - data and structured data", data.structured_data)
+                    console.log("Breeze - gR - data and Structured data", data.structured_data)
                     Object.entries(data.structured_data).forEach(([key, value]) => {
                         console.log(key,value);
                         const element = document.getElementById(key);
                         if (element) {
                             element.innerHTML = value;
-                        } else {
-                            console.log(`Element with ID '${key}' not found`);
                         }
                     });
                     // Oct game
@@ -1184,6 +1183,14 @@
             .catch(error => {
                 console.error('Breeze - gR - Fetch error:', error);
             });
+        } else {
+            console.log('Breeze - gR - No querystring. Setting defaults');
+            const octGame = document.getElementById('oct-game-circle');
+            octGame.classList.toggle('bg-red',true);
+            const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+            octQuiz1.classList.toggle('bg-red',true);
+            const doorman = document.getElementById('doorman-wrapper');
+            doorman.classList.toggle('hide', true);                
         }
     }  
     getRetailer('france_iam');  
