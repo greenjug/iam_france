@@ -501,7 +501,15 @@
     }      
     .hide {
         display:none;
-    }    
+    }   
+    .suffix {
+    font-size: 20px;
+    display: flex;
+    height: 70%;
+    align-items: end;
+    padding-bottom: 7%;
+
+    }     
 </style>
 </head>
 <body>
@@ -614,15 +622,15 @@
                     <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
                     <div class=" accordion-content active leaderboard-table-a">
                         <img class="leaderboard-table-a-img" src="images/iam_lb_table_a_corsica.webp">
-                        <div class="box-number white hide" id="box_a"></div>
-                        <div class="box-number green hide" id="box_b"></div>
-                        <div class="box-number white hide" id="box_c"></div>
-                        <div class="box-number white hide" id="box_d"></div>
-                        <div class="box-number red hide" id="box_e"></div>
-                        <div class="box-number white hide" id="box_f"></div>
-                        <div class="box-number white hide" id="box_g"></div>
-                        <div class="box-number red hide" id="box_h"></div>
-                        <div class="box-number white hide" id="box_i"></div>
+                        <div class="box-number white " id="box_a"></div>
+                        <div class="box-number green " id="box_b"></div>
+                        <div class="box-number white " id="box_c"></div>
+                        <div class="box-number white " id="box_d"></div>
+                        <div class="box-number red " id="box_e"></div>
+                        <div class="box-number white " id="box_f"></div>
+                        <div class="box-number white " id="box_g"></div>
+                        <div class="box-number red " id="box_h"></div>
+                        <div class="box-number white " id="box_i"></div>
                     </div>   
                 </div>
                 <div class="accordion-item">
@@ -638,9 +646,9 @@
                     <div class="accordion-header active leaderboard-table-a-header leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
                     <div class="accordion-content active leaderboard-table-c">
                         <img class="leaderboard-table-b-img" src="images/iam_lb_table_c_v2.webp">
-                        <div class="box-number black hide" id="box_m"></div>
-                        <div class="box-number green hide" id="box_n"></div>
-                        <div class="box-number white hide" id="box_o"></div>      
+                        <div class="box-number black " id="box_m"></div>
+                        <div class="box-number black " id="box_n"></div>
+                        <div class="box-number white " id="box_o"></div>      
                         <p class="legal-notice">*Position communiquée sous réserve de vérification par l’Organisateur, basée sur les données de sorties de caisse des Participants.</p>           
                     </div>     
                 </div>
@@ -1150,6 +1158,7 @@
                         const element = document.getElementById(key);
                         if (element) {
                             element.innerHTML = value;
+                            setNumberColor(element, value)                            
                         }
                     });
                     // Oct game
@@ -1199,5 +1208,80 @@
     getRetailer('france_iam');  
         
     }); 
+
+function setNumberColor(element, number) {
+  // Ensure element exists
+  if (!element || !element.id) {
+    console.warn('Invalid or missing element:', element);
+    return;
+  }
+
+  // Define valid element IDs
+  const validIds = ['box_b', 'box_e', 'box_h', 'box_n', 'box_m'];
+  
+  // Check if element ID is in the valid list
+  if (!validIds.includes(element.id)) {
+    console.warn(`Invalid ID: ${element.id}`);
+    return;
+  }
+  
+  // Remove black and white classes from parent element
+  element.classList.remove('black', 'white');
+  
+  // Handle null case
+  if (number === null) {
+    console.log(`Null input for ${element.id}`);
+    return;
+  }
+  
+  // Parse the number (handles string inputs)
+  const parsed = Number(number);
+  
+  // Handle invalid number
+  if (isNaN(parsed)) {
+    console.warn(`Invalid number for ${element.id}: ${number}`);
+    return;
+  }
+  
+  // Handle number cases
+  if (parsed > 0) {
+    if (element.id === 'box_n') {
+      // box_n: green parent and span with pp suffix
+      element.classList.add('green');
+      element.innerHTML = `+${parsed.toFixed(2)}<span class="suffix green">pp</span>`;
+    } else if (element.id === 'box_m') {
+      // box_m: black parent with % suffix
+      element.classList.add('black');
+      element.textContent = `+${parsed.toFixed(2)}%`;
+    } else {
+      // box_b, box_e, box_h, box_o: green parent (box_o always white), no suffix
+      element.classList.add(element.id === 'box_o' ? 'white' : 'green');
+      element.textContent = `+${parsed.toFixed(2)}`;
+    }
+    console.log(`Set ${element.id} to ${element.className}, content: ${element.innerHTML || element.textContent}`);
+  } else if (parsed < 0) {
+    if (element.id === 'box_n') {
+      // box_n: red parent and span with pp suffix
+      element.classList.add('red');
+      element.innerHTML = `${parsed.toFixed(2)}<span class="suffix red">pp</span>`;
+    } else if (element.id === 'box_m') {
+      // box_m: black parent with % suffix
+      element.classList.add('black');
+      element.textContent = `${parsed.toFixed(2)}%`;
+    } else {
+      // box_b, box_e, box_h, box_o: red parent (box_o always white), no suffix
+      element.classList.add(element.id === 'box_o' ? 'white' : 'red');
+      element.textContent = parsed.toFixed(2);
+    }
+  } else {
+    // For zero: black for box_n, white for others, no suffix
+    if (element.id === 'box_n') {
+      element.classList.add('black');
+    } else {
+      element.classList.add('white');
+    }
+    element.textContent = '0';
+  }
+}    
 </script>   
 </html>
