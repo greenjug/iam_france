@@ -791,7 +791,7 @@
                     } else {
                         octQuiz1.classList.toggle('bg-red',true);                         
                     }             
-                    // Oct Quiz 1
+                    // Oct Quiz 2
                     const octQuiz2 = document.getElementById('oct-quiz-2-circle');
                     if (data?.structured_data?.oct_quiz_2 === true) {
                         console.log('Breeze - gR - Oct Quiz 2 Played');
@@ -815,6 +815,8 @@
             octGame.classList.toggle('bg-red',true);
             const octQuiz1 = document.getElementById('oct-quiz-1-circle');
             octQuiz1.classList.toggle('bg-red',true);
+            const octQuiz2 = document.getElementById('oct-quiz-2-circle');
+            octQuiz2.classList.toggle('bg-red',true);            
         }
     }  
     getRetailer('france_iam');  
