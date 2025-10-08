@@ -266,8 +266,8 @@
         width: 6%;
     }         
     .oct-quiz-2 {
-        top: 36.5%;
-        left: 55%;
+        top: 33%;
+        left: 54.75%;
     }  
     .oct-quiz-2.quiz-closed {
         top: 33%;
@@ -282,8 +282,8 @@
     .oct-quiz-2-footer {
         position:absolute;
         top: 47.5%;
-        left: 53%;
-        width: 8%;
+        left: 53.5%;
+        width: 6%;
     }        
     .oct-quiz-3 {
         top: 31%;
@@ -595,15 +595,17 @@
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
             <div id="oct-quiz-1-outer-circle" class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div id="oct-quiz-1-circle" class="inner-circle">
-                    <img id="oct-quiz-wheel" class="quiz-wheel hide" src="images/iam_wheel.webp">                    
-                </div>
+                <div id="oct-quiz-1-circle" class="inner-circle"></div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 2 -->
             <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp">
-            <img class="oct-quiz-2 quiz-closed" src="images/iam_closed_circle.webp">
-            <img class="oct-quiz-2-footer" src="images/iam_quiz_2_date.webp">
+            <div id="oct-quiz-2-outer-circle" class="oct-quiz-2 outer-circle quiz" onclick="openModalOctQuiz2()">
+                <div id="oct-quiz-2-circle" class="inner-circle">
+                    <img id="oct-quiz-wheel" class="quiz-wheel hide" src="images/iam_wheel.webp">                    
+                </div>
+            </div>
+            <img class="oct-quiz-2-footer" src="images/iam_200_rooftops.webp">
             <!-- <div class="oct-quiz-2 outer-circle quiz">
                 <div class="inner-circle bg-green"></div>
             </div> -->
@@ -953,10 +955,22 @@
                 <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
             </div>
-            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/wheel/fr/v4" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
         </div>
     </div>
     <!-- End October Quiz 1 -->      
+    <!-- Modal October Quiz 2 -->
+    <div id="modalOctQuiz2" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz2();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-2" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz2();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 2 -->       
 </body>
 <script src="js/uqse.js" type="text/javascript"></script>  
 <script>
@@ -1050,6 +1064,7 @@
 // October Modals
     const modalOctGame = document.getElementById("modalOctGame");
     const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
+    const modalOctQuiz2 = document.getElementById("modalOctQuiz2");
 
     // Open modal function
     function openModalOctGame() {
@@ -1107,6 +1122,41 @@
         iframe.removeAttribute('data-br-temp-src-nowheel');        
         modalOctQuiz1.style.display = "flex";
     }
+    function openModalOctQuiz2() {
+        const iframe = document.getElementById('oct-quiz-2-iframe');
+        if (!iframe || (!iframe.hasAttribute('data-br-temp-src-wheel') && !iframe.hasAttribute('data-br-temp-src-nowheel'))) {
+            modalOctQuiz2.style.display = "flex";
+            return;
+        }
+
+        let srcValue;
+        if (iframe.hasAttribute('data-wheel-played')) {
+            const wheelValue = iframe.getAttribute('data-wheel-played');
+            srcValue = wheelValue === 'true' 
+                ? iframe.getAttribute('data-br-temp-src-nowheel') 
+                : iframe.getAttribute('data-br-temp-src-wheel');
+        } else {
+            // Fallback: prioritize wheel if no data-wheel-played
+            srcValue = iframe.hasAttribute('data-br-temp-src-wheel') 
+                ? iframe.getAttribute('data-br-temp-src-wheel') 
+                : iframe.getAttribute('data-br-temp-src-nowheel');
+        }
+
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }        
+        // Set the src attribute and remove both data attributes
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src-wheel');
+        iframe.removeAttribute('data-br-temp-src-nowheel');        
+        modalOctQuiz2.style.display = "flex";
+    }    
     // Close modal function
     function closeModalOctGame() {
       modalOctGame.style.display = "none";
@@ -1114,7 +1164,9 @@
     function closeModalOctQuiz1() {
       modalOctQuiz1.style.display = "none";
     }    
-
+    function closeModalOctQuiz2() {
+      modalOctQuiz2.style.display = "none";
+    } 
     // Close modal when clicking outside
     window.onclick = function(event) {
       if (event.target === modalOctGame) {
@@ -1122,7 +1174,10 @@
       }
       if (event.target === openModalOctQuiz1) {
         closeModalOctQuiz1();
-      }      
+      }  
+      if (event.target === openModalOctQuiz2) {
+        closeModalOctQuiz2();
+      }           
     };
 // End October Modals
     function openPDF() {
@@ -1188,7 +1243,9 @@
                         const octGameParent = octGame.parentElement;
                         octGameParent.style.animationPlayState = 'paused';
                         const doorman = document.getElementById('doorman-wrapper');
-                        doorman.classList.toggle('hide', true);                        
+                        doorman.classList.toggle('hide', true);      
+                        const doorman2 = document.getElementById('doorman-wrapper-2');
+                        doorman2.classList.toggle('hide', true);                                           
                     } else {
                         octGame.classList.toggle('bg-red',true);
                     }
@@ -1197,16 +1254,28 @@
                     if (data?.structured_data?.oct_quiz_1 === true) {
                         console.log('Breeze - gR - Oct Quiz 1 Played');
                         octQuiz1.classList.toggle('bg-green',true);
-                        const octQuizIframe = document.getElementById('oct-quiz-1-iframe');
-                        octQuizIframe.setAttribute('data-wheel-played', true);
                         const octQuiz1Parent = octQuiz1.parentElement;
                         octQuiz1Parent.style.animationPlayState = 'paused'; 
                     } else {
                         octQuiz1.classList.toggle('bg-red',true);
-                        octQuiz1.setAttribute('data-wheel-played', true);
+                        octQuiz1.setAttribute('data-wheel-played', true);                      
+                    }   
+                    // Oct Quiz 2
+                    const octQuiz2 = document.getElementById('oct-quiz-2-circle');
+                    if (data?.structured_data?.oct_quiz_2 === true) {
+                        console.log('Breeze - gR - Oct Quiz 2 Played');
+                        octQuiz2.classList.toggle('bg-green',true);
+                        const octQuiz2Iframe = document.getElementById('oct-quiz-2-iframe');
+                        octQuiz2Iframe.setAttribute('data-wheel-played', true);
+                        const octQuiz2Parent = octQuiz2.parentElement;
+                        octQuiz2Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        console.log('Breeze - gR - Oct Quiz 2 NOT Played');
+                        octQuiz2.classList.toggle('bg-red',true);
+                        octQuiz2.setAttribute('data-wheel-played', true);
                         const oct_wheel = document.getElementById('oct-quiz-wheel')
                         oct_wheel.classList.toggle('hide',false);                           
-                    }                    
+                    }                                      
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }
@@ -1220,8 +1289,12 @@
             octGame.classList.toggle('bg-red',true);
             const octQuiz1 = document.getElementById('oct-quiz-1-circle');
             octQuiz1.classList.toggle('bg-red',true);
+            const octQuiz2 = document.getElementById('oct-quiz-2-circle');
+            octQuiz2.classList.toggle('bg-red',true);            
             const doorman = document.getElementById('doorman-wrapper');
-            doorman.classList.toggle('hide', true);                
+            doorman.classList.toggle('hide', true);               
+            const doorman2 = document.getElementById('doorman-wrapper-2');
+            doorman2.classList.toggle('hide', true);                   
         }
     }  
     getRetailer('france_iam');  
