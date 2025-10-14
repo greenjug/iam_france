@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marlboro IAM France | October </title>
+<title>Marlboro IAM France | Teaser</title>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <link rel="stylesheet" href="css/main.css">
 <style>
@@ -22,7 +22,7 @@
     }    
     .gamequiz iframe {
         max-height: calc(85vh - 80px) !important;
-    }
+    }   
     a.nav-item {
       font-family: 'NeulandGroteskLight', sans-serif !important;
     }
@@ -32,10 +32,6 @@
     }
     .activities_october_container {
         position: relative;
-        /* background-image: url('images/iam_background_oct.webp'); */
-        background-size: cover;
-        background-position: center;        
-        margin: 0 auto;
     }
     .activities_header {
         max-width: 100%;
@@ -51,29 +47,16 @@
         top:24%;
         left: calc( 50% - 20px);
     }
-    .cta-overlay  {
-        /* background-color: green; */
-        position: absolute;
-    }
-    .cta-overlay-1 {
-        top: 87%;
-        left: 40.75%;
-        width: 17%;
-        height: 12%;
-    }
     .leaderboard {
         width: 100%;
         max-width: 1920px;
-        margin-left:20px;
-        margin-right:20px;
-    }
-    
+    }    
     .leaderboard-headers {
         max-width: 100%;
         margin:0 auto;
     }
     .leaderboard-header-one {
-        position: relative;
+        position:relative;
         margin-bottom: 50px;
         margin-top: 30px;
     }
@@ -203,8 +186,9 @@
     }       
     /* Products */
     .products {
-        max-width: 1920px;
+        max-width: 1300px;
     }
+
     /* circles */
     .outer-circle {
         width: 5%;
@@ -266,7 +250,7 @@
         width: 6%;
     }         
     .oct-quiz-2 {
-        top: 33%;
+        top: 33.5%;
         left: 54.75%;
     }  
     .oct-quiz-2.quiz-closed {
@@ -282,12 +266,12 @@
     .oct-quiz-2-footer {
         position:absolute;
         top: 47.5%;
-        left: 53.5%;
+        left: 54%;
         width: 6%;
     }        
     .oct-quiz-3 {
-        top: 27.5%;
-        left: 69.75%;
+        top: 31%;
+        left: 70%;
     }     
     .oct-quiz-3.quiz-closed {
         top: 27%;
@@ -303,7 +287,7 @@
         position:absolute;
         top: 41%;
         left: 68.25%;
-        width: 6%;
+        width: 8%;
     }     
     .oct-quiz-4 {
         top: 24%;
@@ -337,29 +321,30 @@
         background-color: #C8202E !important;
         cursor: pointer;
     }
-    /* End circles */      
-    .bg-green {
-        background-color: #6DD352 !important;
-        cursor: pointer;
-    }
-    .bg-red {
-        background-color: #C8202E !important;
-        cursor: pointer;
-    }
+    /* End circles */
     .collapsible {
-        max-height: 1000px; /* Large enough to cover content; adjust if needed */
-        opacity: 1;
+        transition: opacity 2.3s ease, height 2.3s ease;
         overflow: hidden;
-        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        padding: 10px; /* Optional: for visual clarity */
+        opacity: 1;
+        max-height: 2000px;
     }
     .collapsible.closed {
-        opacity: 0;
-        height: 0;
-        padding: 0;
+    opacity: 0;
+    height: 0;
+    padding: 0;
     }    
-    .gains-one { 
+    .gains-one {
         position:relative;
+    }
+    .cta-overlay  {
+        /* background-color: green; */
+        position: absolute;
+    }
+    .cta-overlay-1 {
+        top: 87%;
+        left: 40.75%;
+        width: 17%;
+        height: 12%;
     }
     .cta-overlay-4 {
         top: 61.5%;
@@ -372,26 +357,19 @@
         left: 7%;
         width: 60%;
         height: 14%;
-    }   
+    }     
     .cta-overlay-6 {
         top: 94%;
         left: 22%;
         width: 29%;
         height: 6%;
-    }    
-    .cta-overlay-6 {
-        top: 94%;
-        left: 22%;
-        width: 29%;
-        height: 6%;
-    }        
+    }      
     .cta-overlay-7 {
         top: 82%;
         width: 44%;
         height: 9%;
         left: 28%;
-    }
-
+    }        
     .accordion-header {
         cursor: pointer;
         user-select: none;
@@ -418,14 +396,14 @@
     }
     .accordion-content.active {
         display: block;
-    }
+    }    
     .legal-notice {
         width: 33%;
         float: right;
         text-align: left;
         font-family: 'NeulandGroteskLight';
         font-size:10px;
-    }  
+    }
     .gamequiz {
         background-color: transparent;
         aspect-ratio: 9/15.94;
@@ -439,21 +417,21 @@
         max-height: 85vh;
         aspect-ratio: 9/15.94;
         overflow: hidden;
-    }     
+    }    
     .close-btn {
         top:0;
         right:10px;
-    } 
+    }  
     .quiz-wheel {   
         position: relative;  
         width: 80%;
         height: 80%;
         top: 7.5%;
-    }
+    }   
     .doorman {
         width:100%;
         object-fit: cover;
-    }
+    }            
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -520,10 +498,10 @@
         .products-one {
             margin-bottom: 30px;
         }
-    }    
+    }      
     .hide {
         display:none;
-    }
+    }   
     .suffix {
     font-size: 20px;
     display: flex;
@@ -531,8 +509,7 @@
     align-items: end;
     padding-bottom: 7%;
 
-    }
-    
+    }     
 </style>
 </head>
 <body>
@@ -567,7 +544,7 @@
         <div class="gains-one">
             <img class="gains-one-img" src="images/iam_gains_1.webp">
             <div class="cta-overlay cta-overlay-4" onclick="openModalTwo()"></div>
-            <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>
+            <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>        
             <div class="cta-overlay cta-overlay-6" onclick="openPDF()"></div>
         </div>
         <div class="gains-two">
@@ -584,7 +561,7 @@
         <img class="activities_header" src="images/iam_activities_header.webp">
         <img class="activities_october" src="images/iam_activities_october_v2.webp">
         <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
-        <div class="activities_october_container" id="octDiv">
+        <div class="activities_october_container collapsible" id="octDiv">
             <img class="activities_october_graph" src="images/iam_progress_graph.webp">
             <!-- Game -->
             <img class="oct-game-header" src="images/iam_game.webp">
@@ -594,29 +571,27 @@
             <img class="oct-game-footer" src="images/iam_500_rooftops.webp">
             <!-- Quiz 1 -->
             <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
-            <div id="oct-quiz-1-outer-circle" class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
-                <div id="oct-quiz-1-circle" class="inner-circle"></div>
+            <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
+                <div id="oct-quiz-1-circle" class="inner-circle">
+                </div>
             </div>
             <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 2 -->
             <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp">
-            <div id="oct-quiz-2-outer-circle" class="oct-quiz-2 outer-circle quiz" onclick="openModalOctQuiz2()">
+            <div class="oct-quiz-2 outer-circle quiz" onclick="openModalOctQuiz2()">
                 <div id="oct-quiz-2-circle" class="inner-circle">
+                    <img id="oct-quiz-wheel" class="quiz-wheel hide" src="images/iam_wheel.webp">                    
                 </div>
-            </div>
+            </div>            
             <img class="oct-quiz-2-footer" src="images/iam_200_rooftops.webp">
             <!-- Quiz 3 -->
             <img class="oct-quiz-3-header" src="images/iam_quiz_3.webp">
-            <div id="oct-quiz-3-outer-circle" class="oct-quiz-3 outer-circle quiz" onclick="openModalOctQuiz3()">
-                <div id="oct-quiz-3-circle" class="inner-circle">
-                    <img id="oct-quiz-wheel" class="quiz-wheel hide" src="images/iam_wheel.webp">                    
-                </div>
-            </div>
-            <img class="oct-quiz-3-footer" src="images/iam_200_rooftops.webp">
+            <img class="oct-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
+            <img class="oct-quiz-3-footer" src="images/iam_quiz_3_date.webp">
             <!-- Quiz 4 -->
             <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp">
             <img class="oct-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
-            <img class="oct-quiz-4-footer" src="images/iam_quiz_4_date.webp">               
+            <img class="oct-quiz-4-footer" src="images/iam_quiz_4_date.webp">                
         </div>
         
         <img class="activities_november" src="images/iam_activities_november_closed.webp">
@@ -639,15 +614,15 @@
                 <div class="accordion-item">
                     <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
                     <div class=" accordion-content active leaderboard-table-a">
-                        <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
+                        <img class="leaderboard-table-a-img" src="images/iam_lb_table_a_corsica.webp">
                         <div class="box-number white " id="box_a"></div>
-                        <div class="box-number white " id="box_b"></div>
+                        <div class="box-number green " id="box_b"></div>
                         <div class="box-number white " id="box_c"></div>
                         <div class="box-number white " id="box_d"></div>
-                        <div class="box-number white " id="box_e"></div>
+                        <div class="box-number red " id="box_e"></div>
                         <div class="box-number white " id="box_f"></div>
                         <div class="box-number white " id="box_g"></div>
-                        <div class="box-number white " id="box_h"></div>
+                        <div class="box-number red " id="box_h"></div>
                         <div class="box-number white " id="box_i"></div>
                     </div>   
                 </div>
@@ -661,283 +636,286 @@
                     </div> 
                 </div>
                 <div class="accordion-item">
-                    <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD MENSUEL</div>
+                    <div class="accordion-header active leaderboard-table-a-header leaderboard-table-text">MON TABLEAU DE BORD MENSUEL</div>
                     <div class="accordion-content active leaderboard-table-c">
                         <img class="leaderboard-table-b-img" src="images/iam_lb_table_c_v2.webp">
-                        <div class="box-number black" id="box_m"></div>
-                        <div class="box-number black" id="box_n"></div>
-                        <div class="box-number white" id="box_o"></div>         
-                        <p class="legal-notice">*Position communiquée sous réserve de vérification par l’Organisateur, basée sur les données de sorties de caisse des Participants.</p>
+                        <div class="box-number black " id="box_m"></div>
+                        <div class="box-number black " id="box_n"></div>
+                        <div class="box-number white " id="box_o"></div>      
+                        <p class="legal-notice">*Position communiquée sous réserve de vérification par l’Organisateur, basée sur les données de sorties de caisse des Participants.</p>           
                     </div>     
                 </div>
             </div>  
         </div>               
     </section>
-    <!-- End Leaderboard section -->    
+    <!-- End Leaderboard section -->     
     <!-- Product Section -->
     <section class="products" id="produits">    
         <div class="products-one">
-            <img class="products-one-img" src="images/iam_pack_1.webp">
+            <img class="products-one-img" src="images/iam_box3_pack_2.webp">
         </div>
         <div class="products-two">
-            <img class="products-two-img" src="images/iam_pack_2.webp">
+            <img class="products-two-img" src="images/iam_pack_2_v2.webp">
         </div>            
     </section>
-    <!-- End Product Section -->        
-    <!-- Modal One (comment ca marche) -->
-    <div id="modalOne" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModalOne()">&times;</span>
-        <div class="modal-img">
-            <img src="images/iam_logo.webp">
+    <!-- End Product Section --> 
+<!-- Modal One -->
+<div id="modalOne" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalOne()">&times;</span>
+    <div class="modal-img">
+        <img src="images/iam_logo.webp">
+    </div>
+    <div class="modal-header">
+        <img src="images/iam_modal_one_header.webp">
+    </div>
+    <div class="modal-boxes">
+        <div class="modal-box modal-box-1">
+                <div class="modal-box-header">
+                        GRÂCE À VOS PERFORMANCES SUR MARLBORO
+                </div>
+                <div class="modal-box-subheader">
+                        SUR LES GAMMES MARLBORO ET MARLBORO CRAFTED 
+                </div>   
+                <div class="table-wrapper" id="october">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
+                        <div class="modal-box-table">
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>        
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>                                           
+                                <div class="modal-box-table-row-divider"></div>                        
+                        </div>    
+                </div>  
+                <div class="table-wrapper" id="november"  style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec()"><img src="images/iam_chevron_right_v2.webp"></span></div>
+                        <div class="modal-box-table">
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>        
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>                                           
+                                <div class="modal-box-table-row-divider"></div>                        
+                        </div>    
+                </div>
+                <div class="table-wrapper" id="december" style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
+                        <div class="modal-box-table">
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>        
+                                <div class="modal-box-table-row-divider"></div>
+                                <div class="modal-box-table-row">
+                                        <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                        <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                </div>                                           
+                                <div class="modal-box-table-row-divider"></div>                        
+                        </div>    
+                </div>                                
+                <div class="modal-box-table-footer">
+                        <ul>
+                                <li>+1 paquet par rapport à la moyenne de vos ventes et/ou commandes réalisées sur la période Avril - Juin 2025.</li>
+                                <!-- <li>* Marlboro Crafted (Cigarettes et Cigarillos).</li> -->
+                        </ul>
+                </div>                           
         </div>
-        <div class="modal-header">
-            <img src="images/iam_modal_one_header.webp">
-        </div>
-        <div class="modal-boxes">
-            <div class="modal-box modal-box-1">
-                    <div class="modal-box-header">
-                            GRÂCE À VOS PERFORMANCES SUR MARLBORO
-                    </div>
-                    <div class="modal-box-subheader">
-                            SUR LES GAMMES MARLBORO ET MARLBORO CRAFTED 
-                    </div>   
-                    <div class="table-wrapper" id="october">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
-                            <div class="modal-box-table">
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>        
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>                                           
-                                    <div class="modal-box-table-row-divider"></div>                        
-                            </div>    
-                    </div>  
-                    <div class="table-wrapper" id="november"  style="display:none;">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec()"><img src="images/iam_chevron_right_v2.webp"></span></div>
-                            <div class="modal-box-table">
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>        
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
-                                            <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>                                           
-                                    <div class="modal-box-table-row-divider"></div>                        
-                            </div>    
-                    </div>
-                    <div class="table-wrapper" id="december" style="display:none;">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
-                            <div class="modal-box-table">
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
-                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>        
-                                    <div class="modal-box-table-row-divider"></div>
-                                    <div class="modal-box-table-row">
-                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
-                                            <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                                    </div>                                           
-                                    <div class="modal-box-table-row-divider"></div>                        
-                            </div>    
-                    </div>                                
-                    <div class="modal-box-table-footer">
-                            <ul>
-                                    <li>+1 paquet par rapport à la moyenne de vos ventes et/ou commandes réalisées sur la période Avril - Juin 2025.</li>
-                                    <li>* Marlboro Crafted (Cigarettes et Cigarillos).</li>
-                            </ul>
-                    </div>                           
-            </div>
-            <div class="modal-box modal-box-2"> 
-                    <div class="modal-box-header">
-                            GRÂCE À VOS ACTIONS DIGITALES
-                    </div>           
-                    <div class="modal-box-subheader">
-                            EN COMPLÉTANT LES QUIZ HEBDOMADAIRES<br>ET LE JEU MENSUEL
-                    </div>      
-                    <div class="modal-box-table-header">VALABLE POUR OCTOBRE - NOVEMBRE - DÉCEMBRE</div>
-                    <div class="modal-box-table">
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description">QUIZ*</div>
-                                    <div class="modal-box-table-row-points">+200 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                            </div>
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description">JEU**</div>
-                                    <div class="modal-box-table-row-points">+500 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
-                            </div>                        
-                            <div class="modal-box-table-row-divider"></div>
-                    </div>                  
-                    <div class="modal-box-table-footer">
-                            <ul>
-                                    <li>*1 quiz par semaine.</li>
-                                    <li>** 1 jeu par mois.</li>
-                            </ul>
-                            <p class="disclaimer">Les contenus sont accessibles en consultation illimitée. Toutefois, les rooftops ne sont attribués qu’une seule fois, lors de la première complétion de chaque jeu ou quiz.</p>
-                    </div>                                                  
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div class="footer-header">CONTRE QUI JOUEZ-VOUS ?</div>
-            <div class="footer-body">
-                    Afin de garantir une équité maximale entre tous les buralistes participant au challenge, vous êtes répartis dans un groupe selon deux critères :
-                    <ul>
-                            <li>- Votre région, parmi trois zones géographiques définies.</li>
-                            <li>- Votre chiffre d'affaires en cigarettes, représentant votre poids business, réparti en trois groupes.</li>
-                    </ul>
-            </div>
+        <div class="modal-box modal-box-2"> 
+                <div class="modal-box-header">
+                        GRÂCE À VOS ACTIONS DIGITALES
+                </div>           
+                <div class="modal-box-subheader">
+                        EN COMPLÉTANT LES QUIZ HEBDOMADAIRES<br>ET LE JEU MENSUEL
+                </div>      
+                <div class="modal-box-table-header">VALABLE POUR OCTOBRE - NOVEMBRE - DÉCEMBRE</div>
+                <div class="modal-box-table">
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description">QUIZ*</div>
+                                <div class="modal-box-table-row-points">+200 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                        </div>
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description">JEU**</div>
+                                <div class="modal-box-table-row-points">+500 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                        </div>                        
+                        <div class="modal-box-table-row-divider"></div>
+                </div>                  
+                <div class="modal-box-table-footer">
+                        <ul>
+                                <li>*1 quiz par semaine.</li>
+                                <li>** 1 jeu par mois.</li>
+                        </ul>
+                        <p class="disclaimer">Les contenus sont accessibles en consultation illimitée. Toutefois, les rooftops ne sont attribués qu’une seule fois, lors de la première complétion de chaque jeu ou quiz.</p>
+                </div>                                                  
         </div>
     </div>
-    </div>
-    <!-- End Modal One -->
-    <!-- Modal Two (en savoir plus)-->
-    <div id="modalTwo" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModalTwo()">&times;</span>
-        <div class="modal-header">
-            <img src="images/iam_modal_two_header.webp">
+    <div class="modal-footer">
+        <div class="footer-header">CONTRE QUI JOUEZ-VOUS ?</div>
+        <div class="footer-body">
+                Afin de garantir une équité maximale entre tous les buralistes participant au challenge, vous êtes répartis dans un groupe selon deux critères :
+                <ul>
+                        <li>- Votre région, parmi trois zones géographiques définies.</li>
+                        <li>- Votre chiffre d'affaires en cigarettes, représentant votre poids business, réparti en trois groupes.</li>
+                </ul>
         </div>
-        <div class="modal-boxes">
-            <div class="modal-box modal-box-2"> 
-                    <div class="modal-box-header">
-                            À LA FIN DU CHALLENGE
-                    </div>           
-                    <div class="modal-box-subheader">
-                            par groupe de points de vente
-                    </div>      
-                    <div class="modal-box-img">
-                            <img src="images/iam_modal_2_img.webp">
-                    </div>
-                    <div class="modal-box-header">TABLEAU DES GAINS</div>
-                    <div class="modal-box-table" style="margin-top:30px;">
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20 grey">CLASSEMENT</div>
-                                    <div class="modal-box-table-row-gain grey">GAIN</div>
-                                    <div class="modal-box-table-row-points w-20 grey">VALEUR</div>
-                            </div>                        
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">1</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
-                                    <div class="modal-box-table-row-points w-20">1450 PTS</div>
-                            </div>
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">2 À 5</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
-                                    <div class="modal-box-table-row-points w-20">950 PTS</div>
-                            </div>      
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">6 À 20</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
-                                    <div class="modal-box-table-row-points w-20">450 PTS</div>
-                            </div>                                             
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">21 À 50</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
-                                    <div class="modal-box-table-row-points w-20">300 PTS</div>
-                            </div>                                             
-                        
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">51 À 100</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
-                                    <div class="modal-box-table-row-points w-20">200 PTS</div>
-                            </div>                                             
-                        
-                            <div class="modal-box-table-row-divider"></div>
-                            <div class="modal-box-table-row">
-                                    <div class="modal-box-table-row-description w-20">101 À 200</div>
-                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
-                                    <div class="modal-box-table-row-points  w-20">100 PTS</div>
-                            </div>                                                                                          
-                            <div class="modal-box-table-row-divider"></div>
-                    </div>                  
-                    <div class="modal-box-table-footer">
-                            <ul>
-                                    <li>*La valeur du coffret voyage correspondra à la valeur des points.</li>
-                            </ul>
-                    </div>                                                  
-            </div>        
-            <div class="modal-box modal-box-1">
-                    <div class="modal-box-header">
-                            CHAQUE MOIS DU CHALLENGE                
-                    </div>
-                    <div class="table-wrapper" id="october2">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec2()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
-                            <div class="modal-box-prize-container">
-                                    <img src="images/iam_prize_1_v3.webp">
-                            </div>
-                    </div>  
-                    <div class="table-wrapper" id="november2"  style="display:none;">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec2()"><img src="images/iam_chevron_right_v2.webp"></span></div> 
-                            <div class="modal-box-prize-container">
-                                    <img src="images/iam_prize_3_v3.webp">
-                            </div>                        
-                    </div>
-                    <div class="table-wrapper" id="december2" style="display:none;">
-                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
-                            <div class="modal-box-prize-container">
-                                    <img src="images/iam_prize_2_v3.webp">
-                            </div>                        
-                    </div>                                
-                    <div class="modal-box-sub">
-                    <div class="modal-box-header">
-                            DEUX MOYENS DE GAGNER:                
-                    </div>                        
-                    <div class="modal-box-pill-container">
-                            <div class="modal-box-pill">
-                                    <img src="images/iam_number_1.webp">
-                            </div>
-                            <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED</div>
-                            <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe – affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted <span class="red">(Red 20, Red 25, Red 100s, Gold 20, Gold 25)</span> par rapport au mois précédent – remportera le lot mensuel.</div>
-                    </div>
-                    <div class="modal-box-pill-container">
-                            <div class="modal-box-pill">
-                                    <img src="images/iam_number_2.webp">
-                            </div>
-                            <div class="modal-box-pill-header">ACTIONS DIGITALES</div>
-                            <div class="modal-box-pill-copy">En participant aux activités digitales (le jeu du mois et le quiz de la semaine), chaque participant accède à la roue Marlboro, offrant une chance de remporter le lot.</div>
-                    </div>
-                    </div>                           
-            </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal One -->
 
+<!-- Modal Two -->
+<div id="modalTwo" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalTwo()">&times;</span>
+    <div class="modal-header">
+        <img src="images/iam_modal_two_header.webp">
+    </div>
+    <div class="modal-boxes">
+        <div class="modal-box modal-box-2"> 
+                <div class="modal-box-header">
+                        À LA FIN DU CHALLENGE
+                </div>           
+                <div class="modal-box-subheader">
+                        par groupe de points de vente
+                </div>      
+                <div class="modal-box-img">
+                        <img src="images/iam_modal_2_img.webp">
+                </div>
+                <div class="modal-box-header">TABLEAU DES GAINS</div>
+                <div class="modal-box-table" style="margin-top:30px;">
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20 grey">CLASSEMENT</div>
+                                <div class="modal-box-table-row-gain grey">GAIN</div>
+                                <div class="modal-box-table-row-points w-20 grey">VALEUR</div>
+                        </div>                        
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">1</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
+                                <div class="modal-box-table-row-points w-20">1450 PTS</div>
+                        </div>
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">2 À 5</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
+                                <div class="modal-box-table-row-points w-20">950 PTS</div>
+                        </div>      
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">6 À 20</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">450 PTS</div>
+                        </div>                                             
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">21 À 50</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">300 PTS</div>
+                        </div>                                             
+                     
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">51 À 100</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points w-20">200 PTS</div>
+                        </div>                                             
+                     
+                        <div class="modal-box-table-row-divider"></div>
+                        <div class="modal-box-table-row">
+                                <div class="modal-box-table-row-description w-20">101 À 200</div>
+                                <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                <div class="modal-box-table-row-points  w-20">100 PTS</div>
+                        </div>                                                                                          
+                        <div class="modal-box-table-row-divider"></div>
+                </div>                  
+                <div class="modal-box-table-footer">
+                        <ul>
+                                <li>*La valeur du coffret voyage correspondra à la valeur des points.</li>
+                        </ul>
+                </div>                                                  
+        </div>        
+        <div class="modal-box modal-box-1">
+                <div class="modal-box-header">
+                        CHAQUE MOIS DU CHALLENGE                
+                </div>
+                <!-- <div class="modal-box-subheader">
+                </div>    -->
+                <div class="table-wrapper" id="october2">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec2()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_1_v3.webp">
+                        </div>
+                </div>  
+                <div class="table-wrapper" id="november2"  style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec2()"><img src="images/iam_chevron_right_v2.webp"></span></div> 
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_3_v3.webp">
+                        </div>                        
+                </div>
+                <div class="table-wrapper" id="december2" style="display:none;">
+                        <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
+                        <div class="modal-box-prize-container">
+                                <img src="images/iam_prize_2_v3.webp">
+                        </div>                        
+                </div>                                
+                <div class="modal-box-sub">
+                <div class="modal-box-header">
+                        DEUX MOYENS POUR GAGNER:                
+                </div>                        
+                <div class="modal-box-pill-container">
+                        <div class="modal-box-pill">
+                                <img src="images/iam_number_1.webp">
+                        </div>  
+                        <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED</div>
+                        <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe – affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted <span class="red">(Red 20, Red 100s, Gold 20)</span> par rapport au mois précédent – remportera le lot mensuel.</div>
+                </div>
+                <div class="modal-box-pill-container">
+                        <div class="modal-box-pill">
+                                <img src="images/iam_number_2.webp">
+                        </div>  
+                        <div class="modal-box-pill-header">ACTIONS DIGITALES</div>
+                        <div class="modal-box-pill-copy">En participant aux activités digitales (le jeu du mois et le quiz de la semaine), chaque participant accède à la roue Marlboro, offrant une chance de remporter le lot.</div>
+                </div>
+                </div>                           
         </div>
+
     </div>
-    </div>
-    <!-- End Modal Two -->    
+  </div>
+</div>
+<!-- End Modal Two -->      
     <!-- Modal October Game -->
     <div id="modalOctGame" class="modal">
         <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctGame(); window.location.reload();">&times;</span>
-            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v4"></iframe>
+            <span class="close-btn" onclick="closeModalOctGame();window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v4"></iframe>
         </div>
     </div>
     <!-- End October Game -->       
@@ -946,36 +924,25 @@
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>
             <div id="doorman-wrapper" class="quiz-slide quiz-active">
-                <!-- <img class="doorman" src="images/iam_holding.webp"> -->
+                <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
             </div>
-            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/crs/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/crs/v3"></iframe>
         </div>
     </div>
-    <!-- End October Quiz 1 -->      
+    <!-- End October Quiz 1 -->        
     <!-- Modal October Quiz 2 -->
     <div id="modalOctQuiz2" class="modal">
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalOctQuiz2();window.location.reload();">&times;</span>
             <div id="doorman-wrapper-2" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz2();openModalOctGame();"></div>
             </div>
-            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1"></iframe>
+            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/wheel/crs/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/crs/v1"></iframe>
         </div>
     </div>
-    <!-- End October Quiz 2 -->       
-    <!-- Modal October Quiz 3 -->
-    <div id="modalOctQuiz3" class="modal">
-        <div class="modal-content gamequiz">
-            <span class="close-btn" onclick="closeModalOctQuiz3();window.location.reload();">&times;</span>
-            <div id="doorman-wrapper-3" class="quiz-slide quiz-active">
-                <img class="doorman" src="images/iam_holding.webp">
-                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz3();openModalOctGame();"></div>
-            </div>
-            <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/fr/v1"></iframe>
-        </div>
-    </div>
-    <!-- End October Quiz 3 -->           
+    <!-- End October Quiz 2 -->          
 </body>
 <script src="js/uqse.js" type="text/javascript"></script>  
 <script>
@@ -1070,7 +1037,6 @@
     const modalOctGame = document.getElementById("modalOctGame");
     const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
     const modalOctQuiz2 = document.getElementById("modalOctQuiz2");
-    const modalOctQuiz3 = document.getElementById("modalOctQuiz3");
 
     // Open modal function
     function openModalOctGame() {
@@ -1163,43 +1129,6 @@
         iframe.removeAttribute('data-br-temp-src-nowheel');        
         modalOctQuiz2.style.display = "flex";
     }    
-
-    function openModalOctQuiz3() {
-        const iframe = document.getElementById('oct-quiz-3-iframe');
-        if (!iframe || (!iframe.hasAttribute('data-br-temp-src-wheel') && !iframe.hasAttribute('data-br-temp-src-nowheel'))) {
-            modalOctQuiz3.style.display = "flex";
-            return;
-        }
-
-        let srcValue;
-        if (iframe.hasAttribute('data-wheel-played')) {
-            const wheelValue = iframe.getAttribute('data-wheel-played');
-            srcValue = wheelValue === 'true' 
-                ? iframe.getAttribute('data-br-temp-src-nowheel') 
-                : iframe.getAttribute('data-br-temp-src-wheel');
-        } else {
-            // Fallback: prioritize wheel if no data-wheel-played
-            srcValue = iframe.hasAttribute('data-br-temp-src-wheel') 
-                ? iframe.getAttribute('data-br-temp-src-wheel') 
-                : iframe.getAttribute('data-br-temp-src-nowheel');
-        }
-
-        // Get URL query parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const queryParam = urlParams.get('query');
-        
-        // Append query parameter if it exists
-        if (queryParam) {
-            const separator = srcValue.includes('?') ? '&' : '?';
-            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
-        }        
-        // Set the src attribute and remove both data attributes
-        iframe.src = srcValue;
-        iframe.removeAttribute('data-br-temp-src-wheel');
-        iframe.removeAttribute('data-br-temp-src-nowheel');        
-        modalOctQuiz3.style.display = "flex";
-    } 
-
     // Close modal function
     function closeModalOctGame() {
       modalOctGame.style.display = "none";
@@ -1209,24 +1138,19 @@
     }    
     function closeModalOctQuiz2() {
       modalOctQuiz2.style.display = "none";
-    } 
-    function closeModalOctQuiz3() {
-      modalOctQuiz3.style.display = "none";
-    }     
+    }      
     // Close modal when clicking outside
     window.onclick = function(event) {
+        console.log("Target", event.target)
       if (event.target === modalOctGame) {
         closeModalOctGame();
       }
       if (event.target === openModalOctQuiz1) {
         closeModalOctQuiz1();
-      }  
+      }    
       if (event.target === openModalOctQuiz2) {
         closeModalOctQuiz2();
       }           
-      if (event.target === openModalOctQuiz3) {
-        closeModalOctQuiz3();
-      }        
     };
 // End October Modals
     function openPDF() {
@@ -1242,7 +1166,7 @@
         if (typeof event.data === 'object' && event.data.type === 'close') {
             window.location.reload();
         }
-    }, { once: false });     
+    }, { once: false });    
     window.addEventListener('load', () => {
     function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
         // Get the query string from the URL
@@ -1276,12 +1200,13 @@
             .then(data => {                
                 // Check if structured_data exists in the response
                 if (data && data.structured_data) {
-                    console.log("Breeze - gR - Structured data", data.structured_data)
+                    console.log("Breeze - gR - data and Structured data", data.structured_data)
                     Object.entries(data.structured_data).forEach(([key, value]) => {
-                        const element = document.getElementById(key);                        
+                        console.log(key,value);
+                        const element = document.getElementById(key);
                         if (element) {
                             element.innerHTML = value;
-                            setNumberColor(element, value)
+                            setNumberColor(element, value)                            
                         }
                     });
                     // Oct game
@@ -1294,9 +1219,7 @@
                         const doorman = document.getElementById('doorman-wrapper');
                         doorman.classList.toggle('hide', true);      
                         const doorman2 = document.getElementById('doorman-wrapper-2');
-                        doorman2.classList.toggle('hide', true);
-                        const doorman3 = document.getElementById('doorman-wrapper-3');
-                        doorman3.classList.toggle('hide', true);
+                        doorman2.classList.toggle('hide', true);                                             
                     } else {
                         octGame.classList.toggle('bg-red',true);
                     }
@@ -1308,9 +1231,8 @@
                         const octQuiz1Parent = octQuiz1.parentElement;
                         octQuiz1Parent.style.animationPlayState = 'paused'; 
                     } else {
-                        octQuiz1.classList.toggle('bg-red',true);
-                        octQuiz1.setAttribute('data-wheel-played', true);                      
-                    }   
+                        octQuiz1.classList.toggle('bg-red',true);                       
+                    }         
                     // Oct Quiz 2
                     const octQuiz2 = document.getElementById('oct-quiz-2-circle');
                     if (data?.structured_data?.oct_quiz_2 === true) {
@@ -1323,26 +1245,10 @@
                     } else {
                         console.log('Breeze - gR - Oct Quiz 2 NOT Played');
                         octQuiz2.classList.toggle('bg-red',true);
-                        octQuiz2.setAttribute('data-wheel-played', true);                        
-                    }     
-                    // Oct Quiz 3
-                    const octQuiz3 = document.getElementById('oct-quiz-3-circle');
-                    if (data?.structured_data?.oct_quiz_3 === true) {
-                        console.log('Breeze - gR - Oct Quiz 3 Played');
-                        octQuiz3.classList.toggle('bg-green',true);
-                        const octQuiz3Iframe = document.getElementById('oct-quiz-3-iframe');
-                        octQuiz3Iframe.setAttribute('data-wheel-played', true);
-                        const octQuiz3Parent = octQuiz3.parentElement;
-                        octQuiz3Parent.style.animationPlayState = 'paused'; 
-                        const oct_wheel = document.getElementById('oct-quiz-wheel')
-                        oct_wheel.classList.toggle('hide',true);                           
-                    } else {
-                        console.log('Breeze - gR - Oct Quiz 3 NOT Played');
-                        octQuiz3.classList.toggle('bg-red',true);
-                        octQuiz3.setAttribute('data-wheel-played', true);
+                        octQuiz2.setAttribute('data-wheel-played', true);
                         const oct_wheel = document.getElementById('oct-quiz-wheel')
                         oct_wheel.classList.toggle('hide',false);                           
-                    }                                                      
+                    }                                 
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }
@@ -1361,9 +1267,7 @@
             const doorman = document.getElementById('doorman-wrapper');
             doorman.classList.toggle('hide', true);               
             const doorman2 = document.getElementById('doorman-wrapper-2');
-            doorman2.classList.toggle('hide', true); 
-            const doorman3 = document.getElementById('doorman-wrapper-3');
-            doorman3.classList.toggle('hide', true);                              
+            doorman2.classList.toggle('hide', true);              
         }
     }  
     getRetailer('france_iam');  
@@ -1438,6 +1342,6 @@ function setNumberColor(element, number) {
     }
     element.textContent = '0';
   }
-}
+}    
 </script>   
 </html>
