@@ -298,8 +298,8 @@
         width: 6%;
     }     
     .oct-quiz-4 {
-        top: 24%;
-        left: 83%;
+        top: 21%;
+        left: 82.75%;
     }  
     .oct-quiz-4.quiz-closed {
         top: 20.5%;
@@ -314,8 +314,8 @@
     .oct-quiz-4-footer {
         position:absolute;
         top: 34.5%;
-        left: 81%;
-        width: 8%;
+        left: 82%;
+        width: 6%;
     }  
     .quiz-closed {
         position: absolute;
@@ -508,8 +508,9 @@
             </div>
             <!-- Quiz 4 -->
             <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp">
-            <img class="oct-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
-            <img class="oct-quiz-4-footer" src="images/iam_quiz_4_date_nr.webp">               
+            <div class="oct-quiz-4 outer-circle quiz" onclick="openModalOctQuiz4()">
+                <div id="oct-quiz-4-circle" class="inner-circle"></div>
+            </div>              
         </div>
         
         <img class="activities_november" src="images/iam_activities_november_closed.webp">
@@ -558,7 +559,15 @@
             <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/fr/v1"></iframe>
         </div>
     </div>
-    <!-- End October Quiz 3 -->          
+    <!-- End October Quiz 3 -->       
+    <!-- Modal October Quiz 4 -->
+    <div id="modalOctQuiz4" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz4();window.location.reload();">&times;</span>           
+            <iframe id="oct-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 4 -->          
 </body>
 <script src="js/uqse.js" type="text/javascript"></script>  
 <script>
@@ -646,6 +655,7 @@
     const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
     const modalOctQuiz2 = document.getElementById("modalOctQuiz2");
     const modalOctQuiz3 = document.getElementById("modalOctQuiz3");
+    const modalOctQuiz4 = document.getElementById("modalOctQuiz4");
 
     // Open modal function
     function openModalOctGame() {
@@ -724,7 +734,26 @@
         iframe.src = srcValue;
         iframe.removeAttribute('data-br-temp-src');                  
         modalOctQuiz3.style.display = "flex";
-    }      
+    }    
+    function openModalOctQuiz4() {
+        const iframe = document.getElementById('oct-quiz-4-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz4.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        // Get URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        // Append query parameter if it exists
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz4.style.display = "flex";
+    }       
     // Close modal function
     function closeModalOctGame() {
       modalOctGame.style.display = "none";
@@ -737,6 +766,9 @@
     }   
     function closeModalOctQuiz3() {
       modalOctQuiz3.style.display = "none";
+    }
+    function closeModalOctQuiz4() {
+      modalOctQuiz4.style.display = "none";
     }
     // Close modal when clicking outside
     window.onclick = function(event) {
@@ -751,6 +783,9 @@
       }             
       if (event.target === openModalOctQuiz3) {
         closeModalOctQuiz3();
+      }
+      if (event.target === openModalOctQuiz4) {
+        closeModalOctQuiz4();
       }
     };
 // End October Modals
@@ -847,7 +882,18 @@
                     } else {
                         console.log('Breeze - gR - Oct Quiz 3 NOT Played');
                         octQuiz3.classList.toggle('bg-red',true);                         
-                    }                                            
+                    }     
+                    // Oct Quiz 4
+                    const octQuiz4 = document.getElementById('oct-quiz-4-circle');
+                    if (data?.structured_data?.oct_quiz_4 === true) {
+                        console.log('Breeze - gR - Oct Quiz 4 Played');
+                        octQuiz4.classList.toggle('bg-green',true);
+                        const octQuiz4Parent = octQuiz4.parentElement;
+                        octQuiz4Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        console.log('Breeze - gR - Oct Quiz 4 NOT Played');
+                        octQuiz4.classList.toggle('bg-red',true);                         
+                    }                                                            
                 } else {
                     console.log('Breeze - gR - No structured_data found in response');
                 }
@@ -865,6 +911,8 @@
             octQuiz2.classList.toggle('bg-red',true);            
             const octQuiz3 = document.getElementById('oct-quiz-3-circle');
             octQuiz3.classList.toggle('bg-red',true);
+            const octQuiz4 = document.getElementById('oct-quiz-4-circle');
+            octQuiz4.classList.toggle('bg-red',true);
         }
     }  
     getRetailer('france_iam');  
