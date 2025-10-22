@@ -1463,7 +1463,7 @@ function setNumberColor(element, number) {
     } else if (element.id === 'box_m') {
       // box_m: black parent with % suffix
       element.classList.add('black');
-      element.textContent = `+${parsed.toFixed(2)}%`;
+      element.textContent = `${parsed.toFixed(2)}%`;
     } else {
       // box_b, box_e, box_h, box_o: green parent (box_o always white), no suffix
       element.classList.add(element.id === 'box_o' ? 'white' : 'green');
