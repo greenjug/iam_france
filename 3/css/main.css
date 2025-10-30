@@ -74,6 +74,17 @@ section.landing {
     left: 25.4%;
     border-radius: 15px;
 }
+.cta-order {
+    max-width: 80%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.quiz-wheel {   
+    position: relative;  
+    width: 80%;
+    height: 80%;
+    top: 7.5%;
+} 
 .landing-title-img-cta:hover {
     background-color: black;
     opacity: 0.2;
@@ -152,6 +163,9 @@ section.landing {
 }
 /* End Products */
 /* Activities */
+.hide {
+    display:none;
+}  
 .activities_header {
     width: 55%;
     margin: 0 auto;

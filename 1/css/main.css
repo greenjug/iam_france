@@ -170,7 +170,14 @@ section.landing {
 }
 /* End Activities */
 /* OK to here */
-
+.cta-order {
+    max-width: 80%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.hide {
+    display:none;
+}  
 .cta-container {
 position: relative;
 margin: 20px 0;
