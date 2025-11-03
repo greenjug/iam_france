@@ -224,9 +224,9 @@ section.landing {
 #box_j { height: 63%; top: 33%; left: 0%; }
 #box_k { top: 33%; height: 63%; left: 33.333%; }
 #box_l { top: 33%; height: 63%; left: 66.666%; }
-#box_m { height: 63%; top: 36%; left: 0%; }
-#box_n { top: 36%; height: 63%; left: 33.333%; }
-#box_o { top: 36%; height: 63%; left: 66.666%; }
+#box_m { top: 22%; height: 63%; left: 0%; }
+#box_n { top: 22%; height: 63%; left: 33.333%; }
+#box_o { top: 22%; height: 63%; left: 66.666%; }
 
 .products { max-width: 1300px; }
 
