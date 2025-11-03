@@ -758,6 +758,7 @@
 <script>
     window.addEventListener('message', function(event) {
         console.log('Close listener set');
+        console.log('Received message:', event.data);
         if (event.data === 'close') {
             window.location.reload();
             return;

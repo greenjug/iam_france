@@ -151,25 +151,25 @@ const closeModalNovQuiz3 = () => closeModal('modalNovQuiz3');
 const closeModalNovQuiz4 = () => closeModal('modalNovQuiz4');
 
 // Keyboard navigation for modals
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        Object.values(modals).forEach(modal => modal && (modal.style.display = "none"));
-    }
-});
+// document.addEventListener('keydown', (event) => {
+//     if (event.key === 'Escape') {
+//         Object.values(modals).forEach(modal => modal && (modal.style.display = "none"));
+//     }
+// });
 
 // Close on outside click
-window.addEventListener('click', (event) => {
-    Object.values(modals).forEach(modal => {
-        if (event.target === modal) modal.style.display = "none";
-    });
-});
+// window.addEventListener('click', (event) => {
+//     Object.values(modals).forEach(modal => {
+//         if (event.target === modal) modal.style.display = "none";
+//     });
+// });
 
 // Message listener for iframe close
-window.addEventListener('message', (event) => {
-    if (event.data === 'close' || (typeof event.data === 'object' && event.data.type === 'close')) {
-        window.location.reload();
-    }
-});
+// window.addEventListener('message', (event) => {
+//     if (event.data === 'close' || (typeof event.data === 'object' && event.data.type === 'close')) {
+//         window.location.reload();
+//     }
+// });
 
 // Collapse/expand functionality for October activities
 document.addEventListener('DOMContentLoaded', () => {
@@ -475,3 +475,25 @@ function setNumberColor(element, number) {
     element.textContent = '0';
   }
 }
+window.addEventListener('message', function(event) {
+    console.log('Close listener set');
+    console.log('Received message:', event.data);
+    if (event.data === 'quiz_close') {
+        console.log('Reloading window due to quiz_close message');
+        window.location.reload();
+        return;
+    }
+    if (event.data === 'close') {
+        console.log('closing game and opening quiz due to close message');
+        // window.location.reload();
+        const doormanNov = document.getElementById('doorman-wrapper-nov');
+        doormanNov.classList.toggle('hide', true);        
+        closeModalNovGame();
+        openModalNovQuiz1();
+        return;
+    }    
+    if (typeof event.data === 'object' && event.data.type === 'quiz_close') {
+        console.log('Reloading window due to quiz_close object message');
+        // window.location.reload();
+    }
+}, { once: false });  
