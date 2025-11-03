@@ -265,8 +265,18 @@ window.addEventListener('load', () => {
                     Object.entries(data.structured_data).forEach(([key, value]) => {
                         const element = document.getElementById(key);                        
                         if (element) {
-                            element.innerHTML = value;
-                            setNumberColor(element, value)
+                            // element.innerHTML = value;
+                            if (value === null) {
+                                console.log('null value');
+                            } else {
+                                parsed = Number(value);
+                                if (isNaN(parsed)) {
+                                    console.log('NaN value');
+                                } else {
+                                    element.innerHTML = `${parsed.toFixed(0)}`;
+                                    setNumberColor(element, parsed);
+                                }
+                            }
                         }
                     });                    
                     // Update circles
@@ -429,7 +439,7 @@ function setNumberColor(element, number) {
     } else {
       // box_b, box_e, box_h, box_o: green parent (box_o always white), no suffix
       element.classList.add(element.id === 'box_o' ? 'white' : 'green');
-      element.textContent = `+${parsed.toFixed(2)}`;
+      element.textContent = `+${parsed.toFixed(0)}`;
     }
   } else if (parsed < 0) {
     if (element.id === 'box_n') {
@@ -443,7 +453,7 @@ function setNumberColor(element, number) {
     } else {
       // box_b, box_e, box_h, box_o: red parent (box_o always white), no suffix
       element.classList.add(element.id === 'box_o' ? 'white' : 'red');
-      element.textContent = parsed.toFixed(2);
+      element.textContent = parsed.toFixed(0);
     }
   } else {
     // For zero: black for box_n, white for others, no suffix
