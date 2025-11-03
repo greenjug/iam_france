@@ -263,9 +263,13 @@ window.addEventListener('load', () => {
                 if (data?.structured_data) {
                     console.log("Breeze - gR - Structured data", data.structured_data);
                     Object.entries(data.structured_data).forEach(([key, value]) => {
-                        const element = document.getElementById(key);
-                        if (element) element.innerHTML = value;
+                        const element = document.getElementById(key);                        
+                        if (element) {
+                            element.innerHTML = value;
+                            setNumberColor(element, value)
+                        }
                     });
+
                     // Update circles
                     const updateCircle = (id, played) => {
                         const circle = document.getElementById(id);
@@ -401,4 +405,73 @@ window.onclick = function(event) {
 
 function openPDF() {
   window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
+}
+function setNumberColor(element, number) {
+  // Ensure element exists
+  if (!element || !element.id) {
+    return;
+  }
+
+  // Define valid element IDs
+  const validIds = ['box_b', 'box_e', 'box_h', 'box_n', 'box_m'];
+  
+  // Check if element ID is in the valid list
+  if (!validIds.includes(element.id)) {
+    return;
+  }
+  
+  // Remove black and white classes from parent element
+  element.classList.remove('black', 'white');
+  
+  // Handle null case
+  if (number === null) {
+    return;
+  }
+  
+  // Parse the number (handles string inputs)
+  const parsed = Number(number);
+  
+  // Handle invalid number
+  if (isNaN(parsed)) {
+    return;
+  }
+  
+  // Handle number cases
+  if (parsed > 0) {
+    if (element.id === 'box_n') {
+      // box_n: green parent and span with pp suffix
+      element.classList.add('green');
+      element.innerHTML = `+${parsed.toFixed(2)}<span class="suffix green">pp</span>`;
+    } else if (element.id === 'box_m') {
+      // box_m: black parent with % suffix
+      element.classList.add('black');
+      element.textContent = `${parsed.toFixed(2)}%`;
+    } else {
+      // box_b, box_e, box_h, box_o: green parent (box_o always white), no suffix
+      element.classList.add(element.id === 'box_o' ? 'white' : 'green');
+      element.textContent = `+${parsed.toFixed(2)}`;
+    }
+  } else if (parsed < 0) {
+    if (element.id === 'box_n') {
+      // box_n: red parent and span with pp suffix
+      element.classList.add('red');
+      element.innerHTML = `${parsed.toFixed(2)}<span class="suffix red">pp</span>`;
+    } else if (element.id === 'box_m') {
+      // box_m: black parent with % suffix
+      element.classList.add('black');
+      element.textContent = `${parsed.toFixed(2)}%`;
+    } else {
+      // box_b, box_e, box_h, box_o: red parent (box_o always white), no suffix
+      element.classList.add(element.id === 'box_o' ? 'white' : 'red');
+      element.textContent = parsed.toFixed(2);
+    }
+  } else {
+    // For zero: black for box_n, white for others, no suffix
+    if (element.id === 'box_n') {
+      element.classList.add('black');
+    } else {
+      element.classList.add('white');
+    }
+    element.textContent = '0';
+  }
 }
