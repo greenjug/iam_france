@@ -323,6 +323,10 @@ window.addEventListener('load', () => {
                     setWheelPlayed('nov-quiz-2-iframe', data.structured_data.nov_quiz_2 === true);
                     setWheelPlayed('nov-quiz-3-iframe', data.structured_data.nov_quiz_3 === true);
                     setWheelPlayed('nov-quiz-4-iframe', data.structured_data.nov_quiz_4 === true);
+                    if (data.structured_data.nov_quiz_1 === false) {
+                        const quizWheel = document.getElementById('nov-quiz-wheel-1');
+                        quizWheel.classList.toggle('hide', false);
+                    }                    
                 } else {
                     console.log('Breeze - gR - No structured_data found');
                 }

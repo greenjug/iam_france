@@ -310,6 +310,8 @@ window.addEventListener('load', () => {
                         doormanNov3.classList.toggle('hide', true);
                         const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
                         doormanNov4.classList.toggle('hide', true);
+                    } else {
+                        console.log('Breeze - gR - Nov Game Not Played');
                     }
 
                     // Set data-wheel-played attributes for November quizzes
@@ -323,6 +325,10 @@ window.addEventListener('load', () => {
                     setWheelPlayed('nov-quiz-2-iframe', data.structured_data.nov_quiz_2 === true);
                     setWheelPlayed('nov-quiz-3-iframe', data.structured_data.nov_quiz_3 === true);
                     setWheelPlayed('nov-quiz-4-iframe', data.structured_data.nov_quiz_4 === true);
+                    if (data.structured_data.nov_quiz_1 === false) {
+                        const quizWheel = document.getElementById('nov-quiz-wheel-1');
+                        quizWheel.classList.toggle('hide', false);
+                    }
                 } else {
                     console.log('Breeze - gR - No structured_data found');
                 }

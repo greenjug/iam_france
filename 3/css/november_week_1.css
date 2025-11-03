@@ -378,3 +378,19 @@ section.landing {
     .products-one, .products-two { max-width: 80%; width: 80%; }
     .products-one { margin-bottom: 30px; }
 }
+.quiz-wheel {   
+    position: relative;  
+    width: 80%;
+    height: 80%;
+    top: 7.5%;
+}
+.doorman {
+    width:100%;
+    object-fit: cover;
+}
+.cta-overlay-7 {
+    top: 82%;
+    width: 44%;
+    height: 9%;
+    left: 28%;
+}
