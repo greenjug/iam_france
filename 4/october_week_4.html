@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marlboro IAM France | October </title>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="css/main.css">
+<style>
+    @font-face {
+        font-family: 'Hackney';
+        src: url('fonts/HackneyPersonalUseOnly.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }    
+    @font-face {
+        font-family: 'NeulandGroteskLight';
+        src: url('fonts/NeulandGrotesk-Light.otf') format('opentype');
+        font-weight: 300;  /* Light weight */
+        font-style: normal;
+        font-display: swap; 
+    }     
+    .gamequiz iframe {
+        max-height: calc(85vh - 80px) !important;
+    }  
+    a.nav-item {
+      font-family: 'NeulandGroteskLight', sans-serif !important;
+    }
+    .activities {
+        position: relative;
+        max-width: 1920px;
+    }
+    .activities_october_container {
+        position: relative;
+        /* background-image: url('images/iam_background_oct.webp'); */
+        background-size: cover;
+        background-position: center;        
+    }
+    .activities_header {
+        max-width: 100%;
+        width: 50%;                
+    }
+    .activities_october_graph {
+        width:100%;
+    }
+    .activities_october_arrow {
+        display:none;
+        position:absolute;
+        width: 40px;
+        top:24%;
+        left: calc( 50% - 20px);
+    }
+    .cta-overlay  {
+        /* background-color: green; */
+        position: absolute;
+    }
+    .cta-overlay-1 {
+        top: 87%;
+        left: 40.75%;
+        width: 17%;
+        height: 12%;
+    }
+    .leaderboard-headers {
+        max-width: 100%;
+        margin:0 auto;
+    }
+    .leaderboard-header-one {
+        position: relative;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .leaderboard-header-one-img {
+        width:50%;
+    }
+    .leaderboard-header-two-img {
+        width:50%;
+        margin-bottom: 50px;
+    }
+    .leaderboard-tables {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .leaderboard-table-a, .leaderboard-table-b, .leaderboard-table-c {
+        position: relative;
+    }
+    .leaderboard-table-a-img, .leaderboard-table-b-img, .leaderboard-table-c-img {
+        width: 100%;
+        position: relative;
+    }
+    .leaderboard-table-a-header, .leaderboard-table-b-header, .leaderboard-table-c-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color:black;
+    }
+    .leaderboard-table-a-header {
+        background-color:#C8202E
+    }
+    .leaderboard-table-chevron {
+        height:16px;
+    }
+    .leaderboard-table-text {
+      font-family: 'NeulandGroteskLight', sans-serif;
+    }
+    .box-number {
+        position: absolute;
+        width: 33.333%;
+        height: 21%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 90px; 
+    }
+    .white {
+        color: white !important;
+    }
+    .black {
+        color: black !important;
+    }
+    .red {
+        color:#C8202E
+    }
+    .green {
+        color:#6DD352;
+    }    
+    #box_a {
+        top: 12%;
+        left: 0%;   
+    }
+    #box_b {
+        top: 12%;
+        left: 33.333%;   
+    }    
+    #box_c {
+        top: 12%;
+        left: 66.666%;   
+    }   
+    #box_d {
+        top: 45%;
+        left: 0%;   
+    }
+    #box_e {
+        top: 45%;
+        left: 33.333%;   
+    }    
+    #box_f {
+        top: 45%;
+        left: 66.666%;   
+    }        
+    #box_g {
+        top: 78%;
+        left: 0%;   
+    }
+    #box_h {
+        top: 78%;
+        left: 33.333%;   
+    }    
+    #box_i {
+        top: 78%;
+        left: 66.666%;   
+    }    
+    /*  Table B */
+    #box_j {
+        height:63%;
+        top: 36%;
+        left: 0%;   
+    }
+    #box_k {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_l {
+        top: 36%;
+        height:63%;
+        left: 66.666%;   
+    }    
+    /*  Table C */
+    #box_m {
+        height:63%;
+        top: 36%;
+        left: 0%;    
+    }
+    #box_n {
+        top: 36%;
+        height:63%;
+        left: 33.333%;   
+    }    
+    #box_o {
+        top: 36%;
+        height:63%;
+        left: 66.666%;  
+    }       
+    /* Products */
+    .products {
+        max-width: 1920px;
+    }
+    /* circles */
+    .outer-circle {
+        width: 5%;
+        height: 15%;
+        background-color: #FFFFFF66;
+        border-radius: 50%;
+        position: absolute;
+        animation: pulse 2s ease-in-out infinite;
+        z-index: 10;
+    }
+    .outer-circle.quiz {
+        width: 4%;
+        height: 12%;
+    }
+    .inner-circle {
+        width: 75%;
+        height: 75%;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .inner-circle.quiz {
+        width: 75%;
+        height: 75%;    
+    }
+    .oct-game {
+        top: 63.25%;
+        left: 12%;
+    }
+    .oct-game-header {
+        position:absolute;
+        top: 53%;
+        left: 12%;
+        width: 5%;
+    }    
+    .oct-game-footer {
+        position:absolute;
+        top: 81%;
+        left: 11.5%;
+        width: 6%;
+    }     
+    .oct-quiz-1 {
+        top: 37%;
+        left: 39%;
+    }  
+    .oct-quiz-1-header {
+        position:absolute;
+        top: 30.5%;
+        left: 38.3%;
+        width: 5%;
+    }   
+    .oct-quiz-1-footer {
+        position:absolute;
+        top: 51%;
+        left: 37.95%;
+        width: 6%;
+    }         
+    .oct-quiz-2 {
+        top: 33.5%;
+        left: 54.75%;
+    }  
+    .oct-quiz-2.quiz-closed {
+        top: 33%;
+        left: 54.75%;
+    }
+    .oct-quiz-2-header {
+        position:absolute;
+        top: 27%;
+        left: 54%;
+        width: 5%;
+    }    
+    .oct-quiz-2-footer {
+        position:absolute;
+        top: 47.5%;
+        left: 53%;
+        width: 8%;
+    }        
+    .oct-quiz-3 {
+        top: 27.5%;
+        left: 69.75%;
+    }      
+    .oct-quiz-3.quiz-closed {
+        top: 27%;
+        left: 69.75%;
+    }    
+    .oct-quiz-3-header {
+        position:absolute;
+        top: 21%;
+        left: 69%;
+        width: 5%;
+    }    
+    .oct-quiz-3-footer {
+        position:absolute;
+        top: 41%;
+        left: 68.25%;
+        width: 8%;
+    }     
+    .oct-quiz-4 {
+        top: 21%;
+        left: 82.75%;
+    }  
+    .oct-quiz-4.quiz-closed {
+        top: 20.5%;
+        left: 82.75%;
+    }     
+    .oct-quiz-4-header {
+        position:absolute;
+        top: 14.75%;
+        left: 82%;
+        width: 5%;
+    }   
+    .oct-quiz-4-footer {
+        position:absolute;
+        top: 34.5%;
+        left: 81%;
+        width: 8%;
+    }  
+    .quiz-closed {
+        position: absolute;
+        width:4%;
+    }       
+    .bg-green {
+        background-color: #6DD352 !important;
+        cursor: pointer;
+    }
+    .bg-red {
+        background-color: #C8202E !important;
+        cursor: pointer;
+    }
+    /* End circles */     
+    .bg-green {
+        background-color: #6DD352 !important;
+        cursor: pointer;
+    }
+    .bg-red {
+        background-color: #C8202E !important;
+        cursor: pointer;
+    }   
+    .gains-one { 
+        position:relative;
+    }
+    .cta-overlay-4 {
+        top: 61.5%;
+        left: 6.775%;
+        width: 52%;
+        height: 13.5%;
+    }
+    .cta-overlay-5 {
+        top: 78%;
+        left: 7%;
+        width: 60%;
+        height: 14%;
+    }    
+    .gamequiz {
+        background-color: transparent;
+        aspect-ratio: 9/15.94;
+        width: auto;
+        padding: 0;
+        border-radius: 0;
+        overflow: hidden;
+
+    }    
+    .gamequiz iframe {
+        height:85vh;
+        max-height: 85vh;
+        aspect-ratio: 9/15.94;
+        overflow: hidden;
+    }     
+    .close-btn {
+        top:0;
+        right:10px;
+    }    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }    
+    @media screen and (max-width: 768px){
+        .landing-images {
+            width: 150%;
+            margin-top: 10%;
+            left: -25%;
+        }
+        .gains-one {
+            max-width: 100%;
+            width: 80%;
+            margin: 0 auto;            
+        }           
+        .gains-two {
+            max-width: 100%;
+            width: 80%;
+            margin: 0 auto;       
+            margin-top: 10%;
+        }             
+        .accordion {
+            margin-left: 10px;
+            margin-right: 10px;            
+        }   
+        .box-number {
+            font-size:70px;
+        }
+    }
+       @media screen and (max-width: 600px){
+        .box-number {
+            font-size:60px;
+        }
+        .legal-notice {
+            width:100%;
+        }
+    } 
+    @media screen and (max-width: 500px){
+        .box-number {
+            font-size:40px;
+        }    
+        .products {
+            display: flex;
+            flex-direction: column;
+        }     
+        .products-one, .products-two {
+            max-width: 80%;
+            width: 80%;
+        }
+        .products-one {
+            margin-bottom: 30px;
+        }
+    }      
+</style>
+</head>
+<body>
+    <!-- Header section -->
+    <section class="landing">
+        <!-- End Nav -->
+        <div class="landing-nav">
+            <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
+            <a href="#produits" class="nav-item">PRODUITS</a>
+        </div>
+        <!-- End Nav -->
+        <!-- Hero -->
+        <div class="landing-logo">
+            <img src="images/iam_logo.webp" alt="I AM Logo">
+        </div>    
+        <div class="landing-title" id="challenge">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
+            <a class="landing-title-img-cta" href="#actions_digitales"></a>
+        </div>
+        <div class="landing-images">
+            <img class="landing-images-img" src="images/iam_cards.webp">
+            </div>            
+        </div>    
+        <!-- End Hero -->
+    </section>
+    <!-- End Header section -->    
+    <!-- Engage section -->
+    <section class="engage">
+    </section>
+    <!-- End Engage section -->
+    <!-- Activities Section -->
+    <section class="activities" id="actions_digitales">
+        <img class="activities_header" src="images/iam_activities_header_v2.webp">
+        <img class="activities_october" src="images/iam_activities_october_v2.webp">
+        <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse">
+        <div class="activities_october_container" id="octDiv">
+            <img class="activities_october_graph" src="images/iam_progress_graph.webp">
+            <!-- Game -->
+            <img class="oct-game-header" src="images/iam_game.webp">
+            <div class="oct-game outer-circle" onclick="openModalOctGame()">
+                <div id="oct-game-circle" class="inner-circle"></div>
+            </div>
+            <!-- Quiz 1 -->
+            <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp">
+            <div class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()">
+                <div id="oct-quiz-1-circle" class="inner-circle"></div>
+            </div>
+            <!-- Quiz 2 -->
+            <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp">
+            <div class="oct-quiz-2 outer-circle quiz" onclick="openModalOctQuiz2()">
+                <div id="oct-quiz-2-circle" class="inner-circle"></div>
+            </div>
+            <!-- Quiz 3 -->
+            <img class="oct-quiz-3-header" src="images/iam_quiz_3.webp">
+            <div class="oct-quiz-3 outer-circle quiz" onclick="openModalOctQuiz3()">
+                <div id="oct-quiz-3-circle" class="inner-circle"></div>
+            </div>
+            <!-- Quiz 4 -->
+            <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp">
+            <div class="oct-quiz-4 outer-circle quiz" onclick="openModalOctQuiz4()">
+                <div id="oct-quiz-4-circle" class="inner-circle"></div>
+            </div>
+        </div>
+        
+        <img class="activities_november" src="images/iam_activities_november_closed.webp">
+        <img class="activities_december" src="images/iam_activities_december_closed.webp">
+    </section>
+    <!-- Activities Section -->
+    <!-- Product Section -->
+    <section class="products" id="produits">    
+        <div class="products-one">
+            <img class="products-one-img" src="images/iam_box3_pack_2.webp">
+        </div>
+        <div class="products-two">
+            <img class="products-two-img" src="images/iam_pack_2_v4.webp">
+        </div>            
+    </section>
+    <!-- End Product Section -->        
+
+    <!-- Modal October Game -->
+    <div id="modalOctGame" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctGame();window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v3_nolanding"></iframe>
+        </div>
+    </div>
+    <!-- End October Game -->       
+    <!-- Modal October Quiz 1 -->
+    <div id="modalOctQuiz1" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/crs/v3"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 1 -->    
+    <!-- Modal October Quiz 2 -->
+    <div id="modalOctQuiz2" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz2();window.location.reload();">&times;</span>
+            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/crs/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 2 -->        
+    <!-- Modal October Quiz 3 -->
+    <div id="modalOctQuiz3" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz3();window.location.reload();">&times;</span>
+            <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/crs/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 3 -->           
+    <!-- Modal October Quiz 4 -->
+    <div id="modalOctQuiz4" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz4();window.location.reload();">&times;</span>
+            <iframe id="oct-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/crs/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 4 -->           
+</body>
+<script src="js/uqse.js" type="text/javascript"></script>  
+<script>
+// Nav 
+ function navNov() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct() {
+        const oct = document.getElementById("october");    
+        const nov = document.getElementById("november");        
+        const dec = document.getElementById("december");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+  function navNov2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "block";
+        oct.style.display = "none";
+        dec.style.display = "none";
+ }
+  function navDec2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "none";
+        dec.style.display = "block";
+ }
+  function navOct2() {
+        const oct = document.getElementById("october2");    
+        const nov = document.getElementById("november2");        
+        const dec = document.getElementById("december2");    
+        nov.style.display = "none";
+        oct.style.display = "block";
+        dec.style.display = "none";
+ } 
+// End Nav
+// Info Modals
+    const modalOne = document.getElementById("modalOne");
+    const modalTwo = document.getElementById("modalTwo");
+
+    // Open modal function
+    function openModalOne() {
+      modalOne.style.display = "flex";
+    }
+    function openModalTwo() {
+      modalTwo.style.display = "flex";
+    }
+    // Close modal function
+    function closeModalOne() {
+      modalOne.style.display = "none";
+    }
+    function closeModalTwo() {
+      modalTwo.style.display = "none";
+    }    
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOne) {
+        closeModalOne();
+      }
+      if (event.target === modalTwo) {
+        closeModalTwo();
+      }      
+    };
+// End Info Modals
+// October Modals
+    const modalOctGame = document.getElementById("modalOctGame");
+    const modalOctQuiz1 = document.getElementById("modalOctQuiz1");
+    const modalOctQuiz2 = document.getElementById("modalOctQuiz2");
+    const modalOctQuiz3 = document.getElementById("modalOctQuiz3");
+    const modalOctQuiz4 = document.getElementById("modalOctQuiz4");
+
+    // Open modal function
+    function openModalOctGame() {
+        const iframe = document.getElementById('oct-game-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctGame.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');  
+        modalOctGame.style.display = "flex"; 
+    }
+    function openModalOctQuiz1() {
+        const iframe = document.getElementById('oct-quiz-1-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz1.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz1.style.display = "flex";
+    }
+    function openModalOctQuiz2() {
+        console.log('openModalOctQuiz2')
+        const iframe = document.getElementById('oct-quiz-2-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz2.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz2.style.display = "flex";
+    }    
+    function openModalOctQuiz3() {
+        console.log('openModalOctQuiz3')
+        const iframe = document.getElementById('oct-quiz-3-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz3.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz3.style.display = "flex";
+    }     
+    function openModalOctQuiz4() {
+        console.log('openModalOctQuiz4')
+        const iframe = document.getElementById('oct-quiz-4-iframe');
+        if (!iframe || !iframe.hasAttribute('data-br-temp-src')) {
+            modalOctQuiz4.style.display = "flex";
+            return;
+        }
+        let srcValue = iframe.getAttribute('data-br-temp-src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('query');
+        if (queryParam) {
+            const separator = srcValue.includes('?') ? '&' : '?';
+            srcValue += `${separator}query=${encodeURIComponent(queryParam)}`;
+        }
+        iframe.src = srcValue;
+        iframe.removeAttribute('data-br-temp-src');                  
+        modalOctQuiz4.style.display = "flex";
+    }       
+    // Close modal function
+    function closeModalOctGame() {
+      modalOctGame.style.display = "none";
+    }
+    function closeModalOctQuiz1() {
+      modalOctQuiz1.style.display = "none";
+    }    
+    function closeModalOctQuiz2() {
+        modalOctQuiz2.style.display = "none";
+    }
+    function closeModalOctQuiz3() {
+        modalOctQuiz3.style.display = "none";
+    }
+    function closeModalOctQuiz4() {
+        modalOctQuiz4.style.display = "none";
+    }    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modalOctGame) {
+        closeModalOctGame();
+      }
+      if (event.target === openModalOctQuiz1) {
+        closeModalOctQuiz1();
+      }      
+      if (event.target === openModalOctQuiz2) {
+        closeModalOctQuiz2();
+      }        
+      if (event.target === openModalOctQuiz3) {
+        closeModalOctQuiz3();
+      }
+      if (event.target === openModalOctQuiz4) {
+        closeModalOctQuiz4();
+      }
+    };
+// End October Modals
+</script>
+<script>
+    window.addEventListener('message', function(event) {
+        if (event.data === 'close') {
+            window.location.reload();
+        }
+    });    
+    window.addEventListener('load', () => {
+    function getRetailer(objectName, apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer', queryValue = 'query') {
+        // Get the query string from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get(queryValue);
+        
+        // Check if the query value exists and log if found
+        if (query) {
+            console.log(`Breeze - gR - ${queryValue} found`);
+        }
+        
+        // If both query and objectName exist, make the fetch call
+        if (query && objectName) {
+            console.log('Breeze - gR - fetching retailer')
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    objectName: objectName,
+                    query: query
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Breeze - gR - HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {                
+                // Check if structured_data exists in the response
+                if (data && data.structured_data) {
+                    console.log("Breeze - gR - Structured data", data.structured_data)
+                    Object.entries(data.structured_data).forEach(([key, value]) => {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = value;
+                        }
+                    });
+                    // Oct game
+                    const octGame = document.getElementById('oct-game-circle');
+                    if (data?.structured_data?.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        octGame.classList.toggle('bg-green',true);
+                        const octGameParent = octGame.parentElement;
+                        octGameParent.style.animationPlayState = 'paused';
+                    } else {
+                        octGame.classList.toggle('bg-red',true);
+                    }
+                    // Oct Quiz 1
+                    const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+                    if (data?.structured_data?.oct_quiz_1 === true) {
+                        console.log('Breeze - gR - Oct Quiz 1 Played');
+                        octQuiz1.classList.toggle('bg-green',true);
+                        const octQuiz1Parent = octQuiz1.parentElement;
+                        octQuiz1Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        octQuiz1.classList.toggle('bg-red',true);                         
+                    }   
+                    // Oct Quiz 2
+                    const octQuiz2 = document.getElementById('oct-quiz-2-circle');
+                    if (data?.structured_data?.oct_quiz_2 === true) {
+                        console.log('Breeze - gR - Oct Quiz 2 Played');
+                        octQuiz2.classList.toggle('bg-green',true);
+                        const octQuiz2Parent = octQuiz2.parentElement;
+                        octQuiz2Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        console.log('Breeze - gR - Oct Quiz 2 NOT Played');
+                        octQuiz2.classList.toggle('bg-red',true);                         
+                    }          
+                    // Oct Quiz 3
+                    const octQuiz3 = document.getElementById('oct-quiz-3-circle');
+                    if (data?.structured_data?.oct_quiz_3 === true) {
+                        console.log('Breeze - gR - Oct Quiz 3 Played');
+                        octQuiz3.classList.toggle('bg-green',true);
+                        const octQuiz3Parent = octQuiz3.parentElement;
+                        octQuiz3Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        console.log('Breeze - gR - Oct Quiz 3 NOT Played');
+                        octQuiz3.classList.toggle('bg-red',true);                         
+                    }          
+                    // Oct Quiz 4
+                    const octQuiz4 = document.getElementById('oct-quiz-4-circle');
+                    if (data?.structured_data?.oct_quiz_4 === true) {
+                        console.log('Breeze - gR - Oct Quiz 4 Played');
+                        octQuiz4.classList.toggle('bg-green',true);
+                        const octQuiz4Parent = octQuiz4.parentElement;
+                        octQuiz4Parent.style.animationPlayState = 'paused'; 
+                    } else {
+                        console.log('Breeze - gR - Oct Quiz 4 NOT Played');
+                        octQuiz4.classList.toggle('bg-red',true);                         
+                    }                                                              
+                } else {
+                    console.log('Breeze - gR - No structured_data found in response');
+                }
+            })
+            .catch(error => {
+                console.error('Breeze - gR - Fetch error:', error);
+            });
+        } else {
+            console.log('Breeze - gR - No querystring. Setting defaults');
+            const octGame = document.getElementById('oct-game-circle');
+            octGame.classList.toggle('bg-red',true);
+            const octQuiz1 = document.getElementById('oct-quiz-1-circle');
+            octQuiz1.classList.toggle('bg-red',true);
+            const octQuiz2 = document.getElementById('oct-quiz-2-circle');
+            octQuiz2.classList.toggle('bg-red',true);     
+        }
+    }  
+    getRetailer('france_iam');  
+    }); 
+</script>  
+</html>
