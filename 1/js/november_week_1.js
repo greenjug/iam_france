@@ -333,7 +333,7 @@ window.addEventListener('load', () => {
                 ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle'].forEach(id => {
                     const circle = document.getElementById(id);
                     if (circle) circle.classList.add('bg-red');
-                });
+                });          
             });
         } else {
             console.log('Breeze - gR - No querystring. Setting defaults');
@@ -341,7 +341,58 @@ window.addEventListener('load', () => {
                 const circle = document.getElementById(id);
                 if (circle) circle.classList.add('bg-red');
             });
+            console.log('Breeze - gR - Hiding doorman wrappers as fallback');
+            const doorman = document.getElementById('doorman-wrapper');
+            doorman.classList.toggle('hide', true);
+            const doorman2 = document.getElementById('doorman-wrapper-2');
+            doorman2.classList.toggle('hide', true);
+            const doorman3 = document.getElementById('doorman-wrapper-3');
+            doorman3.classList.toggle('hide', true);
+            const doorman4 = document.getElementById('doorman-wrapper-4');
+            doorman4.classList.toggle('hide', true);        
+            const doormanNov = document.getElementById('doorman-wrapper-nov');
+            doormanNov.classList.toggle('hide', true);
+            const doormanNov2 = document.getElementById('doorman-wrapper-nov-2');
+            doormanNov2.classList.toggle('hide', true);
+            const doormanNov3 = document.getElementById('doorman-wrapper-nov-3');
+            doormanNov3.classList.toggle('hide', true);
+            const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
+            doormanNov4.classList.toggle('hide', true);                      
         }
     };
     getRetailer('france_iam');
 });
+
+// Info Modals
+const modalOne = document.getElementById("modalOne");
+const modalTwo = document.getElementById("modalTwo");
+
+// Open modal function
+function openModalOne() {
+  modalOne.style.display = "flex";
+}
+function openModalTwo() {
+  modalTwo.style.display = "flex";
+}
+// Close modal function
+function closeModalOne() {
+  modalOne.style.display = "none";
+}
+function closeModalTwo() {
+  modalTwo.style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  if (event.target === modalOne) {
+    closeModalOne();
+  }
+  if (event.target === modalTwo) {
+    closeModalTwo();
+  }
+};
+// End Info Modals
+
+function openPDF() {
+  window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
+}

@@ -345,3 +345,37 @@ window.addEventListener('load', () => {
     };
     getRetailer('france_iam');
 });
+
+// Info Modals
+const modalOne = document.getElementById("modalOne");
+const modalTwo = document.getElementById("modalTwo");
+
+// Open modal function
+function openModalOne() {
+  modalOne.style.display = "flex";
+}
+function openModalTwo() {
+  modalTwo.style.display = "flex";
+}
+// Close modal function
+function closeModalOne() {
+  modalOne.style.display = "none";
+}
+function closeModalTwo() {
+  modalTwo.style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  if (event.target === modalOne) {
+    closeModalOne();
+  }
+  if (event.target === modalTwo) {
+    closeModalTwo();
+  }
+};
+// End Info Modals
+
+function openPDF() {
+  window.open('https://cdn-ec.wearefreakgames.com/france/iam/docs/REGLEMENT_COMPLET_I_AM_MARLBORO.pdf', '_blank');
+}

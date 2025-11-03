@@ -26,7 +26,7 @@ a.nav-item {
     font-family: var(--font-neuland) !important;
 }
 
-header.landing {
+section.landing {
     background-position: center 0px;
     padding-bottom: 9%;
 }
@@ -309,6 +309,7 @@ header.landing {
 .gains-one { position: relative; }
 .cta-overlay-4 { top: 61.5%; left: 6.775%; width: 52%; height: 13.5%; }
 .cta-overlay-5 { top: 78%; left: 7%; width: 60%; height: 14%; }
+.cta-overlay-6 { top: 94%; left: 22%; width: 29%; height: 6%; }
 
 .gamequiz {
     background-color: transparent;

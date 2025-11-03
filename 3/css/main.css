@@ -22,7 +22,7 @@ body {
     background-color: #000;
 }
 /* Sections */
-section.landing {
+section.landing, header.landing {
     width: 100%;
     background-image: url('../images/iam_background.webp');
     background-position: center 40px;
