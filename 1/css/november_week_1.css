@@ -279,7 +279,7 @@ section.landing {
 .nov-quiz-2 { top: 33.5%; left: 54.75%; }
 .nov-quiz-2.quiz-closed { top: 33%; left: 54.75%; }
 .nov-quiz-2-header { position: absolute; top: 27%; left: 54%; width: 5%; }
-.nov-quiz-2-footer { position: absolute; top: 47.5%; left: 53%; width: 8%; }
+.nov-quiz-2-footer { position: absolute; top: 47.5%; left: 53%; width: 6%; }
 
 .oct-quiz-3 { top: 27.5%; left: 69.75%; }
 .oct-quiz-3.quiz-closed { top: 27%; left: 69.75%; }
@@ -289,7 +289,7 @@ section.landing {
 .nov-quiz-3 { top: 27.5%; left: 69.75%; }
 .nov-quiz-3.quiz-closed { top: 27%; left: 69.75%; }
 .nov-quiz-3-header { position: absolute; top: 21%; left: 69%; width: 5%; }
-.nov-quiz-3-footer { position: absolute; top: 41%; left: 68.25%; width: 8%; }
+.nov-quiz-3-footer { position: absolute; top: 41%; left: 68.25%; width: 6%; }
 
 .oct-quiz-4 { top: 21%; left: 82.75%; }
 .oct-quiz-4.quiz-closed { top: 20.5%; left: 82.75%; }

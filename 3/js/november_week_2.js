@@ -358,6 +358,23 @@ window.addEventListener('load', () => {
                 const circle = document.getElementById(id);
                 if (circle) circle.classList.add('bg-red');
             });
+            console.log('Breeze - gR - Hiding doorman wrappers as fallback');
+            const doorman = document.getElementById('doorman-wrapper');
+            doorman.classList.toggle('hide', true);
+            const doorman2 = document.getElementById('doorman-wrapper-2');
+            doorman2.classList.toggle('hide', true);
+            const doorman3 = document.getElementById('doorman-wrapper-3');
+            doorman3.classList.toggle('hide', true);
+            const doorman4 = document.getElementById('doorman-wrapper-4');
+            doorman4.classList.toggle('hide', true);        
+            const doormanNov = document.getElementById('doorman-wrapper-nov');
+            doormanNov.classList.toggle('hide', true);
+            const doormanNov2 = document.getElementById('doorman-wrapper-nov-2');
+            doormanNov2.classList.toggle('hide', true);
+            const doormanNov3 = document.getElementById('doorman-wrapper-nov-3');
+            doormanNov3.classList.toggle('hide', true);
+            const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
+            doormanNov4.classList.toggle('hide', true);               
         }
     };
     getRetailer('france_iam');
