@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France I AM | November Week 3</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/november_week_1.css">
+    <script src="js/uqse.js"></script>
+    <script src="js/november_week_3.js" defer></script>
+</head>
+<body>
+    <!-- Header section -->
+    <section class="landing">
+        <!-- End Nav -->
+        <div class="landing-nav">
+            <a href="#gains" class="nav-item">GAINS</a>
+            <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
+            <a href="#tableau_de_bord" class="nav-item">TABLEAU DE BORD</a>
+            <a href="#produits" class="nav-item">PRODUITS</a>
+        </div>
+        <!-- End Nav -->
+        <!-- Hero -->
+        <div class="landing-logo">
+            <img src="images/iam_logo.webp" alt="I AM Logo">
+        </div>    
+        <div class="landing-title" id="challenge">
+            <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA">
+            <a class="landing-title-img-cta" href="#actions_digitales"></a>
+        </div>
+        <div class="landing-images">
+            <img class="landing-images-img" src="images/iam_cards.webp">
+            </div>            
+        </div>    
+        <!-- End Hero -->
+    </section>
+    <!-- End Header section -->    
+
+    <!-- Prize section -->
+    <section class="gains" id="gains">
+        <div class="gains-one">
+            <img class="gains-one-img" src="images/iam_gains_1.webp">
+            <div class="cta-overlay cta-overlay-4" onclick="openModalTwo()"></div>
+            <div class="cta-overlay cta-overlay-5" onclick="openModalOne()"></div>
+            <div class="cta-overlay cta-overlay-6" onclick="openPDF()"></div>
+        </div>
+        <div class="gains-two">
+            <img class="gains-two-img" src="images/iam_image_gains_november.webp">
+        </div>
+    </section>
+    <!-- End Prize section -->
+    <!-- Engage section -->
+    <section class="engage">
+    </section>
+    <!-- End Engage section -->
+    <!-- Activities Section -->
+    <section class="activities" id="actions_digitales" aria-labelledby="activities-title">
+        <img class="activities_header" src="images/iam_activities_header.webp" alt="Activities Header" loading="lazy">
+
+        <!-- October Activities Block -->
+        <div class="activities-block activities-october-block">
+            <img class="activities_october" src="images/iam_activities_october_v2.webp" alt="October Activities" loading="lazy">
+            <img class="activities_october_arrow" src="images/iam_chevron_vertical.webp" id="october_collapse" alt="Collapse Arrow" loading="lazy">
+            <div class="activities_october_container collapsible" id="octDiv">
+                <img class="activities_october_graph" src="images/iam_progress_graph.webp" alt="Progress Graph" loading="lazy">
+                <!-- Game -->
+                <img class="oct-game-header" src="images/iam_game.webp" alt="Game Header" loading="lazy">
+                <div class="oct-game outer-circle" onclick="openModalOctGame()" role="button" tabindex="0" aria-label="Open October Game">
+                    <div id="oct-game-circle" class="inner-circle"></div>
+                </div>
+                <img class="oct-game-footer" src="images/iam_500_rooftops.webp" alt="500 Rooftops" loading="lazy">
+                <!-- Quiz 1 -->
+                <img class="oct-quiz-1-header" src="images/iam_quiz_1.webp" alt="Quiz 1 Header" loading="lazy">
+                <div id="oct-quiz-1-outer-circle" class="oct-quiz-1 outer-circle quiz" onclick="openModalOctQuiz1()" role="button" tabindex="0" aria-label="Open October Quiz 1">
+                    <div id="oct-quiz-1-circle" class="inner-circle"></div>
+                </div>
+                <img class="oct-quiz-1-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 2 -->
+                <img class="oct-quiz-2-header" src="images/iam_quiz_2.webp" alt="Quiz 2 Header" loading="lazy">
+                <div id="oct-quiz-2-outer-circle" class="oct-quiz-2 outer-circle quiz" onclick="openModalOctQuiz2()" role="button" tabindex="0" aria-label="Open October Quiz 2">
+                    <div id="oct-quiz-2-circle" class="inner-circle">
+                    </div>
+                </div>
+                <img class="oct-quiz-2-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 3 -->
+                <img class="oct-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
+                <div id="oct-quiz-3-outer-circle" class="oct-quiz-3 outer-circle quiz" onclick="openModalOctQuiz3()" role="button" tabindex="0" aria-label="Open October Quiz 3">
+                    <div id="oct-quiz-3-circle" class="inner-circle">
+                    </div>
+                </div>
+                <img class="oct-quiz-3-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 4 -->
+                <img class="oct-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
+                <div id="oct-quiz-4-outer-circle" class="oct-quiz-4 outer-circle quiz" onclick="openModalOctQuiz4()" role="button" tabindex="0" aria-label="Open October Quiz 4">
+                    <div id="oct-quiz-4-circle" class="inner-circle">
+                    </div>
+                </div>
+                <img class="oct-quiz-4-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+            </div>
+        </div>
+
+        <!-- November Activities Block -->
+        <div class="activities-block activities-november-block">
+            <img class="activities_november" src="images/iam_activities_november.webp" alt="November Activities" loading="lazy">
+            <img class="activities_november_arrow" src="images/iam_chevron_vertical.webp" id="november_collapse" alt="Collapse Arrow" loading="lazy">
+            <div class="activities_november_container" id="novDiv">
+                <img class="activities_november_graph" src="images/iam_progress_graph.webp" alt="Progress Graph" loading="lazy">
+                <!-- Game -->
+                <img class="nov-game-header" src="images/iam_game.webp" alt="Game Header" loading="lazy">
+                <div class="nov-game outer-circle" onclick="openModalNovGame()" role="button" tabindex="0" aria-label="Open November Game">
+                    <div id="nov-game-circle" class="inner-circle"></div>
+                </div>
+                <img class="nov-game-footer" src="images/iam_500_rooftops.webp" alt="500 Rooftops" loading="lazy">
+                <!-- Quiz 1 -->
+                <img class="nov-quiz-1-header" src="images/iam_quiz_1.webp" alt="Quiz 1 Header" loading="lazy">
+                <div class="nov-quiz-1 outer-circle quiz" onclick="openModalNovQuiz1()" role="button" tabindex="0" aria-label="Open November Quiz 1">
+                    <div id="nov-quiz-1-circle" class="inner-circle">
+                    </div>
+                </div>
+                <img class="nov-quiz-1-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 2 -->
+                <img class="nov-quiz-2-header" src="images/iam_quiz_2.webp" alt="Quiz 2 Header" loading="lazy">
+                <div class="nov-quiz-2 outer-circle quiz" onclick="openModalNovQuiz2()" role="button" tabindex="0" aria-label="Open November Quiz 2">
+                    <div id="nov-quiz-2-circle" class="inner-circle">
+                    </div>
+                </div>
+                <img class="nov-quiz-2-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 3 -->
+                <img class="nov-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
+                <div class="nov-quiz-3 outer-circle quiz" onclick="openModalNovQuiz3()" role="button" tabindex="0" aria-label="Open November Quiz 3">
+                    <div id="nov-quiz-3-circle" class="inner-circle">
+                        <img id="nov-quiz-wheel-3" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
+                    </div>
+                </div>
+                <img class="nov-quiz-3-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
+                <!-- Quiz 4 -->
+                <img class="nov-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
+                <img class="nov-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
+                <img class="nov-quiz-4-footer" src="images/iam_nov_footer_quiz_4.webp" alt="200 Rooftops" loading="lazy">
+            </div>
+        </div>
+
+        <img class="activities_december" src="images/iam_activities_december_closed.webp" alt="December Activities Closed" loading="lazy">
+    </section>
+    <!-- Activities Section -->
+    <!-- Leaderboard section -->
+    <section class="leaderboard" id="tableau_de_bord">
+        <div class="leaderboard-headers">
+            <div class="leaderboard-header-one">
+                <img class="leaderboard-header-one-img" src="images/iam_lb_header_1.webp">
+                <div class="cta-overlay cta-overlay-1" onclick="openModalOne()"></div>
+            </div>
+            <div class="leaderboard-header-two">
+                <img class="leaderboard-header-two-img" src="images/iam_lb_header_2.webp">
+            </div>   
+        </div>            
+        <div class="leaderboard-tables">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD OCTOBRE-DÉCEMBRE</div>
+                    <div class=" accordion-content active leaderboard-table-a">
+                        <img class="leaderboard-table-a-img" src="images/iam_lb_table_a.webp">
+                        <div class="box-number white " id="box_a"></div>
+                        <div class="box-number white " id="box_b"></div>
+                        <div class="box-number white " id="box_c"></div>
+                        <div class="box-number white " id="box_d"></div>
+                        <div class="box-number white " id="box_e"></div>
+                        <div class="box-number white " id="box_f"></div>
+                        <div class="box-number white " id="box_g"></div>
+                        <div class="box-number white " id="box_h"></div>
+                        <div class="box-number white " id="box_i"></div>
+                    </div>   
+                    <img src="images/IAMFrance_Main page_Web_TableA_Button.webp" class="cta-order" onclick="document.getElementById('produits').scrollIntoView({behavior: 'smooth'});">
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-b-header leaderboard-table-text">EN RÉSUMÉ (OCTOBRE-DÉCEMBRE)</div>
+                    <div class="accordion-content active leaderboard-table-b">
+                        <img class="leaderboard-table-b-img" src="images/iam_lb_table_b_v2.webp">
+                        <div class="box-number black" id="box_j"></div>
+                        <div class="box-number black" id="box_k"></div>
+                        <div class="box-number white" id="box_l"></div>                
+                    </div> 
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header active leaderboard-table-text leaderboard-table-a-header">MON TABLEAU DE BORD MENSUEL</div>
+                    <div class="accordion-content active leaderboard-table-c">
+                        <img class="leaderboard-table-b-img" src="images/iam_lb_table_c_v2.webp">
+                        <div class="box-number black" id="box_m"></div>
+                        <div class="box-number black" id="box_n"></div>
+                        <div class="box-number white" id="box_o"></div>         
+                        <p class="legal-notice">*Position communiquée sous réserve de vérification par l’Organisateur, basée sur les données de sorties de caisse des Participants.</p>
+                    </div>     
+                </div>
+            </div>  
+        </div>               
+    </section>
+    <!-- End Leaderboard section -->    
+    <!-- Product Section -->
+    <section class="products" id="produits">    
+        <div class="products-one">
+            <img class="products-one-img" src="images/iam_pack_1.webp">
+        </div>
+        <div class="products-two">
+            <a href="https://fr.pmiopen.com/s/bca" target="_blank" rel="noopener noreferrer">
+                <img class="products-two-img" src="images/iam_box4_v7.webp" alt="IAM Box CTA">
+            </a>
+        </div>            
+    </section>
+    <!-- End Product Section -->        
+    <!-- Modal One (comment ca marche) -->
+    <div id="modalOne" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModalOne()">&times;</span>
+        <div class="modal-img">
+            <img src="images/iam_logo.webp">
+        </div>
+        <div class="modal-header">
+            <img src="images/iam_modal_one_header.webp">
+        </div>
+        <div class="modal-boxes">
+            <div class="modal-box modal-box-1">
+                    <div class="modal-box-header">
+                            GRÂCE À VOS PERFORMANCES SUR MARLBORO
+                    </div>
+                    <div class="modal-box-subheader">
+                            SUR LES GAMMES MARLBORO ET MARLBORO CRAFTED 
+                    </div>   
+                    <div class="table-wrapper" id="october">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
+                            <div class="modal-box-table">
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>        
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>                                           
+                                    <div class="modal-box-table-row-divider"></div>                        
+                            </div>    
+                    </div>  
+                    <div class="table-wrapper" id="november"  style="display:none;">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec()"><img src="images/iam_chevron_right_v2.webp"></span></div>
+                            <div class="modal-box-table">
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>        
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                            <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>                                           
+                                    <div class="modal-box-table-row-divider"></div>                        
+                            </div>    
+                    </div>
+                    <div class="table-wrapper" id="december" style="display:none;">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
+                            <div class="modal-box-table">
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET VENDU MARLBORO CRAFTED*</div>
+                                            <div class="modal-box-table-row-points">+100 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>        
+                                    <div class="modal-box-table-row-divider"></div>
+                                    <div class="modal-box-table-row">
+                                            <div class="modal-box-table-row-description">+ 1 PAQUET COMMANDÉ MARLBORO CRAFTED</div>
+                                            <div class="modal-box-table-row-points">+50 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                                    </div>                                           
+                                    <div class="modal-box-table-row-divider"></div>                        
+                            </div>    
+                    </div>                                
+                    <div class="modal-box-table-footer">
+                            <ul>
+                                    <li>+1 paquet par rapport à la moyenne de vos ventes et/ou commandes réalisées sur la période Avril - Juin 2025.</li>
+                                    <li>* Marlboro Crafted (Cigarettes et Cigarillos).</li>
+                            </ul>
+                    </div>                           
+            </div>
+            <div class="modal-box modal-box-2"> 
+                    <div class="modal-box-header">
+                            GRÂCE À VOS ACTIONS DIGITALES
+                    </div>           
+                    <div class="modal-box-subheader">
+                            EN COMPLÉTANT LES QUIZ HEBDOMADAIRES<br>ET LE JEU MENSUEL
+                    </div>      
+                    <div class="modal-box-table-header">VALABLE POUR OCTOBRE - NOVEMBRE - DÉCEMBRE</div>
+                    <div class="modal-box-table">
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description">QUIZ*</div>
+                                    <div class="modal-box-table-row-points">+200 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                            </div>
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description">JEU**</div>
+                                    <div class="modal-box-table-row-points">+500 <img class="modal-box-table-row-rooftop" src="images/iam_rooftop.webp"></div>
+                            </div>                        
+                            <div class="modal-box-table-row-divider"></div>
+                    </div>                  
+                    <div class="modal-box-table-footer">
+                            <ul>
+                                    <li>*1 quiz par semaine.</li>
+                                    <li>** 1 jeu par mois.</li>
+                            </ul>
+                            <p class="disclaimer">Les contenus sont accessibles en consultation illimitée. Toutefois, les rooftops ne sont attribués qu’une seule fois, lors de la première complétion de chaque jeu ou quiz.</p>
+                    </div>                                                  
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="footer-header">CONTRE QUI JOUEZ-VOUS ?</div>
+            <div class="footer-body">
+                    Afin de garantir une équité maximale entre tous les buralistes participant au challenge, vous êtes répartis dans un groupe selon deux critères :
+                    <ul>
+                            <li>- Votre région, parmi trois zones géographiques définies.</li>
+                            <li>- Votre chiffre d'affaires en cigarettes, représentant votre poids business, réparti en trois groupes.</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End Modal One -->
+    <!-- Modal Two (en savoir plus)-->
+    <div id="modalTwo" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModalTwo()">&times;</span>
+        <div class="modal-header">
+            <img src="images/iam_modal_two_header.webp">
+        </div>
+        <div class="modal-boxes">
+            <div class="modal-box modal-box-2"> 
+                    <div class="modal-box-header">
+                            À LA FIN DU CHALLENGE
+                    </div>           
+                    <div class="modal-box-subheader">
+                            par groupe de points de vente
+                    </div>      
+                    <div class="modal-box-img">
+                            <img src="images/iam_modal_2_img.webp">
+                    </div>
+                    <div class="modal-box-header">TABLEAU DES GAINS</div>
+                    <div class="modal-box-table" style="margin-top:30px;">
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20 grey">CLASSEMENT</div>
+                                    <div class="modal-box-table-row-gain grey">GAIN</div>
+                                    <div class="modal-box-table-row-points w-20 grey">VALEUR</div>
+                            </div>                        
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">1</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
+                                    <div class="modal-box-table-row-points w-20">1450 PTS</div>
+                            </div>
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">2 À 5</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN <span class="red">OU</span> COFFRET VOYAGE*</div>
+                                    <div class="modal-box-table-row-points w-20">950 PTS</div>
+                            </div>      
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">6 À 20</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                    <div class="modal-box-table-row-points w-20">450 PTS</div>
+                            </div>                                             
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">21 À 50</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                    <div class="modal-box-table-row-points w-20">300 PTS</div>
+                            </div>                                             
+                        
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">51 À 100</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                    <div class="modal-box-table-row-points w-20">200 PTS</div>
+                            </div>                                             
+                        
+                            <div class="modal-box-table-row-divider"></div>
+                            <div class="modal-box-table-row">
+                                    <div class="modal-box-table-row-description w-20">101 À 200</div>
+                                    <div class="modal-box-table-row-gain">POINTS OPEN</div>
+                                    <div class="modal-box-table-row-points  w-20">100 PTS</div>
+                            </div>                                                                                          
+                            <div class="modal-box-table-row-divider"></div>
+                    </div>                  
+                    <div class="modal-box-table-footer">
+                            <ul>
+                                    <li>*La valeur du coffret voyage correspondra à la valeur des points.</li>
+                            </ul>
+                    </div>                                                  
+            </div>        
+            <div class="modal-box modal-box-1">
+                    <div class="modal-box-header">
+                            CHAQUE MOIS DU CHALLENGE                
+                    </div>
+                    <div class="table-wrapper" id="october2">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navDec2()"> <img src="images/iam_chevron_left_v2.webp"> </span> OCTOBRE <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_right_v2.webp"> </span>  </div>
+                            <div class="modal-box-prize-container">
+                                    <img src="images/iam_prize_1_v3.webp">
+                            </div>
+                    </div>  
+                    <div class="table-wrapper" id="november2"  style="display:none;">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_left_v2.webp"></span> NOVEMBRE <span class="nav-icon" onclick="navDec2()"><img src="images/iam_chevron_right_v2.webp"></span></div> 
+                            <div class="modal-box-prize-container">
+                                    <img src="images/iam_prize_3_v3.webp">
+                            </div>                        
+                    </div>
+                    <div class="table-wrapper" id="december2" style="display:none;">
+                            <div class="modal-box-table-header"> <span class="nav-icon" onclick="navNov2()"> <img src="images/iam_chevron_left_v2.webp"> </span> DÉCEMBRE <span class="nav-icon" onclick="navOct2()"> <img src="images/iam_chevron_right_v2.webp"> </span> </div>
+                            <div class="modal-box-prize-container">
+                                    <img src="images/iam_prize_2_v3.webp">
+                            </div>                        
+                    </div>                                
+                    <div class="modal-box-sub">
+                    <div class="modal-box-header">
+                            DEUX MOYENS DE GAGNER:                
+                    </div>                        
+                    <div class="modal-box-pill-container">
+                            <div class="modal-box-pill">
+                                    <img src="images/iam_number_1.webp">
+                            </div>
+                            <div class="modal-box-pill-header">PERFORMANCES SUR MARLBORO CRAFTED</div>
+                            <div class="modal-box-pill-copy">Chaque mois, le point de vente le plus performant de chaque groupe – affichant la meilleure progression de part de marché sur les ventes de Marlboro Crafted <span class="red">(Red 20, Red 25, Red 100s, Gold 20, Gold 25)</span> par rapport au mois précédent – remportera le lot mensuel.</div>
+                    </div>
+                    <div class="modal-box-pill-container">
+                            <div class="modal-box-pill">
+                                    <img src="images/iam_number_2.webp">
+                            </div>
+                            <div class="modal-box-pill-header">ACTIONS DIGITALES</div>
+                            <div class="modal-box-pill-copy">En participant aux activités digitales (le jeu du mois et le quiz de la semaine), chaque participant accède à la roue Marlboro, offrant une chance de remporter le lot.</div>
+                    </div>
+                    </div>                           
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- End Modal Two -->    
+    <!-- Modal October Game -->
+    <div id="modalOctGame" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctGame(); window.location.reload();">&times;</span>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v4"></iframe>
+        </div>
+    </div>
+    <!-- End October Game -->       
+    <!-- Modal October Quiz 1 -->
+    <div id="modalOctQuiz1" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz1();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper" class="quiz-slide quiz-active">
+                <!-- <img class="doorman" src="images/iam_holding.webp"> -->
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz1();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 1 -->      
+    <!-- Modal October Quiz 2 -->
+    <div id="modalOctQuiz2" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz2();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-2" class="quiz-slide quiz-active">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz2();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 2 -->       
+    <!-- Modal October Quiz 3 -->
+    <div id="modalOctQuiz3" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz3();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-3" class="quiz-slide quiz-active">
+                <!-- <img class="doorman" src="images/iam_holding.webp"> -->
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz3();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 3 -->        
+    <!-- Modal October Quiz 4 -->
+    <div id="modalOctQuiz4" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalOctQuiz4();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-4" class="quiz-slide quiz-active">
+                <!-- <img class="doorman" src="images/iam_holding.webp"> -->
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalOctQuiz4();openModalOctGame();"></div>
+            </div>
+            <iframe id="oct-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End October Quiz 4 -->
+
+    <!-- November Modals -->
+    <!-- Modal November Game -->
+    <div id="modalNovGame" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalNovGame(); window.location.reload();">&times;</span>
+            <iframe id="nov-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/2/fr/v3"></iframe>
+        </div>
+    </div>
+    <!-- End November Game -->
+    <!-- Modal November Quiz 1 -->
+    <div id="modalNovQuiz1" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalNovQuiz1();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-nov" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz1();openModalNovGame();"></div>
+            </div>
+            <iframe id="nov-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/wheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/fr/v3"></iframe>
+        </div>
+    </div>
+    <!-- End November Quiz 1 -->
+    <!-- Modal November Quiz 2 -->
+    <div id="modalNovQuiz2" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalNovQuiz2();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-nov-2" class="quiz-slide quiz-active">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz2();openModalNovGame();"></div>
+            </div>
+            <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End November Quiz 2 -->
+    <!-- Modal November Quiz 3 -->
+    <div id="modalNovQuiz3" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalNovQuiz3();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-nov-3" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz3();openModalNovGame();"></div>
+            </div>
+            <iframe id="nov-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End November Quiz 3 -->
+    <!-- Modal November Quiz 4 -->
+    <div id="modalNovQuiz4" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalNovQuiz4();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-nov-4" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz4();openModalNovGame();"></div>
+            </div>
+            <iframe id="nov-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End November Quiz 4 -->
+</body>
+</html>

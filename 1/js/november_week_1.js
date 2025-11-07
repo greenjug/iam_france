@@ -502,8 +502,4 @@ window.addEventListener('message', function(event) {
         openModalNovQuiz1();
         return;
     }    
-    if (typeof event.data === 'object' && event.data.type === 'quiz_close') {
-        console.log('Reloading window due to quiz_close object message');
-        // window.location.reload();
-    }
 }, { once: false });  
