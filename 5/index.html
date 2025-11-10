@@ -89,8 +89,9 @@
                     </div>
                     <!-- Quiz 2 -->
                     <img class="nov-quiz-2-header" src="images/iam_quiz_2.webp" alt="Quiz 2 Header" loading="lazy">
-                    <img class="nov-quiz-2 quiz-closed" src="images/iam_closed_circle.webp">
-                    <img class="nov-quiz-2-footer" src="images/iam_nov_footer_quiz_2.webp" alt="Release date" loading="lazy">
+                    <div class="nov-quiz-2 outer-circle quiz" onclick="openModalNovQuiz2()" role="button" tabindex="0" aria-label="Open November Quiz 2">
+                        <div id="nov-quiz-2-circle" class="inner-circle"></div>
+                    </div>
                     <!-- Quiz 3 -->
                     <img class="nov-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
                     <img class="nov-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
@@ -107,7 +108,6 @@
         <!-- End Activities Section -->
     </main>
 
-    <!-- Modals -->
     <!-- Modals -->
     <dialog id="modalOctGame" class="modal" aria-labelledby="modal-game-title">
         <div class="modal-content gamequiz">
@@ -144,13 +144,6 @@
         </div>
     </dialog>
 
-    <dialog id="modalNovGame" class="modal" aria-labelledby="modal-game-title">
-        <div class="modal-content gamequiz">
-            <button class="close-btn" onclick="closeModalNovGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
-            <iframe id="nov-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/2/fr/v3" title="November Game"></iframe>
-        </div>
-    </dialog>
-         
     <dialog id="modalNovGame" class="modal" aria-labelledby="modal-game-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
