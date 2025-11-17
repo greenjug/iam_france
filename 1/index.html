@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>November Week 2</title>
+    <title>France I AM | November Week 3</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/november_week_1.css">
     <script src="js/uqse.js"></script>
-    <script src="js/november_week_2.js" defer></script>
+    <script src="js/november_week_3.js" defer></script>
     <style>
         .nov-quiz-2-footer { left: 53.5%; }
-        .nov-quiz-3-footer { width: 8%; }
-    </style>
+    </style>    
 </head>
 <body>
     <!-- Header section -->
@@ -126,14 +125,17 @@
                 <img class="nov-quiz-2-header" src="images/iam_quiz_2.webp" alt="Quiz 2 Header" loading="lazy">
                 <div class="nov-quiz-2 outer-circle quiz" onclick="openModalNovQuiz2()" role="button" tabindex="0" aria-label="Open November Quiz 2">
                     <div id="nov-quiz-2-circle" class="inner-circle">
-                        <img id="nov-quiz-wheel-2" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
                     </div>
                 </div>
                 <img class="nov-quiz-2-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
                 <!-- Quiz 3 -->
                 <img class="nov-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
-                <img class="nov-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
-                <img class="nov-quiz-3-footer" src="images/iam_nov_footer_quiz_3.webp" alt="200 Rooftops" loading="lazy">
+                <div class="nov-quiz-3 outer-circle quiz" onclick="openModalNovQuiz3()" role="button" tabindex="0" aria-label="Open November Quiz 3">
+                    <div id="nov-quiz-3-circle" class="inner-circle">
+                        <img id="nov-quiz-wheel-3" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
+                    </div>
+                </div>
+                <img class="nov-quiz-3-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
                 <!-- Quiz 4 -->
                 <img class="nov-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
                 <img class="nov-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
@@ -530,7 +532,7 @@
                 <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz1();openModalNovGame();"></div>
             </div>
-            <iframe id="nov-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/fr/v3"></iframe>
+            <iframe id="nov-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/wheel/fr/v3" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/fr/v3"></iframe>
         </div>
     </div>
     <!-- End November Quiz 1 -->
@@ -542,7 +544,7 @@
                 <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz2();openModalNovGame();"></div>
             </div>
-            <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1"></iframe>
+            <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1"></iframe>
         </div>
     </div>
     <!-- End November Quiz 2 -->
@@ -554,7 +556,7 @@
                 <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz3();openModalNovGame();"></div>
             </div>
-            <iframe id="nov-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1"></iframe>
+            <iframe id="nov-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1"></iframe>
         </div>
     </div>
     <!-- End November Quiz 3 -->
@@ -566,7 +568,7 @@
                 <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz4();openModalNovGame();"></div>
             </div>
-            <iframe id="nov-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/fr/v1"></iframe>
+            <iframe id="nov-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/fr/v1"></iframe>
         </div>
     </div>
     <!-- End November Quiz 4 -->

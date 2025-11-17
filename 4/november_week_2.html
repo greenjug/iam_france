@@ -12,10 +12,10 @@
     <!-- Header section -->
     <header class="landing">
         <!-- Nav -->
-        <nav class="landing-nav">
+        <div class="landing-nav">
             <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
             <a href="#produits" class="nav-item">PRODUITS</a>
-        </nav>
+        </div>
         <!-- End Nav -->
         <!-- Hero -->
         <div class="landing-logo">
@@ -23,7 +23,7 @@
         </div>
         <div class="landing-title" id="challenge">
             <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA" loading="lazy">
-            <a class="landing-title-img-cta" href="#actions_digitales" aria-label="Navigate to digital actions section"></a>
+            <a class="landing-title-img-cta" data-br-href="#actions_digitales" aria-label="Navigate to digital actions section"></a>
         </div>
         <div class="landing-images">
             <img class="landing-images-img" src="images/iam_cards.webp" alt="IAM Cards" loading="lazy">
@@ -100,9 +100,8 @@
                     </div>
                     <!-- Quiz 3 -->
                     <img class="nov-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
-                    <div class="nov-quiz-3 outer-circle quiz" onclick="openModalNovQuiz3()" role="button" tabindex="0" aria-label="Open November Quiz 3">
-                        <div id="nov-quiz-3-circle" class="inner-circle"></div>
-                    </div>
+                    <img class="nov-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
+                    <img class="nov-quiz-3-footer" src="images/iam_nov_footer_quiz_3.webp" alt="Release date" loading="lazy">
                     <!-- Quiz 4 -->
                     <img class="nov-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
                     <img class="nov-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
@@ -117,10 +116,10 @@
         <!-- Product Section -->
         <section class="products" id="produits" aria-labelledby="products-title">
             <div class="products-one">
-                <img class="products-one-img" src="images/iam_pack_1.webp" alt="Product Pack 1" loading="lazy">
+                <img class="products-one-img" src="images/iam_box3_pack_2.webp" alt="Product One" loading="lazy">
             </div>
             <div class="products-two">
-                <img class="products-two-img" src="images/iam_pack_2_v2.webp" alt="Product Pack 2" loading="lazy">
+                <img class="products-two-img" src="images/iam_pack_2_v4.webp" alt="Product Two" loading="lazy">
             </div>
         </section>
         <!-- End Product Section -->
@@ -130,70 +129,71 @@
     <dialog id="modalOctGame" class="modal" aria-labelledby="modal-game-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
-            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v4_nolanding" title="October Game"></iframe>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/crs/v3_nolanding" title="October Game"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalOctQuiz1" class="modal" aria-labelledby="modal-quiz1-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctQuiz1(); window.location.reload();" aria-label="Close Quiz 1 Modal">&times;</button>
-            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/fr/v3" title="October Quiz 1"></iframe>
+            <iframe id="oct-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/1/nowheel/crs/v3" title="October Quiz 1"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalOctQuiz2" class="modal" aria-labelledby="modal-quiz2-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctQuiz2(); window.location.reload();" aria-label="Close Quiz 2 Modal">&times;</button>
-            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/fr/v1" title="October Quiz 2"></iframe>
+            <iframe id="oct-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/2/nowheel/crs/v1" title="October Quiz 2"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalOctQuiz3" class="modal" aria-labelledby="modal-quiz3-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctQuiz3(); window.location.reload();" aria-label="Close Quiz 3 Modal">&times;</button>
-            <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/fr/v1" title="October Quiz 3"></iframe>
+            <iframe id="oct-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/3/nowheel/crs/v1" title="October Quiz 3"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalOctQuiz4" class="modal" aria-labelledby="modal-quiz4-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctQuiz4(); window.location.reload();" aria-label="Close Quiz 4 Modal">&times;</button>
-            <iframe id="oct-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/fr/v1" title="October Quiz 4"></iframe>
+            <iframe id="oct-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/4/nowheel/crs/v1" title="October Quiz 4"></iframe>
         </div>
     </dialog>
 
+    <!-- November Modals -->
     <dialog id="modalNovGame" class="modal" aria-labelledby="modal-game-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
-            <iframe id="nov-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/2/fr/v3" title="November Game"></iframe>
+            <iframe id="nov-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/2/crs/v3" title="November Game"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalNovQuiz1" class="modal" aria-labelledby="modal-quiz1-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovQuiz1(); window.location.reload();" aria-label="Close Quiz 1 Modal">&times;</button>
-            <iframe id="nov-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/fr/v3" title="November Quiz 1"></iframe>
+            <iframe id="nov-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/5/nowheel/crs/v3" title="November Quiz 1"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalNovQuiz2" class="modal" aria-labelledby="modal-quiz2-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovQuiz2(); window.location.reload();" aria-label="Close Quiz 2 Modal">&times;</button>
-            <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1" title="November Quiz 2"></iframe>
+            <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/crs/v1" title="November Quiz 2"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalNovQuiz3" class="modal" aria-labelledby="modal-quiz3-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovQuiz3(); window.location.reload();" aria-label="Close Quiz 3 Modal">&times;</button>
-            <iframe id="nov-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/fr/v1" title="November Quiz 3"></iframe>
+            <iframe id="nov-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/7/nowheel/crs/v1" title="November Quiz 3"></iframe>
         </div>
     </dialog>
 
     <dialog id="modalNovQuiz4" class="modal" aria-labelledby="modal-quiz4-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalNovQuiz4(); window.location.reload();" aria-label="Close Quiz 4 Modal">&times;</button>
-            <iframe id="nov-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/fr/v1" title="November Quiz 4"></iframe>
+            <iframe id="nov-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/quiz/8/nowheel/crs/v1" title="November Quiz 4"></iframe>
         </div>
     </dialog>
 
