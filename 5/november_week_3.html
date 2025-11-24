@@ -11,19 +11,13 @@
 <body>
     <!-- Header section -->
     <header class="landing">
-        <!-- Nav -->
-        <nav class="landing-nav">
-            <a href="#actions_digitales" class="nav-item">ACTIONS DIGITALES</a>
-            <a href="#produits" class="nav-item">PRODUITS</a>
-        </nav>
-        <!-- End Nav -->
         <!-- Hero -->
         <div class="landing-logo">
             <img src="images/iam_logo.webp" alt="I AM Logo" loading="lazy">
         </div>
         <div class="landing-title" id="challenge">
             <img class="landing-title-img" src="images/iam_page_header_v2.webp" alt="Main CTA" loading="lazy">
-            <a class="landing-title-img-cta" href="#actions_digitales" aria-label="Navigate to digital actions section"></a>
+            <a class="landing-title-img-cta" data-br-href="#actions_digitales" aria-label="Navigate to digital actions section"></a>
         </div>
         <div class="landing-images">
             <img class="landing-images-img" src="images/iam_cards.webp" alt="IAM Cards" loading="lazy">
@@ -105,33 +99,21 @@
                     </div>
                     <!-- Quiz 4 -->
                     <img class="nov-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
-                    <div class="nov-quiz-4 outer-circle quiz" onclick="openModalNovQuiz4()" role="button" tabindex="0" aria-label="Open November Quiz 4">
-                        <div id="nov-quiz-4-circle" class="inner-circle"></div>
-                    </div>
+                    <img class="nov-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
+                    <img class="nov-quiz-4-footer" src="images/iam_nov_footer_quiz_4.webp" alt="Release date" loading="lazy">
                 </div>
             </div>
 
             <img class="activities_december" src="images/iam_activities_december_closed.webp" alt="December Activities Closed" loading="lazy">
         </section>
         <!-- End Activities Section -->
-
-        <!-- Product Section -->
-        <section class="products" id="produits" aria-labelledby="products-title">
-            <div class="products-one">
-                <img class="products-one-img" src="images/iam_pack_1.webp" alt="Product Pack 1" loading="lazy">
-            </div>
-            <div class="products-two">
-                <img class="products-two-img" src="images/iam_pack_2_v2.webp" alt="Product Pack 2" loading="lazy">
-            </div>
-        </section>
-        <!-- End Product Section -->
     </main>
 
     <!-- Modals -->
     <dialog id="modalOctGame" class="modal" aria-labelledby="modal-game-title">
         <div class="modal-content gamequiz">
             <button class="close-btn" onclick="closeModalOctGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
-            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v4_nolanding" title="October Game"></iframe>
+            <iframe id="oct-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/1/fr/v3_nolanding" title="October Game"></iframe>
         </div>
     </dialog>
 
