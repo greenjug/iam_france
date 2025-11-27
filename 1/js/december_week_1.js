@@ -7,6 +7,7 @@ const openModalDecGame = () => {
 };
 const openModalDecQuiz1 = () => {
     if (typeof openModal === 'function' && typeof modals !== 'undefined' && modals['modalDecQuiz1']) return openModal('modalDecQuiz1', 'dec-quiz-1-iframe');
+    console.log('DEBUG: openModalDecQuiz1 called');
     openModalDec('modalDecQuiz1', 'dec-quiz-1-iframe');
 };
 const openModalDecQuiz2 = () => {
@@ -24,31 +25,62 @@ const openModalDecQuiz4 = () => {
 
 const closeModalDecGame = () => {
     if (typeof closeModal === 'function') return closeModal('modalDecGame');
-    const m = document.getElementById('modalDecGame'); if (m) m.close();
+    const m = document.getElementById('modalDecGame'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } }
 };
-const closeModalDecQuiz1 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz1'); const m = document.getElementById('modalDecQuiz1'); if (m) m.close(); };
-const closeModalDecQuiz2 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz2'); const m = document.getElementById('modalDecQuiz2'); if (m) m.close(); };
-const closeModalDecQuiz3 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz3'); const m = document.getElementById('modalDecQuiz3'); if (m) m.close(); };
-const closeModalDecQuiz4 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz4'); const m = document.getElementById('modalDecQuiz4'); if (m) m.close(); };
+const closeModalDecQuiz1 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz1'); const m = document.getElementById('modalDecQuiz1'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
+const closeModalDecQuiz2 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz2'); const m = document.getElementById('modalDecQuiz2'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
+const closeModalDecQuiz3 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz3'); const m = document.getElementById('modalDecQuiz3'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
+const closeModalDecQuiz4 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz4'); const m = document.getElementById('modalDecQuiz4'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
 
 function openModalDec(modalId, iframeId) {
     const modal = document.getElementById(modalId);
     const iframe = document.getElementById(iframeId);
-    if (!modal) return;
-    if (iframe && iframe.hasAttribute('data-br-temp-src')) {
+    if (!modal) { console.warn(`DEBUG: modal not found: ${modalId}`); return; }
+    if (iframe) {
         try {
-            let srcValue = iframe.getAttribute('data-br-temp-src');
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryParam = urlParams.get('query');
-            if (queryParam) {
-                const separator = srcValue.includes('?') ? '&' : '?';
-                srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>\"'&]/g, ''))}`;
+            // Handle quiz wheel/nowheel attributes
+            if (iframe.hasAttribute('data-br-temp-src-wheel') || iframe.hasAttribute('data-br-temp-src-nowheel')) {
+                let srcValue;
+                if (iframe.hasAttribute('data-wheel-played')) {
+                    const wheelValue = iframe.getAttribute('data-wheel-played');
+                    srcValue = wheelValue === 'true'
+                        ? iframe.getAttribute('data-br-temp-src-nowheel')
+                        : iframe.getAttribute('data-br-temp-src-wheel');
+                } else {
+                    srcValue = iframe.hasAttribute('data-br-temp-src-wheel')
+                        ? iframe.getAttribute('data-br-temp-src-wheel')
+                        : iframe.getAttribute('data-br-temp-src-nowheel');
+                }
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const queryParam = urlParams.get('query');
+                if (queryParam && srcValue) {
+                    const separator = srcValue.includes('?') ? '&' : '?';
+                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>\"'&]/g, ''))}`;
+                }
+                if (srcValue) iframe.src = srcValue;
+                iframe.removeAttribute('data-br-temp-src-wheel');
+                iframe.removeAttribute('data-br-temp-src-nowheel');
+            } else if (iframe.hasAttribute('data-br-temp-src')) {
+                let srcValue = iframe.getAttribute('data-br-temp-src');
+                const urlParams = new URLSearchParams(window.location.search);
+                const queryParam = urlParams.get('query');
+                if (queryParam) {
+                    const separator = srcValue.includes('?') ? '&' : '?';
+                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>\"'&]/g, ''))}`;
+                }
+                iframe.src = srcValue;
+                iframe.removeAttribute('data-br-temp-src');
             }
-            iframe.src = srcValue;
-            iframe.removeAttribute('data-br-temp-src');
         } catch (e) { console.error('openModalDec error', e); }
     }
-    if (typeof modal.showModal === 'function') modal.showModal();
+    // Try dialog API first, otherwise fallback to visible flex display
+    if (typeof modal.showModal === 'function') {
+        modal.showModal();
+    } else {
+        modal.style.display = 'flex';
+        try { modal.setAttribute('open', ''); } catch (e) {}
+    }
 }
 
 // Collapse/expand functionality for December activities (starts collapsed)

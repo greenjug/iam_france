@@ -336,6 +336,21 @@ window.addEventListener('load', () => {
                         console.log('Breeze - gR - Nov Game Not Played');
                     }
 
+                                        // Hide doorman wrappers when November game is played
+                    if (data.structured_data.dec_game === true) {
+                        console.log('Breeze - gR - Dec Game Played');
+                        const doormanDec = document.getElementById('doorman-wrapper-dec-1');
+                        doormanDec.classList.toggle('hide', true);
+                        const doormanDec2 = document.getElementById('doorman-wrapper-dec-2');
+                        doormanDec2.classList.toggle('hide', true);
+                        const doormanDec3 = document.getElementById('doorman-wrapper-dec-3');
+                        doormanDec3.classList.toggle('hide', true);
+                        const doormanDec4 = document.getElementById('doorman-wrapper-dec-4');
+                        doormanDec4.classList.toggle('hide', true);
+                    } else {
+                        console.log('Breeze - gR - Dec Game Not Played');
+                    }
+
                     // Set data-wheel-played attributes for November quizzes
                     const setWheelPlayed = (iframeId, played) => {
                         const iframe = document.getElementById(iframeId);
@@ -385,7 +400,16 @@ window.addEventListener('load', () => {
             const doormanNov3 = document.getElementById('doorman-wrapper-nov-3');
             doormanNov3.classList.toggle('hide', true);
             const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
-            doormanNov4.classList.toggle('hide', true);                      
+            doormanNov4.classList.toggle('hide', true);                  
+            
+            const doormanDec = document.getElementById('doorman-wrapper-dec-1');
+            doormanDec.classList.toggle('hide', true);
+            const doormanDec2 = document.getElementById('doorman-wrapper-dec-2');
+            doormanDec2.classList.toggle('hide', true);
+            const doormanDec3 = document.getElementById('doorman-wrapper-dec-3');
+            doormanDec3.classList.toggle('hide', true);
+            const doormanDec4 = document.getElementById('doorman-wrapper-dec-4');
+            doormanDec4.classList.toggle('hide', true);                  
         }
     };
     getRetailer('france_iam');
