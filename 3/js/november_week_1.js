@@ -212,9 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const novemberContainer = document.getElementById('novDiv');
 
     if (novemberCollapseArrow && novemberContainer) {
-        // November starts expanded by default - no initial rotation/collapse
+        // November starts collapsed by default - match October's initial state
         novemberCollapseArrow.style.transition = 'none';
-        
+        novemberCollapseArrow.classList.add('rotated', 'collapsed');
+        novemberContainer.style.display = 'none';
+
         // Re-enable transitions after a short delay
         setTimeout(() => {
             novemberCollapseArrow.style.transition = '';
@@ -298,6 +300,12 @@ window.addEventListener('load', () => {
                     updateCircle('nov-quiz-2-circle', data.structured_data.nov_quiz_2 === true);
                     updateCircle('nov-quiz-3-circle', data.structured_data.nov_quiz_3 === true);
                     updateCircle('nov-quiz-4-circle', data.structured_data.nov_quiz_4 === true);
+                    // December circles (if present)
+                    updateCircle('dec-game-circle', data.structured_data.dec_game === true);
+                    updateCircle('dec-quiz-1-circle', data.structured_data.dec_quiz_1 === true);
+                    updateCircle('dec-quiz-2-circle', data.structured_data.dec_quiz_2 === true);
+                    updateCircle('dec-quiz-3-circle', data.structured_data.dec_quiz_3 === true);
+                    updateCircle('dec-quiz-4-circle', data.structured_data.dec_quiz_4 === true);
 
                     // Hide doorman wrappers when October game is played
                     if (data.structured_data.oct_game === true) {
@@ -346,15 +354,15 @@ window.addEventListener('load', () => {
             })
             .catch(error => {
                 console.error('Breeze - gR - Fetch error:', error);
-                // Fallback to red circles
-                ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle'].forEach(id => {
+                // Fallback to red circles (include December)
+                ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle', 'dec-game-circle', 'dec-quiz-1-circle', 'dec-quiz-2-circle', 'dec-quiz-3-circle', 'dec-quiz-4-circle'].forEach(id => {
                     const circle = document.getElementById(id);
                     if (circle) circle.classList.add('bg-red');
                 });
             });
-        } else {
+            } else {
             console.log('Breeze - gR - No querystring. Setting defaults');
-            ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle'].forEach(id => {
+            ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle', 'dec-game-circle', 'dec-quiz-1-circle', 'dec-quiz-2-circle', 'dec-quiz-3-circle', 'dec-quiz-4-circle'].forEach(id => {
                 const circle = document.getElementById(id);
                 if (circle) circle.classList.add('bg-red');
             });

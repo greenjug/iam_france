@@ -56,7 +56,7 @@ header.landing {
     position: relative;
     background-size: cover;
     background-position: center;
-    display: block; /* Open by default */
+    display: none; /* Start closed by default */
     width: 100%;
     max-width: 1920px;
     overflow: hidden;

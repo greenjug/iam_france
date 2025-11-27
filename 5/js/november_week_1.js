@@ -65,6 +65,12 @@ const modals = {
     modalNovQuiz2: document.getElementById("modalNovQuiz2"),
     modalNovQuiz3: document.getElementById("modalNovQuiz3"),
     modalNovQuiz4: document.getElementById("modalNovQuiz4"),
+    // December modals (added so openModal/closeModal can operate on them)
+    modalDecGame: document.getElementById("modalDecGame"),
+    modalDecQuiz1: document.getElementById("modalDecQuiz1"),
+    modalDecQuiz2: document.getElementById("modalDecQuiz2"),
+    modalDecQuiz3: document.getElementById("modalDecQuiz3"),
+    modalDecQuiz4: document.getElementById("modalDecQuiz4"),
 };
 
 const sanitizeParam = (param) => encodeURIComponent(param.replace(/[<>\"'&]/g, '')); // Basic sanitization
@@ -184,20 +190,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const novemberContainer = document.getElementById('novDiv');
 
     if (novemberCollapseArrow && novemberContainer) {
-        // November starts expanded by default - no initial rotation/collapse
+        // November starts closed by default - initialize as collapsed
         novemberCollapseArrow.style.transition = 'none';
-        
+        novemberCollapseArrow.classList.add('rotated', 'collapsed');
+        novemberContainer.style.display = 'none';
+
         // Re-enable transitions after a short delay
         setTimeout(() => {
             novemberCollapseArrow.style.transition = '';
         }, 50);
-        
+
         novemberCollapseArrow.addEventListener('click', () => {
             const isCollapsed = novemberCollapseArrow.classList.contains('collapsed');
-            
+
             // Hide arrow during transition
             novemberCollapseArrow.classList.add('transitioning');
-            
+
             if (isCollapsed) {
                 novemberContainer.style.display = 'block';
                 novemberCollapseArrow.classList.remove('rotated', 'collapsed');
@@ -205,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 novemberContainer.style.display = 'none';
                 novemberCollapseArrow.classList.add('rotated', 'collapsed');
             }
-            
+
             // Show arrow after transition completes
             setTimeout(() => {
                 novemberCollapseArrow.classList.remove('transitioning');
@@ -257,6 +265,12 @@ window.addEventListener('load', () => {
                     updateCircle('nov-quiz-2-circle', data.structured_data.nov_quiz_2 === true);
                     updateCircle('nov-quiz-3-circle', data.structured_data.nov_quiz_3 === true);
                     updateCircle('nov-quiz-4-circle', data.structured_data.nov_quiz_4 === true);
+                    // December circles
+                    updateCircle('dec-game-circle', data.structured_data.dec_game === true);
+                    updateCircle('dec-quiz-1-circle', data.structured_data.dec_quiz_1 === true);
+                    updateCircle('dec-quiz-2-circle', data.structured_data.dec_quiz_2 === true);
+                    updateCircle('dec-quiz-3-circle', data.structured_data.dec_quiz_3 === true);
+                    updateCircle('dec-quiz-4-circle', data.structured_data.dec_quiz_4 === true);
                 } else {
                     console.log('Breeze - gR - No structured_data found');
                 }
@@ -264,14 +278,14 @@ window.addEventListener('load', () => {
             .catch(error => {
                 console.error('Breeze - gR - Fetch error:', error);
                 // Fallback to red circles
-                ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle'].forEach(id => {
+                ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle', 'dec-game-circle', 'dec-quiz-1-circle', 'dec-quiz-2-circle', 'dec-quiz-3-circle', 'dec-quiz-4-circle'].forEach(id => {
                     const circle = document.getElementById(id);
                     if (circle) circle.classList.add('bg-red');
                 });
             });
         } else {
             console.log('Breeze - gR - No querystring. Setting defaults');
-            ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle'].forEach(id => {
+            ['oct-game-circle', 'oct-quiz-1-circle', 'oct-quiz-2-circle', 'oct-quiz-3-circle', 'oct-quiz-4-circle', 'nov-game-circle', 'nov-quiz-1-circle', 'nov-quiz-2-circle', 'nov-quiz-3-circle', 'nov-quiz-4-circle', 'dec-game-circle', 'dec-quiz-1-circle', 'dec-quiz-2-circle', 'dec-quiz-3-circle', 'dec-quiz-4-circle'].forEach(id => {
                 const circle = document.getElementById(id);
                 if (circle) circle.classList.add('bg-red');
             });

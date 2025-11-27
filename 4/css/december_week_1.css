@@ -1,0 +1,84 @@
+:root {
+    --red: #C8202E;
+    --green: #6DD352;
+    --white: #FFFFFF;
+    --black: #000000;
+    --font-hackney: 'Hackney', sans-serif;
+    --font-neuland: 'NeulandGroteskLight', sans-serif;
+}
+
+/* December-specific styles copied from november and adjusted */
+
+.activities_december_container {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: block; /* Open by default */
+    width: 100%;
+    max-width: 1920px;
+    overflow: hidden;
+}
+
+.activities_december_graph {
+    width: 100%;
+}
+
+.activities_december_arrow {
+    display: block;
+    position: absolute;
+    width: 40px;
+    top: 31%;
+    left: calc(50% - 20px);
+    cursor: pointer;
+    transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+}
+
+.activities_december_arrow.transitioning { opacity: 0; }
+.activities_december_arrow.collapsed { top: 72%; }
+.activities_december_arrow.rotated { transform: rotate(180deg); }
+
+.dec-game { top: 63.25%; left: 12%; }
+.dec-game-header { position: absolute; top: 53%; left: 12%; width: 5%; }
+.dec-game-footer { position: absolute; top: 81%; left: 11.5%; width: 6%; }
+
+.dec-quiz-1 { top: 37%; left: 39%; }
+.dec-quiz-1-header { position: absolute; top: 30.5%; left: 38.3%; width: 5%; }
+.dec-quiz-1-footer { position: absolute; top: 51%; left: 37.95%; width: 6%; }
+
+.dec-quiz-2 { top: 33.5%; left: 54.75%; }
+.dec-quiz-2.quiz-closed { top: 33%; left: 54.75%; }
+.dec-quiz-2-header { position: absolute; top: 27%; left: 54%; width: 5%; }
+.dec-quiz-2-footer { position: absolute; top: 47.5%; left: 53%; width: 8%; }
+
+.dec-quiz-3 { top: 27.5%; left: 69.75%; }
+.dec-quiz-3.quiz-closed { top: 27%; left: 69.75%; }
+.dec-quiz-3-header { position: absolute; top: 21%; left: 69%; width: 5%; }
+.dec-quiz-3-footer { position: absolute; top: 41%; left: 68.25%; width: 8%; }
+
+.dec-quiz-4 { top: 21%; left: 82.75%; }
+.dec-quiz-4.quiz-closed { top: 20.5%; left: 82.75%; }
+.dec-quiz-4-header { position: absolute; top: 14.75%; left: 82%; width: 5%; }
+.dec-quiz-4-footer { position: absolute; top: 34.5%; left: 81%; width: 8%; }
+
+/* Reuse common styles from main.css or november file: */
+.outer-circle { width: 5%; height: 15%; background-color: rgba(255,255,255,0.4); border-radius: 50%; position: absolute; animation: pulse 2s ease-in-out infinite; z-index: 10; }
+.outer-circle.quiz { width: 4%; height: 12%; }
+.inner-circle { width: 75%; height: 75%; background-color: var(--white); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.inner-circle.quiz { width: 75%; height: 75%; }
+.quiz-closed { position: absolute; width: 4%; }
+
+.gamequiz { background-color: transparent; aspect-ratio: 9/15.94; width: auto; padding: 0; border-radius: 0; overflow: hidden; }
+.gamequiz iframe { height: 85vh; max-height: 85vh; aspect-ratio: 9/15.94; overflow: hidden; }
+.close-btn { top: 0; right: 5px; background-color: transparent; border: none; }
+
+@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+
+/* Responsive tweaks mirroring november */
+@media screen and (max-width: 768px) {
+    .activities_december_arrow { width: 30px; top: 31%; left: calc(50% - 15px); }
+    .activities_december_arrow.collapsed { top: 65%; }
+}
+
+@media screen and (max-width: 600px) {
+    /* small adjustments if needed */
+}
