@@ -54,7 +54,7 @@ const navOct2 = () => {
     if (dec) dec.style.display = "none";
 };
 
-// Modal management
+// Modal management (collects all modals on the page)
 const modals = {
     modalOctGame: document.getElementById("modalOctGame"),
     modalOctQuiz1: document.getElementById("modalOctQuiz1"),
@@ -71,7 +71,7 @@ const modals = {
     modalDecQuiz1: document.getElementById("modalDecQuiz1"),
     modalDecQuiz2: document.getElementById("modalDecQuiz2"),
     modalDecQuiz3: document.getElementById("modalDecQuiz3"),
-    modalDecQuiz4: document.getElementById("modalDecQuiz4"),        
+    modalDecQuiz4: document.getElementById("modalDecQuiz4"),    
 };
 
 // Info Modals (open/close used by header CTAs)
@@ -88,6 +88,77 @@ window.onclick = function(event) {
 };
 
 const sanitizeParam = (param) => encodeURIComponent(param.replace(/[<>\"'&]/g, '')); // Basic sanitization
+
+// Ensure numeric display elements are colored/formatted correctly
+function setNumberColor(element, number) {
+    // Ensure element exists
+    if (!element || !element.id) {
+        return;
+    }
+
+    // Define valid element IDs
+    const validIds = ['box_b', 'box_e', 'box_h', 'box_n', 'box_m'];
+  
+    // Check if element ID is in the valid list
+    if (!validIds.includes(element.id)) {
+        return;
+    }
+  
+    // Remove black and white classes from parent element
+    element.classList.remove('black', 'white');
+  
+    // Handle null case
+    if (number === null) {
+        return;
+    }
+  
+    // Parse the number (handles string inputs)
+    const parsed = Number(number);
+  
+    // Handle invalid number
+    if (isNaN(parsed)) {
+        return;
+    }
+  
+    // Handle number cases
+    if (parsed > 0) {
+        if (element.id === 'box_n') {
+            // box_n: green parent and span with pp suffix
+            element.classList.add('green');
+            element.innerHTML = `+${parsed.toFixed(2)}<span class="suffix green">pp</span>`;
+        } else if (element.id === 'box_m') {
+            // box_m: black parent with % suffix
+            element.classList.add('black');
+            element.textContent = `${parsed.toFixed(2)}%`;
+        } else {
+            // box_b, box_e, box_h, box_o: green parent (box_o always white), no suffix
+            element.classList.add(element.id === 'box_o' ? 'white' : 'green');
+            element.textContent = `+${parsed.toFixed(0)}`;
+        }
+    } else if (parsed < 0) {
+        if (element.id === 'box_n') {
+            // box_n: red parent and span with pp suffix
+            element.classList.add('red');
+            element.innerHTML = `${parsed.toFixed(2)}<span class="suffix red">pp</span>`;
+        } else if (element.id === 'box_m') {
+            // box_m: black parent with % suffix
+            element.classList.add('black');
+            element.textContent = `${parsed.toFixed(2)}%`;
+        } else {
+            // box_b, box_e, box_h, box_o: red parent (box_o always white), no suffix
+            element.classList.add(element.id === 'box_o' ? 'white' : 'red');
+            element.textContent = parsed.toFixed(0);
+        }
+    } else {
+        // For zero: black for box_n, white for others, no suffix
+        if (element.id === 'box_n') {
+            element.classList.add('black');
+        } else {
+            element.classList.add('white');
+        }
+        element.textContent = '0';
+    }
+}
 
 const openModal = (modalKey, iframeId) => {
     const modal = modals[modalKey];
@@ -141,46 +212,6 @@ const openModal = (modalKey, iframeId) => {
     modal.style.display = "flex";
 };
 
-function setNumberColor(element, number) {
-    if (!element || !element.id) return;
-    const validIds = ['box_b', 'box_e', 'box_h', 'box_n', 'box_m'];
-    if (!validIds.includes(element.id)) return;
-    element.classList.remove('black', 'white');
-    if (number === null) return;
-    const parsed = Number(number);
-    if (isNaN(parsed)) return;
-    if (parsed > 0) {
-        if (element.id === 'box_n') {
-            element.classList.add('green');
-            element.innerHTML = `+${parsed.toFixed(2)}<span class="suffix green">pp</span>`;
-        } else if (element.id === 'box_m') {
-            element.classList.add('black');
-            element.textContent = `${parsed.toFixed(2)}%`;
-        } else {
-            element.classList.add(element.id === 'box_o' ? 'white' : 'green');
-            element.textContent = `+${parsed.toFixed(0)}`;
-        }
-    } else if (parsed < 0) {
-        if (element.id === 'box_n') {
-            element.classList.add('red');
-            element.innerHTML = `${parsed.toFixed(2)}<span class="suffix red">pp</span>`;
-        } else if (element.id === 'box_m') {
-            element.classList.add('black');
-            element.textContent = `${parsed.toFixed(2)}%`;
-        } else {
-            element.classList.add(element.id === 'box_o' ? 'white' : 'red');
-            element.textContent = parsed.toFixed(0);
-        }
-    } else {
-        if (element.id === 'box_n') {
-            element.classList.add('black');
-        } else {
-            element.classList.add('white');
-        }
-        element.textContent = '0';
-    }
-}
-
 const closeModal = (modalKey) => {
     const modal = modals[modalKey];
     if (modal) modal.style.display = "none";
@@ -209,6 +240,27 @@ const closeModalNovQuiz1 = () => closeModal('modalNovQuiz1');
 const closeModalNovQuiz2 = () => closeModal('modalNovQuiz2');
 const closeModalNovQuiz3 = () => closeModal('modalNovQuiz3');
 const closeModalNovQuiz4 = () => closeModal('modalNovQuiz4');
+
+// Keyboard navigation for modals
+// document.addEventListener('keydown', (event) => {
+//     if (event.key === 'Escape') {
+//         Object.values(modals).forEach(modal => modal && (modal.style.display = "none"));
+//     }
+// });
+
+// Close on outside click
+// window.addEventListener('click', (event) => {
+//     Object.values(modals).forEach(modal => {
+//         if (event.target === modal) modal.style.display = "none";
+//     });
+// });
+
+// Message listener for iframe close
+// window.addEventListener('message', (event) => {
+//     if (event.data === 'close' || (typeof event.data === 'object' && event.data.type === 'close')) {
+//         window.location.reload();
+//     }
+// });
 
 // Collapse/expand functionality for October activities
 document.addEventListener('DOMContentLoaded', () => {
@@ -347,6 +399,49 @@ window.addEventListener('load', () => {
                     updateCircle('dec-quiz-3-circle', data.structured_data.dec_quiz_3 === true);
                     updateCircle('dec-quiz-4-circle', data.structured_data.dec_quiz_4 === true);
 
+                    // Hide doorman wrappers when October game is played
+                    if (data.structured_data.oct_game === true) {
+                        console.log('Breeze - gR - Oct Game Played');
+                        const doorman = document.getElementById('doorman-wrapper');
+                        doorman.classList.toggle('hide', true);
+                        const doorman2 = document.getElementById('doorman-wrapper-2');
+                        doorman2.classList.toggle('hide', true);
+                        const doorman3 = document.getElementById('doorman-wrapper-3');
+                        doorman3.classList.toggle('hide', true);
+                        const doorman4 = document.getElementById('doorman-wrapper-4');
+                        doorman4.classList.toggle('hide', true);
+                    }
+
+                    // Hide doorman wrappers when November game is played
+                    if (data.structured_data.nov_game === true) {
+                        console.log('Breeze - gR - Nov Game Played');
+                        const doormanNov = document.getElementById('doorman-wrapper-nov');
+                        doormanNov.classList.toggle('hide', true);
+                        const doormanNov2 = document.getElementById('doorman-wrapper-nov-2');
+                        doormanNov2.classList.toggle('hide', true);
+                        const doormanNov3 = document.getElementById('doorman-wrapper-nov-3');
+                        doormanNov3.classList.toggle('hide', true);
+                        const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
+                        doormanNov4.classList.toggle('hide', true);
+                    } else {
+                        console.log('Breeze - gR - Nov Game Not Played');
+                    }
+
+                                        // Hide doorman wrappers when November game is played
+                    if (data.structured_data.dec_game === true) {
+                        console.log('Breeze - gR - Dec Game Played');
+                        const doormanDec = document.getElementById('doorman-wrapper-dec-1');
+                        doormanDec.classList.toggle('hide', true);
+                        const doormanDec2 = document.getElementById('doorman-wrapper-dec-2');
+                        doormanDec2.classList.toggle('hide', true);
+                        const doormanDec3 = document.getElementById('doorman-wrapper-dec-3');
+                        doormanDec3.classList.toggle('hide', true);
+                        const doormanDec4 = document.getElementById('doorman-wrapper-dec-4');
+                        doormanDec4.classList.toggle('hide', true);
+                    } else {
+                        console.log('Breeze - gR - Dec Game Not Played');
+                    }
+
                     // Set data-wheel-played attributes for November quizzes
                     const setWheelPlayed = (iframeId, played) => {
                         const iframe = document.getElementById(iframeId);
@@ -359,8 +454,8 @@ window.addEventListener('load', () => {
                     setWheelPlayed('dec-quiz-3-iframe', data.structured_data.dec_quiz_3 === true);
                     setWheelPlayed('dec-quiz-4-iframe', data.structured_data.dec_quiz_4 === true);
                     console.log('Breeze - gR - Set data-wheel-played for Dec quizzes');
-                    if (data.structured_data.dec_quiz_1 === false) {
-                        const quizWheel = document.getElementById('dec-quiz-wheel-1');
+                    if (data.structured_data.dec_quiz_4 === false) {
+                        const quizWheel = document.getElementById('dec-quiz-wheel-4');
                         quizWheel.classList.toggle('hide', false);
                     }  
                 } else {
@@ -381,6 +476,32 @@ window.addEventListener('load', () => {
                 const circle = document.getElementById(id);
                 if (circle) circle.classList.add('bg-red');
             });
+            console.log('Breeze - gR - Hiding doorman wrappers as fallback');
+            const doorman = document.getElementById('doorman-wrapper');
+            doorman.classList.toggle('hide', true);
+            const doorman2 = document.getElementById('doorman-wrapper-2');
+            doorman2.classList.toggle('hide', true);
+            const doorman3 = document.getElementById('doorman-wrapper-3');
+            doorman3.classList.toggle('hide', true);
+            const doorman4 = document.getElementById('doorman-wrapper-4');
+            doorman4.classList.toggle('hide', true);        
+            const doormanNov = document.getElementById('doorman-wrapper-nov');
+            doormanNov.classList.toggle('hide', true);
+            const doormanNov2 = document.getElementById('doorman-wrapper-nov-2');
+            doormanNov2.classList.toggle('hide', true);
+            const doormanNov3 = document.getElementById('doorman-wrapper-nov-3');
+            doormanNov3.classList.toggle('hide', true);
+            const doormanNov4 = document.getElementById('doorman-wrapper-nov-4');
+            doormanNov4.classList.toggle('hide', true);                      
+            
+            const doormanDec = document.getElementById('doorman-wrapper-dec-1');
+            doormanDec.classList.toggle('hide', true);
+            const doormanDec2 = document.getElementById('doorman-wrapper-dec-2');
+            doormanDec2.classList.toggle('hide', true);
+            const doormanDec3 = document.getElementById('doorman-wrapper-dec-3');
+            doormanDec3.classList.toggle('hide', true);
+            const doormanDec4 = document.getElementById('doorman-wrapper-dec-4');
+            doormanDec4.classList.toggle('hide', true);                  
         }
     };
     getRetailer('france_iam');
@@ -396,7 +517,7 @@ const openModalDecGame = () => {
 };
 const openModalDecQuiz1 = () => {
     if (typeof openModal === 'function' && typeof modals !== 'undefined' && modals['modalDecQuiz1']) return openModal('modalDecQuiz1', 'dec-quiz-1-iframe');
-    console.log('DEBUG: openModalDecQuiz1 called (folder 3)');
+    console.log('DEBUG: openModalDecQuiz1 called');
     openModalDec('modalDecQuiz1', 'dec-quiz-1-iframe');
 };
 const openModalDecQuiz2 = () => {
@@ -412,10 +533,13 @@ const openModalDecQuiz4 = () => {
     openModalDec('modalDecQuiz4', 'dec-quiz-4-iframe');
 };
 
-const closeModalDecGame = () => {
-    if (typeof closeModal === 'function') return closeModal('modalDecGame');
-    const m = document.getElementById('modalDecGame'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } };
-};
+// const closeModalDecGame = () => {
+//     console.log
+//     if (typeof closeModal === 'function') return closeModal('modalDecGame');
+//     const m = document.getElementById('modalDecGame'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } }
+// };
+const closeModalDecGame = () => closeModal('modalDecGame');
+    
 const closeModalDecQuiz1 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz1'); const m = document.getElementById('modalDecQuiz1'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
 const closeModalDecQuiz2 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz2'); const m = document.getElementById('modalDecQuiz2'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
 const closeModalDecQuiz3 = () => { if (typeof closeModal === 'function') return closeModal('modalDecQuiz3'); const m = document.getElementById('modalDecQuiz3'); if (m) { if (typeof m.close === 'function') m.close(); else { m.style.display = 'none'; try { m.removeAttribute('open'); } catch(e){} } } };
@@ -427,7 +551,7 @@ function openModalDec(modalId, iframeId) {
     if (!modal) { console.warn(`DEBUG: modal not found: ${modalId}`); return; }
     if (iframe) {
         try {
-            // Handle quiz wheel/nowheel attributes (match November logic)
+            // Handle quiz wheel/nowheel attributes
             if (iframe.hasAttribute('data-br-temp-src-wheel') || iframe.hasAttribute('data-br-temp-src-nowheel')) {
                 let srcValue;
                 if (iframe.hasAttribute('data-wheel-played')) {
@@ -445,7 +569,7 @@ function openModalDec(modalId, iframeId) {
                 const queryParam = urlParams.get('query');
                 if (queryParam && srcValue) {
                     const separator = srcValue.includes('?') ? '&' : '?';
-                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>\"'&]/g, ''))}`;
+                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>"'&]/g, ''))}`;
                 }
                 if (srcValue) iframe.src = srcValue;
                 iframe.removeAttribute('data-br-temp-src-wheel');
@@ -456,13 +580,14 @@ function openModalDec(modalId, iframeId) {
                 const queryParam = urlParams.get('query');
                 if (queryParam) {
                     const separator = srcValue.includes('?') ? '&' : '?';
-                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>\"'&]/g, ''))}`;
+                    srcValue += `${separator}query=${encodeURIComponent(queryParam.replace(/[<>"'&]/g, ''))}`;
                 }
                 iframe.src = srcValue;
                 iframe.removeAttribute('data-br-temp-src');
             }
         } catch (e) { console.error('openModalDec error', e); }
     }
+    // Try dialog API first, otherwise fallback to visible flex display
     if (typeof modal.showModal === 'function') {
         modal.showModal();
     } else {
@@ -518,3 +643,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+        // Lightweight retailer fetch for December circles only (so december_week_1.js manages December state)
+        window.addEventListener('load', () => {
+            const apiEndpoint = 'https://pmi.in-motion.video/campaign/breeze/get-retailer';
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+            if (!query) return; // rely on same query param as the main script
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ objectName: 'france_iam', query })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (!data?.structured_data) return;
+                const updateCircle = (id, played) => {
+                    const circle = document.getElementById(id);
+                    if (circle) {
+                        circle.classList.toggle('bg-green', played);
+                        circle.classList.toggle('bg-red', !played);
+                        if (circle.parentElement) circle.parentElement.style.animationPlayState = played ? 'paused' : 'running';
+                    }
+                };
+                updateCircle('dec-game-circle', data.structured_data.dec_game === true);
+                updateCircle('dec-quiz-1-circle', data.structured_data.dec_quiz_1 === true);
+                updateCircle('dec-quiz-2-circle', data.structured_data.dec_quiz_2 === true);
+                updateCircle('dec-quiz-3-circle', data.structured_data.dec_quiz_3 === true);
+                updateCircle('dec-quiz-4-circle', data.structured_data.dec_quiz_4 === true);
+            })
+            .catch(() => {
+                // If fetch fails, mark December circles as red
+                ['dec-game-circle','dec-quiz-1-circle','dec-quiz-2-circle','dec-quiz-3-circle','dec-quiz-4-circle'].forEach(id => {
+                    const c = document.getElementById(id); if (c) c.classList.add('bg-red');
+                });
+            });
+        });
