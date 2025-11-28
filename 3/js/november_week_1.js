@@ -65,6 +65,12 @@ const modals = {
     modalNovQuiz2: document.getElementById("modalNovQuiz2"),
     modalNovQuiz3: document.getElementById("modalNovQuiz3"),
     modalNovQuiz4: document.getElementById("modalNovQuiz4"),
+
+    modalDecGame: document.getElementById("modalDecGame"),
+    modalDecQuiz1: document.getElementById("modalDecQuiz1"),
+    modalDecQuiz2: document.getElementById("modalDecQuiz2"),
+    modalDecQuiz3: document.getElementById("modalDecQuiz3"),
+    modalDecQuiz4: document.getElementById("modalDecQuiz4"),        
 };
 
 const sanitizeParam = (param) => encodeURIComponent(param.replace(/[<>\"'&]/g, '')); // Basic sanitization
@@ -300,7 +306,7 @@ window.addEventListener('load', () => {
                     updateCircle('nov-quiz-2-circle', data.structured_data.nov_quiz_2 === true);
                     updateCircle('nov-quiz-3-circle', data.structured_data.nov_quiz_3 === true);
                     updateCircle('nov-quiz-4-circle', data.structured_data.nov_quiz_4 === true);
-                    // December circles (if present)
+                    // December 
                     updateCircle('dec-game-circle', data.structured_data.dec_game === true);
                     updateCircle('dec-quiz-1-circle', data.structured_data.dec_quiz_1 === true);
                     updateCircle('dec-quiz-2-circle', data.structured_data.dec_quiz_2 === true);
@@ -353,12 +359,15 @@ window.addEventListener('load', () => {
                             iframe.setAttribute('data-wheel-played', 'true');
                         }
                     };
-                    setWheelPlayed('nov-quiz-1-iframe', data.structured_data.nov_quiz_1 === true);
-                    setWheelPlayed('nov-quiz-2-iframe', data.structured_data.nov_quiz_2 === true);
-                    setWheelPlayed('nov-quiz-3-iframe', data.structured_data.nov_quiz_3 === true);
-                    setWheelPlayed('nov-quiz-4-iframe', data.structured_data.nov_quiz_4 === true);
-                    if (data.structured_data.nov_quiz_1 === false) {
-                        const quizWheel = document.getElementById('nov-quiz-wheel-1');
+
+
+                    setWheelPlayed('dec-quiz-1-iframe', data.structured_data.dec_quiz_1 === true);
+                    setWheelPlayed('dec-quiz-2-iframe', data.structured_data.dec_quiz_2 === true);
+                    setWheelPlayed('dec-quiz-3-iframe', data.structured_data.dec_quiz_3 === true);
+                    setWheelPlayed('dec-quiz-4-iframe', data.structured_data.dec_quiz_4 === true);
+                    console.log('Breeze - gR - Set data-wheel-played for Dec quizzes');
+                    if (data.structured_data.dec_quiz_1 === false) {
+                        const quizWheel = document.getElementById('dec-quiz-wheel-1');
                         quizWheel.classList.toggle('hide', false);
                     }                    
                 } else {
@@ -525,8 +534,8 @@ window.addEventListener('message', function(event) {
         // window.location.reload();
         const doormanNov = document.getElementById('doorman-wrapper-nov');
         doormanNov.classList.toggle('hide', true);        
-        closeModalNovGame();
-        openModalNovQuiz1();
+        closeModalDecGame();
+        openModalDecQuiz1();
         return;
     }    
     if (typeof event.data === 'object' && event.data.type === 'quiz_close') {
