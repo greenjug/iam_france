@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>France I AM | November Week 3</title>
+    <meta name="description" content="Marlboro IAM France - Activities">
+    <title>Marlboro IAM France | December</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/november_week_1.css">
-    <script src="js/uqse.js"></script>
-    <script src="js/november_week_4.js" defer></script>
-    <style>
-        .nov-quiz-2-footer { left: 53.5%; }
-        .nov-quiz-4-footer { width:6%; left: 81.5% }
-    </style>       
+    <link rel="stylesheet" href="css/december_week_1.css">
 </head>
 <body>
     <!-- Header section -->
@@ -49,7 +45,7 @@
             <div class="cta-overlay cta-overlay-6" onclick="openPDF()"></div>
         </div>
         <div class="gains-two">
-            <img class="gains-two-img" src="images/iam_image_gains_november.webp">
+            <img class="gains-two-img" src="images/iam_image_gains_december.webp">
         </div>
     </section>
     <!-- End Prize section -->
@@ -133,7 +129,6 @@
                 <img class="nov-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
                 <div class="nov-quiz-3 outer-circle quiz" onclick="openModalNovQuiz3()" role="button" tabindex="0" aria-label="Open November Quiz 3">
                     <div id="nov-quiz-3-circle" class="inner-circle">
-                        <img id="nov-quiz-wheel-3" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
                     </div>
                 </div>
                 <img class="nov-quiz-3-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
@@ -141,14 +136,44 @@
                 <img class="nov-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
                 <div class="nov-quiz-4 outer-circle quiz" onclick="openModalNovQuiz4()" role="button" tabindex="0" aria-label="Open November Quiz 4">
                     <div id="nov-quiz-4-circle" class="inner-circle">
-                        <img id="nov-quiz-wheel-4" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
                     </div>
                 </div>
                 <img class="nov-quiz-4-footer" src="images/iam_200_rooftops.webp" alt="200 Rooftops" loading="lazy">
             </div>
         </div>
 
-        <img class="activities_december" src="images/iam_activities_december_closed.webp" alt="December Activities Closed" loading="lazy">
+            <!-- December Activities Block -->
+            <div class="activities-block activities-december-block">
+                <img class="activities_december" src="images/iam_activities_december_v2.webp" alt="December Activities" loading="lazy">
+                <img class="activities_december_arrow" src="images/iam_chevron_vertical.webp" id="december_collapse" alt="Collapse Arrow" loading="lazy">
+                <div class="activities_december_container collapsible" id="decDiv">
+                    <img class="activities_december_graph" src="images/iam_progress_graph.webp" alt="Progress Graph" loading="lazy">
+                    <!-- Game -->
+                    <img class="dec-game-header" src="images/iam_game.webp" alt="Game Header" loading="lazy">
+                    <div class="dec-game outer-circle" onclick="openModalDecGame()" role="button" tabindex="0" aria-label="Open December Game">
+                        <div id="dec-game-circle" class="inner-circle"></div>
+                    </div>
+                    <!-- Quiz 1 -->
+                    <img class="dec-quiz-1-header" src="images/iam_quiz_1.webp" alt="Quiz 1 Header" loading="lazy">
+                    <div class="dec-quiz-1 outer-circle quiz" onclick="openModalDecQuiz1()" role="button" tabindex="0" aria-label="Open December Quiz 1">
+                        <div id="dec-quiz-1-circle" class="inner-circle">
+                            <img id="dec-quiz-wheel-1" class="quiz-wheel hide" src="images/iam_wheel.webp" alt="Quiz Wheel" loading="lazy">
+                        </div>
+                    </div>
+                    <!-- Quiz 2 -->
+                    <img class="dec-quiz-2-header" src="images/iam_quiz_2.webp" alt="Quiz 2 Header" loading="lazy">
+                    <img class="dec-quiz-2 quiz-closed" src="images/iam_closed_circle.webp">
+                    <img class="dec-quiz-2-footer" src="images/iam_dec_footer_quiz_2.webp" alt="Release date" loading="lazy">
+                    <!-- Quiz 3 -->
+                    <img class="dec-quiz-3-header" src="images/iam_quiz_3.webp" alt="Quiz 3 Header" loading="lazy">
+                    <img class="dec-quiz-3 quiz-closed" src="images/iam_closed_circle.webp">
+                    <img class="dec-quiz-3-footer" src="images/iam_dec_footer_quiz_3.webp" alt="Release date" loading="lazy">
+                    <!-- Quiz 4 -->
+                    <img class="dec-quiz-4-header" src="images/iam_quiz_4.webp" alt="Quiz 4 Header" loading="lazy">
+                    <img class="dec-quiz-4 quiz-closed" src="images/iam_closed_circle.webp">
+                    <img class="dec-quiz-4-footer" src="images/iam_dec_footer_quiz_4.webp" alt="Release date" loading="lazy">
+                </div>
+            </div>
     </section>
     <!-- Activities Section -->
     <!-- Leaderboard section -->
@@ -546,7 +571,6 @@
         <div class="modal-content gamequiz">
             <span class="close-btn" onclick="closeModalNovQuiz2();window.location.reload();">&times;</span>
             <div id="doorman-wrapper-nov-2" class="quiz-slide quiz-active">
-                <img class="doorman" src="images/iam_holding.webp">
                 <div class="cta-overlay cta-overlay-7" onclick="closeModalNovQuiz2();openModalNovGame();"></div>
             </div>
             <iframe id="nov-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/6/nowheel/fr/v1"></iframe>
@@ -577,5 +601,64 @@
         </div>
     </div>
     <!-- End November Quiz 4 -->
-</body>
+
+    <!-- December Modals -->
+    <dialog id="modalDecGame" class="modal" aria-labelledby="modal-game-title">
+        <div class="modal-content gamequiz">
+            <button class="close-btn" onclick="closeModalDecGame(); window.location.reload();" aria-label="Close Game Modal">&times;</button>
+            <iframe id="dec-game-iframe" class="quiz-slide quiz-active" data-br-temp-src="https://cdn-ec.wearefreakgames.com/france/iam/game/3/v1" title="December Game"></iframe>
+        </div>
+    </dialog>
+
+     <!-- Modal December Quiz 1 -->
+    <div id="modalDecQuiz1" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalDecQuiz1();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-dec-1" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalDecQuiz1();openModalDecGame();"></div>
+            </div>
+            <iframe id="dec-quiz-1-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/9/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/9/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End December Quiz 1 -->
+    <!-- Modal December Quiz 2 -->
+    <div id="modalDecQuiz2" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalDecQuiz2();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-dec-2" class="quiz-slide quiz-active">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalDecQuiz2();openModalDecGame();"></div>
+            </div>
+            <iframe id="dec-quiz-2-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/10/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/10/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End December Quiz 2 -->
+    <!-- Modal December Quiz 3 -->
+    <div id="modalDecQuiz3" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalDecQuiz3();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-dec-3" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalDecQuiz3();openModalDecGame();"></div>
+            </div>
+            <iframe id="dec-quiz-3-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/11/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/11/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End December Quiz 3 -->
+    <!-- Modal December Quiz 4 -->
+    <div id="modalDecQuiz4" class="modal">
+        <div class="modal-content gamequiz">
+            <span class="close-btn" onclick="closeModalDecQuiz4();window.location.reload();">&times;</span>
+            <div id="doorman-wrapper-dec-4" class="quiz-slide quiz-active">
+                <img class="doorman" src="images/iam_holding.webp">
+                <div class="cta-overlay cta-overlay-7" onclick="closeModalDecQuiz4();openModalDecGame();"></div>
+            </div>
+            <iframe id="dec-quiz-4-iframe" class="quiz-slide quiz-active" data-br-temp-src-wheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/12/wheel/fr/v1" data-br-temp-src-nowheel="https://cdn-ec.wearefreakgames.com/france/iam/quiz/12/nowheel/fr/v1"></iframe>
+        </div>
+    </div>
+    <!-- End December Quiz 4 -->
+     
+    <script src="js/uqse.js" type="text/javascript"></script>
+    <script src="js/december_week_1.js"></script>
+    </body>
 </html>
